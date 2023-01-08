@@ -30,11 +30,22 @@ export interface User {
   updatedAt: number;
 }
 
+export type LoginResponse = {
+  public: {
+    account: {
+      login: {
+        user: User,
+        token: string,
+      },
+    },
+  }
+}
+
 export interface LoginVariables {
   email: string;
   password: string;
 }
 
-const exec = (variables: LoginVariables) => apolloClient.mutate({ mutation, variables });
+const exec = (variables: LoginVariables) => apolloClient.mutate<LoginResponse>({ mutation, variables });
 
 export default exec;

@@ -1,5 +1,7 @@
 import type { User, LoginVariables } from './api';
 
+import assert from 'assert';
+import * as SecureStore from 'expo-secure-store';
 import { action, makeObservable, observable } from 'mobx';
 import { loginMutation } from './api';
 
@@ -19,9 +21,10 @@ class AccountStore {
 
   async login(variables: LoginVariables) {
     const { data } = await loginMutation(variables);
+    assert(data);
     const { user, token } = data.public.account.login;
     this.setUser(user);
-    // TODO handle token
+    await SecureStore.setItemAsync('token', token);
   }
 }
 
