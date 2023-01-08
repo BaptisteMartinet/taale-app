@@ -2,27 +2,47 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
+import { Formik } from 'formik';
 
 const Login = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.form}>
-        <TextInput
-          label="Email"
-          mode="outlined"
-          secureTextEntry
-          right={<TextInput.Icon icon="email" />}
-        />
-        <TextInput
-          label="Password"
-          secureTextEntry
-          right={<TextInput.Icon icon="lock" />}
-        />
-        <Button
-          mode="contained"
-          onPress={() => { console.log('coucou'); }}
-        >Coucou</Button>
-      </View>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        onSubmit={values => { console.log(values); }}
+      >
+        {({ handleChange, handleSubmit, values }) => (
+          <View>
+            <TextInput
+              label="Email"
+              mode="outlined"
+              right={<TextInput.Icon icon="email" />}
+              style={styles.textField}
+              value={values.email}
+              onChangeText={handleChange('email')}
+            />
+            <TextInput
+              label="Password"
+              mode="outlined"
+              secureTextEntry
+              right={<TextInput.Icon icon="lock" />}
+              style={styles.textField}
+              value={values.password}
+              onChangeText={handleChange('password')}
+            />
+            <Button
+              mode="contained"
+              style={styles.submitButton}
+              onPress={() => { handleSubmit(); }}
+            >
+              Sign in
+            </Button>
+          </View>
+        )}
+      </Formik>
       <StatusBar style='auto' />
     </View>
   );
@@ -36,7 +56,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white',
   },
-  form: {},
+  textField: {
+    marginVertical: 5,
+  },
+  submitButton: {
+    marginTop: 20,
+  },
 });
 
 export default Login;
