@@ -1,8 +1,13 @@
 import { registerRootComponent } from 'expo';
-import { Home } from 'components/screens';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { Login } from 'components/screens';
 
 function App() {
-  return <Home />;
+  return (
+    <PaperProvider>
+      <Login />
+    </PaperProvider>
+  );
 }
 
 registerRootComponent(App);
