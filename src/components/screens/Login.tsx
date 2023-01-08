@@ -1,3 +1,6 @@
+import type { RootStackParamList } from 'App';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
@@ -5,7 +8,11 @@ import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
 import store from 'store/common/account';
 
-const Login = () => {
+type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
+interface LoginProps extends NavigationProps {}
+
+const Login = (props: LoginProps) => {
+  const { navigation } = props;
   return (
     <View style={styles.container}>
       <Formik
@@ -13,7 +20,12 @@ const Login = () => {
           email: '',
           password: '',
         }}
-        onSubmit={values => { store.login(values).catch(e => console.error(e)); }}
+        onSubmit={values => {
+          // TODO handle with global message once locales are implemented
+          store.login(values).then(() => {
+            navigation.replace('Home');
+          }).catch(e => console.error(e));
+        }}
       >
         {({ handleChange, handleSubmit, values }) => (
           <View>
