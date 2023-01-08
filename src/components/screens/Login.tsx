@@ -9,9 +9,8 @@ import { Formik } from 'formik';
 import store from 'store/common/account';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
-interface LoginProps extends NavigationProps {}
 
-const Login = (props: LoginProps) => {
+const Login = (props: NavigationProps) => {
   const { navigation } = props;
   return (
     <View style={styles.container}>
