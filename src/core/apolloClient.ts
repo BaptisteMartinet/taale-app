@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 import * as SecureStore from 'expo-secure-store';
 
 const httpLink = createHttpLink({
-  uri: 'https://taale-api.herokuapp.com/', // TODO move to env
+  uri: 'https://taale-api.herokuapp.com/', // TODO move to env?
 });
 
 const authLink = setContext(async (_, { headers }) => {
