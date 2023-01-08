@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
+import store from 'store/common/account';
 
 const Login = () => {
   return (
@@ -12,13 +13,14 @@ const Login = () => {
           email: '',
           password: '',
         }}
-        onSubmit={values => { console.log(values); }}
+        onSubmit={values => { store.login(values).catch(e => console.error(e)); }}
       >
         {({ handleChange, handleSubmit, values }) => (
           <View>
             <TextInput
               label="Email"
               mode="outlined"
+              keyboardType="email-address"
               right={<TextInput.Icon icon="email" />}
               style={styles.textField}
               value={values.email}
@@ -46,7 +48,7 @@ const Login = () => {
       <StatusBar style='auto' />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
