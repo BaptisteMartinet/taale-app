@@ -3,6 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider as PaperProvider } from 'react-native-paper';
+import 'lang';
 import client from './core/apolloClient';
 import { Login, Home } from 'components/screens';
 

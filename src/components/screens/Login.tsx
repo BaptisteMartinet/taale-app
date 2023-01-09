@@ -6,12 +6,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import store from 'store/common/account';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 const Login = (props: NavigationProps) => {
   const { navigation } = props;
+  const { t } = useTranslation('screens', { keyPrefix: 'login' });
   return (
     <View style={styles.container}>
       <Formik
@@ -29,7 +31,7 @@ const Login = (props: NavigationProps) => {
         {({ handleChange, handleSubmit, values }) => (
           <View>
             <TextInput
-              label="Email"
+              label={t<string>('form.email')}
               mode="outlined"
               keyboardType="email-address"
               right={<TextInput.Icon icon="email" />}
@@ -38,7 +40,7 @@ const Login = (props: NavigationProps) => {
               onChangeText={handleChange('email')}
             />
             <TextInput
-              label="Password"
+              label={t<string>('form.password')}
               mode="outlined"
               secureTextEntry
               right={<TextInput.Icon icon="lock" />}
@@ -51,7 +53,7 @@ const Login = (props: NavigationProps) => {
               style={styles.submitButton}
               onPress={() => { handleSubmit(); }}
             >
-              Sign in
+              {t('form.submit')}
             </Button>
           </View>
         )}
