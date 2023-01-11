@@ -3,10 +3,11 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Keyboard } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { handleWithSnack } from 'core/utils/errors';
 import store from 'store/common/account';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
@@ -22,10 +23,13 @@ const Login = (props: NavigationProps) => {
           password: '',
         }}
         onSubmit={values => {
-          // TODO handle with global message once locales are implemented
-          store.login(values).then(() => {
-            navigation.replace('Home');
-          }).catch(e => console.error(e));
+          Keyboard.dismiss();
+          const promise = store.login(values);
+          handleWithSnack(promise, {
+            successMessage: null,
+            errorMessage: t('defaultError'),
+            onSuccess: () => { navigation.replace('Home'); },
+          });
         }}
       >
         {({ handleChange, handleSubmit, values }) => (

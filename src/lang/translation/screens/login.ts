@@ -4,6 +4,7 @@ export type LoginScreenDefinition = {
     password: string,
     submit: string,
   },
+  defaultError: string,
 };
 
 const fr: LoginScreenDefinition = {
@@ -12,6 +13,7 @@ const fr: LoginScreenDefinition = {
     password: 'Mot de passe',
     submit: 'Se connecter',
   },
+  defaultError: 'Une erreur est servenue',
 };
 
 const en: LoginScreenDefinition = {
@@ -20,6 +22,7 @@ const en: LoginScreenDefinition = {
     password: 'Password',
     submit: 'Sign in',
   },
+  defaultError: 'Something went wrong',
 };
 
 export default {
