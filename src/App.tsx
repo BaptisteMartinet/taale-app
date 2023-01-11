@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider as PaperProvider } from 'react-native-paper';
 import 'lang';
 import client from './core/apolloClient';
+import { Snackbar } from 'components/common';
 import { Login, Home } from 'components/screens';
 
 export type RootStackParamList = {
@@ -23,6 +24,7 @@ const App = () => (
           <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
+      <Snackbar />
     </PaperProvider>
   </ApolloProvider>
 );
