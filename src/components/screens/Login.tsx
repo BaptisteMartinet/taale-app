@@ -3,7 +3,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import React from 'react';
 import { StyleSheet, View, Keyboard } from 'react-native';
-import { TextInput, Button } from 'react-native-paper';
+import { TextInput, Button, Text } from 'react-native-paper';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { handleWithSnack } from 'core/utils/promises';
@@ -33,6 +33,10 @@ const Login = (props: NavigationProps) => {
       >
         {({ handleChange, handleSubmit, values }) => (
           <View>
+            <View style={styles.headline}>
+              <Text variant="headlineLarge">{t('form.headlineTitle')}</Text>
+              <Text variant="titleSmall">{t('form.headlineDescription')}</Text>
+            </View>
             <TextInput
               label={t<string>('form.email')}
               mode="outlined"
@@ -53,15 +57,21 @@ const Login = (props: NavigationProps) => {
             />
             <Button
               mode="contained"
-              style={styles.submitButton}
+              style={styles.button}
               onPress={() => { handleSubmit(); }}
             >
               {t('form.submit')}
             </Button>
+            <Button
+              mode="text"
+              style={styles.button}
+              onPress={() => { console.warn('Not handled'); }} // TODO
+            >
+              {t('form.forgotPassword')}
+            </Button>
           </View>
         )}
       </Formik>
-      
     </View>
   );
 };
@@ -74,10 +84,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white',
   },
+  headline: {
+    marginVertical: 20,
+  },
   textField: {
     marginVertical: 5,
   },
-  submitButton: {
+  button: {
     marginTop: 20,
   },
 });
