@@ -17,7 +17,7 @@ const fr: LoginScreenDefinition = {
     email: 'Email',
     password: 'Mot de passe',
     submit: 'Se connecter',
-    forgotPassword: 'Mot de passe oublié',
+    forgotPassword: 'Mot de passe oublié ?',
     register: "Je n'ai pas de compte",
   },
 };
