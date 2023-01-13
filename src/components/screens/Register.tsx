@@ -41,7 +41,6 @@ const Register = (props: NavigationProps) => {
             <TextInput
               label={t<string>('form.username')}
               mode="outlined"
-              keyboardType="twitter"
               right={<TextInput.Icon icon="account-circle" />}
               style={styles.textField}
               value={values.username}
