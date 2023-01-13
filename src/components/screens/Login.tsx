@@ -6,7 +6,7 @@ import { StyleSheet, View, Keyboard } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { handleWithSnack } from 'core/utils/errors';
+import { handleWithSnack } from 'core/utils/promises';
 import store from 'store/common/account';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
