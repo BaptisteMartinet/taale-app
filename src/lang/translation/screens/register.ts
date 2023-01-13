@@ -7,7 +7,6 @@ export type RegisterScreenDefinition = {
     password: string,
     submit: string,
   },
-  defaultError: string,
 };
 
 const fr: RegisterScreenDefinition = {
@@ -19,7 +18,6 @@ const fr: RegisterScreenDefinition = {
     password: 'Mot de passe',
     submit: 'Créer mon compte',
   },
-  defaultError: 'Une erreur est servenue',
 };
 
 const en: RegisterScreenDefinition = {
@@ -31,7 +29,6 @@ const en: RegisterScreenDefinition = {
     password: 'Password',
     submit: 'Sign Up',
   },
-  defaultError: 'Something went wrong',
 };
 
 export default {

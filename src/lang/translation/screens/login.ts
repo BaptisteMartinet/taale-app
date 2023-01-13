@@ -8,7 +8,6 @@ export type LoginScreenDefinition = {
     forgotPassword: string,
     register: string,
   },
-  defaultError: string,
 };
 
 const fr: LoginScreenDefinition = {
@@ -21,7 +20,6 @@ const fr: LoginScreenDefinition = {
     forgotPassword: 'Mot de passe oublié',
     register: "Je n'ai pas de compte",
   },
-  defaultError: 'Une erreur est servenue',
 };
 
 const en: LoginScreenDefinition = {
@@ -34,7 +32,6 @@ const en: LoginScreenDefinition = {
     forgotPassword: 'Forgot password?',
     register: "I don't have an account",
   },
-  defaultError: 'Something went wrong',
 };
 
 export default {
