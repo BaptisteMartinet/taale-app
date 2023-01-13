@@ -31,7 +31,7 @@ const Login = (props: NavigationProps) => {
           });
         }}
       >
-        {({ handleChange, handleSubmit, values }) => (
+        {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <View>
             <View style={styles.headline}>
               <Text variant="headlineLarge">{t('form.headlineTitle')}</Text>
@@ -58,6 +58,7 @@ const Login = (props: NavigationProps) => {
             <Button
               mode="contained"
               style={styles.button}
+              disabled={isSubmitting}
               onPress={() => { handleSubmit(); }}
             >
               {t('form.submit')}
