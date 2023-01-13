@@ -27,7 +27,9 @@ export function handleWithSnack(promise: Promise<unknown>, opts: Opts) {
             break;
           // Note: Only displays the first error in the graphQLErrors array
           const errorCode = error.graphQLErrors.at(0)?.extensions.code;
-          snackbarStore.display(i18n.t(`errors:${errorCode}`), { duration: 'long' });
+          if (typeof errorCode !== 'string')
+            break;
+          snackbarStore.display(i18n.t([errorCode, '_Default'], { ns: 'errors' }), { duration: 'long' });
         default: break;
       }
     }

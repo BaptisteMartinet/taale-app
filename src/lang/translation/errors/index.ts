@@ -1,4 +1,5 @@
 export type ErrorsDefinition = {
+  _Default: string,
   //Client errors
   InvalidPassword: string,
   EmailTaken: string,
@@ -11,6 +12,7 @@ export type ErrorsDefinition = {
 };
 
 const fr: ErrorsDefinition = {
+  _Default: 'Une erreur est survenue',
   //Client errors
   InvalidPassword: 'Mot de passe invalide',
   EmailTaken: 'Adresse email déjà utilisé',
@@ -23,6 +25,7 @@ const fr: ErrorsDefinition = {
 } as const;
 
 const en: ErrorsDefinition = {
+  _Default: 'An error has occured',
   //Client errors
   InvalidPassword: 'Invalid password',
   EmailTaken: 'Email already taken',
