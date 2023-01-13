@@ -9,25 +9,26 @@ import { useTranslation } from 'react-i18next';
 import { handleWithSnack } from 'core/utils/promises';
 import store from 'store/common/account';
 
-type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
+type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
-const Login = (props: NavigationProps) => {
+const Register = (props: NavigationProps) => {
   const { navigation } = props;
-  const { t } = useTranslation('screens', { keyPrefix: 'login' });
+  const { t } = useTranslation('screens', { keyPrefix: 'register' });
   return (
     <View style={styles.container}>
       <Formik
         initialValues={{
+          username: '',
           email: '',
           password: '',
         }}
         onSubmit={values => {
           Keyboard.dismiss();
-          const promise = store.login(values);
+          const promise = store.register(values);
           handleWithSnack(promise, {
             successMessage: null,
             errorMessage: t('defaultError'),
-            onSuccess: () => { navigation.replace('Home'); },
+            onSuccess: () => { navigation.replace('Login'); },
           });
         }}
       >
@@ -37,6 +38,15 @@ const Login = (props: NavigationProps) => {
               <Text variant="headlineLarge">{t('form.headlineTitle')}</Text>
               <Text variant="titleSmall">{t('form.headlineDescription')}</Text>
             </View>
+            <TextInput
+              label={t<string>('form.username')}
+              mode="outlined"
+              keyboardType="twitter"
+              right={<TextInput.Icon icon="account-circle" />}
+              style={styles.textField}
+              value={values.username}
+              onChangeText={handleChange('username')}
+            />
             <TextInput
               label={t<string>('form.email')}
               mode="outlined"
@@ -61,13 +71,6 @@ const Login = (props: NavigationProps) => {
               onPress={() => { handleSubmit(); }}
             >
               {t('form.submit')}
-            </Button>
-            <Button
-              mode="text"
-              style={styles.button}
-              onPress={() => { navigation.navigate('Register'); }}
-            >
-              {t('form.register')}
             </Button>
           </View>
         )}
@@ -95,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Register;

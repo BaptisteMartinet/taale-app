@@ -4,3 +4,8 @@ export {
   LoginResponse,
   LoginVariables,
 } from './login';
+
+export {
+  default as RegisterMutation,
+  RegisterVariables,
+} from './register';

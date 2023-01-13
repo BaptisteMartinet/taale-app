@@ -7,11 +7,12 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import 'lang';
 import client from './core/apolloClient';
 import { Snackbar } from 'components/common';
-import { Login, Home } from 'components/screens';
+import { Login, Home, Register } from 'components/screens';
 
 export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
+  Register: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -23,6 +24,7 @@ const App = () => (
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Register" component={Register} />
         </Stack.Navigator>
       </NavigationContainer>
       <Snackbar />
