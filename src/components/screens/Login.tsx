@@ -2,7 +2,6 @@ import type { RootStackParamList } from 'App';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Keyboard } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
@@ -62,7 +61,7 @@ const Login = (props: NavigationProps) => {
           </View>
         )}
       </Formik>
-      <StatusBar style='auto' />
+      
     </View>
   );
 };

@@ -1,4 +1,5 @@
 import { registerRootComponent } from 'expo';
+import { StatusBar } from 'expo-status-bar';
 import { ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -25,6 +26,7 @@ const App = () => (
         </Stack.Navigator>
       </NavigationContainer>
       <Snackbar />
+      <StatusBar style='auto' />
     </PaperProvider>
   </ApolloProvider>
 );
