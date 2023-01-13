@@ -27,7 +27,7 @@ const Register = (props: NavigationProps) => {
           const promise = store.register(values);
           handleWithSnack(promise, {
             successMessage: null,
-            errorMessage: t('defaultError'),
+            errorMessage: true,
             onSuccess: () => { navigation.navigate('Login'); },
           });
         }}

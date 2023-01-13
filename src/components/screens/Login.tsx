@@ -26,7 +26,7 @@ const Login = (props: NavigationProps) => {
           const promise = store.login(values);
           handleWithSnack(promise, {
             successMessage: null,
-            errorMessage: t('defaultError'),
+            errorMessage: true,
             onSuccess: () => { navigation.reset({ index: 0, routes: [{ name: 'Home' }]}); },
           });
         }}
