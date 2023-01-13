@@ -27,7 +27,7 @@ const Login = (props: NavigationProps) => {
           handleWithSnack(promise, {
             successMessage: null,
             errorMessage: t('defaultError'),
-            onSuccess: () => { navigation.replace('Home'); },
+            onSuccess: () => { navigation.reset({ index: 0, routes: [{ name: 'Home' }]}); },
           });
         }}
       >

@@ -28,7 +28,7 @@ const Register = (props: NavigationProps) => {
           handleWithSnack(promise, {
             successMessage: null,
             errorMessage: t('defaultError'),
-            onSuccess: () => { navigation.replace('Login'); },
+            onSuccess: () => { navigation.navigate('Login'); },
           });
         }}
       >
