@@ -33,7 +33,7 @@ const Register = (props: NavigationProps) => {
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
-          <View>
+          <View style={styles.formContainer}>
             <View style={styles.headline}>
               <Text variant="headlineLarge">{t('form.headlineTitle')}</Text>
               <Text variant="titleSmall">{t('form.headlineDescription')}</Text>
@@ -83,10 +83,11 @@ const Register = (props: NavigationProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    alignContent: 'center',
-    justifyContent: 'center',
     backgroundColor: 'white',
+  },
+  formContainer: {
+    marginTop: '40%',
+    marginHorizontal: 20,
   },
   headline: {
     marginVertical: 20,
