@@ -19,7 +19,8 @@ mutation Login($email: String!, $password: String!) {
       }
     }
   }
-}`;
+}
+`;
 
 export interface User {
   id: number;
