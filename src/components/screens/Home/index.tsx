@@ -1,7 +1,12 @@
+import type { RootStackParamList } from 'App';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Home() {
+type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
+export default function Home(props: NavigationProps) {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
