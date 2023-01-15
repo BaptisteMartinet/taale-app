@@ -10,7 +10,8 @@ export default function Home(props: NavigationProps) {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
-    </View>);
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
