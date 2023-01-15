@@ -17,6 +17,6 @@ export interface RegisterVariables {
   password: string;
 }
 
-const exec = (variables: RegisterVariables) => apolloClient.mutate<RegisterVariables>({ mutation, variables });
+const exec = (variables: RegisterVariables) => apolloClient.mutate({ mutation, variables });
 
 export default exec;
