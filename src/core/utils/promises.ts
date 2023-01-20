@@ -6,10 +6,10 @@ export interface Opts {
   onSuccess?: (value: unknown) => void;
   successMessage: string | null;
   onError?: (error: unknown) => void;
-  errorMessage: string | boolean | null;
+  errorMessage: string | true | null;
 };
 
-export function handleWithSnack(promise: Promise<unknown>, opts: Opts) {
+export function handleWithSnack(promise: Promise<unknown>, opts: Opts): void {
   const { onSuccess, successMessage, onError, errorMessage } = opts;
   promise.then((value) => {
     if (onSuccess)
@@ -24,7 +24,7 @@ export function handleWithSnack(promise: Promise<unknown>, opts: Opts) {
         case 'string': snackbarStore.display(errorMessage, { duration: 'long' });
         case 'boolean':
           if (!isApolloError(error))
-            break;
+            return snackbarStore.display(i18n.t('_Default', { ns: 'errors' }), { duration: 'long' });
           // Note: Only displays the first error in the graphQLErrors array
           const errorCode = error.graphQLErrors.at(0)?.extensions.code;
           if (typeof errorCode !== 'string')
