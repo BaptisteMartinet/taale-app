@@ -19,7 +19,7 @@ class HomeStore {
 
   async init() {
     const res = await GetDailyStory();
-    this.setDailyStory(res.data.public.storyOfTheDay);
+    this.setDailyStory(res.data.public.dailyStory);
   }
 }
 

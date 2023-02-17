@@ -16,16 +16,22 @@ query DailyStory {
         createdAt
       }
       createdAt
-      updatedAt
     }
   }
 }
 `;
 
+export interface Owner
+{
+  id: number;
+  username: number;
+}
+
 export interface Sentence
 {
   id: number;
   text: string;
+  owner: Owner;
   createdAt: number;
 }
 
@@ -38,7 +44,7 @@ export interface Story
 
 export type DailyStoryResponse = {
   public: {
-    storyOfTheDay: Story,
+    dailyStory: Story,
   },
 };
 
