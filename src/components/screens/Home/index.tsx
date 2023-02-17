@@ -7,6 +7,7 @@ import { observer } from 'mobx-react';
 import { FAB } from 'react-native-paper';
 import { handleWithSnack } from 'core/utils/promises';
 import store from 'store/screens/home';
+import DailyStory from './DailyStory';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -18,6 +19,7 @@ const Home = observer((props: NavigationProps) => {
 
   return (
     <View style={styles.container}>
+      <DailyStory story={store.dailyStory}/>
       <FAB
         icon="pencil-plus"
         style={styles.fab}
