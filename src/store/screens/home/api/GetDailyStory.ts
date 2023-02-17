@@ -2,9 +2,9 @@ import { gql } from '@apollo/client';
 import apolloClient from 'core/apolloClient';
 
 const query = gql`
-query StoryOfTheDay {
+query DailyStory {
   public {
-    storyOfTheDay {
+    dailyStory {
       id
       sentences {
         id
@@ -36,12 +36,12 @@ export interface Story
   createdAt: number;
 }
 
-export type StoryOfTheDayResponse = {
+export type DailyStoryResponse = {
   public: {
     storyOfTheDay: Story,
   },
 };
 
-const exec = () => apolloClient.query<StoryOfTheDayResponse>({ query });
+const exec = () => apolloClient.query<DailyStoryResponse>({ query });
 
 export default exec;

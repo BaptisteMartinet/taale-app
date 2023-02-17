@@ -1,25 +1,25 @@
 import type { Story } from './api';
 
 import { action, makeObservable, observable } from 'mobx';
-import { GetStoryOfTheDay } from './api';
+import { GetDailyStory } from './api';
 
 class HomeStore {
-  public storyOfTheDay: Story | null = null;
+  public dailyStory: Story | null = null;
 
   constructor() {
     makeObservable(this, {
-      storyOfTheDay: observable,
-      setStoryOfTheDay: action,
+      dailyStory: observable,
+      setDailyStory: action,
     });
   }
 
-  setStoryOfTheDay(story: Story | null) {
-    this.storyOfTheDay = story;
+  setDailyStory(story: Story | null) {
+    this.dailyStory = story;
   }
 
   async init() {
-    const res = await GetStoryOfTheDay();
-    this.setStoryOfTheDay(res.data.public.storyOfTheDay);
+    const res = await GetDailyStory();
+    this.setDailyStory(res.data.public.storyOfTheDay);
   }
 }
 

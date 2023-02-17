@@ -16,8 +16,6 @@ const Home = observer((props: NavigationProps) => {
     handleWithSnack(promise, { successMessage: null, errorMessage: true });
   }, []);
 
-  if (store.storyOfTheDay === null)
-    return null; // TODO handle loading issues
   return (
     <View style={styles.container}>
       <FAB

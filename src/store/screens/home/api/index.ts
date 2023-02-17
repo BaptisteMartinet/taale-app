@@ -1,5 +1,5 @@
 export {
-  default as GetStoryOfTheDay,
+  default as GetDailyStory,
   Sentence,
   Story,
-} from './GetStoryOfTheDay';
+} from './getDailyStory';
