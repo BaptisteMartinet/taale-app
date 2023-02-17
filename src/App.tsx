@@ -1,5 +1,6 @@
 import { registerRootComponent } from 'expo';
 import { StatusBar } from 'expo-status-bar';
+import { useTranslation } from 'react-i18next';
 import { ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -17,20 +18,23 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const App = () => (
-  <ApolloProvider client={client}>
-    <PaperProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Register" component={Register} />
-        </Stack.Navigator>
-      </NavigationContainer>
-      <Snackbar />
-      <StatusBar style='auto' />
-    </PaperProvider>
-  </ApolloProvider>
-);
+const App = () => {
+  const { t } = useTranslation('common', { keyPrefix: 'app' });
+  return (
+    <ApolloProvider client={client}>
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" component={Home} options={{ title: t('screens.home') }} />
+            <Stack.Screen name="Login" component={Login} options={{ title: t('screens.login') }} />
+            <Stack.Screen name="Register" component={Register} options={{ title: t('screens.register') }} />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <Snackbar />
+        <StatusBar style='auto' />
+      </PaperProvider>
+    </ApolloProvider>
+  );
+};
 
 registerRootComponent(App);
