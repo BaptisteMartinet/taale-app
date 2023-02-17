@@ -14,6 +14,7 @@ const authLink = setContext(async (_, { headers }) => {
     headers: {
       ...headers,
       authorization: `Bearer ${token}`,
+      'content-language': 'fr', // TODO
     }
   }
 });
