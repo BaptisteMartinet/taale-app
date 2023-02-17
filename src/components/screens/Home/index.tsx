@@ -13,7 +13,7 @@ type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 const Home = observer((props: NavigationProps) => {
   useEffect(() => {
     const promise = store.init();
-    handleWithSnack(promise, { successMessage: 'success', errorMessage: true });
+    handleWithSnack(promise, { successMessage: null, errorMessage: true });
   }, []);
 
   if (store.storyOfTheDay === null)
