@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider as PaperProvider } from 'react-native-paper';
 import 'lang';
 import client from './core/apolloClient';
-import { Snackbar } from 'components/common';
+import { Snackbar } from 'components/common/app';
 import { Login, Home, Register } from 'components/screens';
 
 export type RootStackParamList = {
