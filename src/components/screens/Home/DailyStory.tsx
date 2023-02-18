@@ -4,8 +4,7 @@ import React from 'react';
 import { FlatList, Text, StyleSheet } from 'react-native';
 import { ActivityIndicator, Divider } from 'react-native-paper';
 
-export interface DailyStoryProps
-{
+export interface DailyStoryProps {
   story: Story | null;
 }
 
@@ -15,10 +14,10 @@ const DailyStory = (props: DailyStoryProps) => {
     <FlatList
       style={styles.container}
       data={story?.sentences}
-      renderItem={({ item }) => <Text style={styles.sentence}>{item.text}</Text> }
-      keyExtractor={(item) => item.id.toString() }
+      renderItem={({ item }) => <Text style={styles.sentence}>{item.text}</Text>}
+      keyExtractor={(item) => item.id.toString()}
       ListEmptyComponent={ActivityIndicator}
-      ItemSeparatorComponent={() => <Divider style={{ width: '5%' }}/>}
+      ItemSeparatorComponent={() => <Divider style={{ width: '5%' }} />}
     />
   );
 };
