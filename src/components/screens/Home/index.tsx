@@ -34,7 +34,7 @@ const Home = observer((props: NavigationProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    backgroundColor: '#2b2b2b',
   },
   fab: {
     position: 'absolute',
