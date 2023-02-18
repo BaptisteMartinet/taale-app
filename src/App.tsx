@@ -24,7 +24,19 @@ const App = () => {
     <ApolloProvider client={client}>
       <PaperProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: '#2b2b2b',
+              },
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                fontSize: 20,
+                color: '#fafafa',
+              },
+            }}
+          >
             <Stack.Screen name="Home" component={Home} options={{ title: t('screens.home') }} />
             <Stack.Screen name="Login" component={Login} options={{ title: t('screens.login') }} />
             <Stack.Screen name="Register" component={Register} options={{ title: t('screens.register') }} />
