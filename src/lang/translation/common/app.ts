@@ -8,7 +8,7 @@ export type AppDefinition = {
 
 const fr: AppDefinition = {
   screens: {
-    home: "Accueil",
+    home: "L'histoire du jour",
     login: "Se connecter",
     register: "Créer un compte",
   },
@@ -16,7 +16,7 @@ const fr: AppDefinition = {
 
 const en: AppDefinition = {
   screens: {
-    home: "Home",
+    home: "Today's story",
     login: "Login",
     register: "Register",
   },
