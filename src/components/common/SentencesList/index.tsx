@@ -1,12 +1,12 @@
-import type { Sentence } from './Sentence';
+import type { Sentence as SentenceT } from './Sentence';
 
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { ActivityIndicator, Divider } from 'react-native-paper';
-import SentenceViewer from './Sentence';
+import Sentence from './Sentence';
 
 export interface SentencesListProps {
-  sentences: Sentence[];
+  sentences: SentenceT[];
 }
 
 const SentencesList = (props: SentencesListProps) => {
@@ -15,7 +15,7 @@ const SentencesList = (props: SentencesListProps) => {
     <FlatList
       style={styles.container}
       data={sentences}
-      renderItem={({ item }) => <SentenceViewer sentence={item} />}
+      renderItem={({ item }) => <Sentence sentence={item} />}
       keyExtractor={(item) => item.id.toString()}
       ListEmptyComponent={ActivityIndicator}
       ItemSeparatorComponent={() => <Divider style={{ width: '5%' }} />}
