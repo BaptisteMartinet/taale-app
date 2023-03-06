@@ -19,7 +19,7 @@ const Home = observer((props: NavigationProps) => {
 
   return (
     <View style={styles.container}>
-      <SentencesList sentences={store.dailyStory?.sentences ?? []}/>
+      <SentencesList sentences={store.dailyStory?.sentences ?? []} disableControls/>
       <FAB
         icon="pencil-plus"
         style={styles.fab}
