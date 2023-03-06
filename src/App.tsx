@@ -9,12 +9,13 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import 'lang';
 import client from './core/apolloClient';
 import { Snackbar } from 'components/common/app';
-import { Login, Home, Register } from 'components/screens';
+import { Login, Home, Register, Onboarding } from 'components/screens';
 
 export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
   Register: undefined;
+  Onboarding: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,7 +27,7 @@ const App = () => {
       <PaperProvider>
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName="Home"
+            initialRouteName="Onboarding"
             screenOptions={{
               headerStyle: {
                 backgroundColor: '#2b2b2b',
@@ -36,11 +37,15 @@ const App = () => {
                 fontSize: 20,
                 color: '#fafafa',
               },
+              contentStyle: {
+                backgroundColor: '#2b2b2b',
+              },
             }}
           >
             <Stack.Screen name="Home" component={Home} options={{ title: t('screens.home') }} />
             <Stack.Screen name="Login" component={Login} options={{ title: t('screens.login') }} />
             <Stack.Screen name="Register" component={Register} options={{ title: t('screens.register') }} />
+            <Stack.Screen name="Onboarding" component={Onboarding} options={{ title: t('screens.onboarding'), headerShown: false }} />
           </Stack.Navigator>
         </NavigationContainer>
         <Snackbar />
