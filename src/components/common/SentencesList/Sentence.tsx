@@ -3,6 +3,8 @@ import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text } from 'react-native';
 import { Menu, Divider } from 'react-native-paper';
+import { handleWithSnack } from 'core/utils/promises';
+import sentenceStore from 'store/common/sentence';
 
 export interface Owner {
   id: number;
@@ -37,9 +39,22 @@ const Sentence = (props: SentenceProps) => {
         </Text>
       }
     >
-      <Menu.Item titleStyle={styles.userTitle} title={`u/${sentence.owner.username} (${format(sentence.createdAt, 'dd/MM/yy HH:mm')})`} />
+      <Menu.Item
+        titleStyle={styles.userTitle}
+        title={`u/${sentence.owner.username} (${format(sentence.createdAt, 'dd/MM/yy HH:mm')})`}
+      />
       <Divider />
-      <Menu.Item title={t('report')} onPress={() => { console.info('TODO report sentence') }} disabled />
+      <Menu.Item
+        title={t('report')}
+        onPress={() => {
+          const promise = sentenceStore.report(sentence.id);
+          handleWithSnack(promise, {
+            successMessage: t('reportSuccessfull'),
+            errorMessage: true,
+          });
+        }}
+        disabled
+      />
     </Menu>
   );
 };
