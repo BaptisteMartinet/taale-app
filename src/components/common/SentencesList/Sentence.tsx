@@ -41,7 +41,7 @@ const Sentence = (props: SentenceProps) => {
     >
       <Menu.Item
         titleStyle={styles.userTitle}
-        title={`u/${sentence.owner.username} (${format(sentence.createdAt, 'dd/MM/yy HH:mm')})`}
+        title={`u/${sentence.owner.username} - ${format(sentence.createdAt, 'dd/MM/yy HH:mm')}`}
       />
       <Divider />
       <Menu.Item
@@ -53,7 +53,16 @@ const Sentence = (props: SentenceProps) => {
             errorMessage: true,
           });
         }}
-        disabled
+      />
+      <Menu.Item
+        title={t('markCompleted')}
+        onPress={() => {
+          const promise = sentenceStore.markCompleted(sentence.id);
+          handleWithSnack(promise, {
+            successMessage: t('markCompletedSuccessfull'),
+            errorMessage: true,
+          });
+        }}
       />
     </Menu>
   );
@@ -68,7 +77,6 @@ const styles = StyleSheet.create({
   },
   userTitle: {
     fontWeight: 'bold',
-    fontStyle: 'italic',
   },
 });
 

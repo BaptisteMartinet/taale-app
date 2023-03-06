@@ -1,8 +1,12 @@
-import { ReportSentence } from './api';
+import { ReportSentence, MarkSentenceCompleted } from './api';
 
 class SentenceStore {
-  public async report(sentenceId: number) {
-    await ReportSentence({ sentenceId });
+  public report(sentenceId: number) {
+    return ReportSentence({ sentenceId });
+  }
+
+  public markCompleted(sentenceId: number) {
+    return MarkSentenceCompleted({ sentenceId });
   }
 }
 
