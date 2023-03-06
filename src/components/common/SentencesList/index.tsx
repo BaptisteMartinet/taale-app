@@ -7,15 +7,16 @@ import Sentence from './Sentence';
 
 export interface SentencesListProps {
   sentences: SentenceT[];
+  disableControls?: boolean;
 }
 
 const SentencesList = (props: SentencesListProps) => {
-  const { sentences } = props;
+  const { sentences, disableControls } = props;
   return (
     <FlatList
       style={styles.container}
       data={sentences}
-      renderItem={({ item }) => <Sentence sentence={item} />}
+      renderItem={({ item }) => <Sentence sentence={item} disableControls={disableControls} />}
       keyExtractor={(item) => item.id.toString()}
       ListEmptyComponent={ActivityIndicator}
       ItemSeparatorComponent={() => <Divider style={{ width: '5%' }} />}

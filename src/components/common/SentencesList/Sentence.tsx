@@ -20,10 +20,11 @@ export interface Sentence {
 
 export interface SentenceProps {
   sentence: Sentence;
+  disableControls?: boolean;
 }
 
 const Sentence = (props: SentenceProps) => {
-  const { sentence } = props;
+  const { sentence, disableControls } = props;
   const { t } = useTranslation('common', { keyPrefix: 'sentencesList' });
   const [menuVisibility, setMenuVisibility] = React.useState(false);
   return (
@@ -46,6 +47,7 @@ const Sentence = (props: SentenceProps) => {
       <Divider />
       <Menu.Item
         title={t('report')}
+        disabled={disableControls}
         onPress={() => {
           const promise = sentenceStore.report(sentence.id);
           handleWithSnack(promise, {
@@ -56,6 +58,7 @@ const Sentence = (props: SentenceProps) => {
       />
       <Menu.Item
         title={t('markCompleted')}
+        disabled={disableControls}
         onPress={() => {
           const promise = sentenceStore.markCompleted(sentence.id);
           handleWithSnack(promise, {
