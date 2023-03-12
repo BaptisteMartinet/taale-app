@@ -1,4 +1,4 @@
-import type { RootStackParamList } from 'App';
+import type { RootStackParamList } from 'Navigator';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import React from 'react';

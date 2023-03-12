@@ -1,5 +1,5 @@
 import type { ImageSourcePropType } from 'react-native';
-import type { RootStackParamList } from 'App';
+import type { RootStackParamList } from 'Navigator';
 
 import React from 'react';
 import {
