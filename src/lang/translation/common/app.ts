@@ -3,6 +3,7 @@ export type AppDefinition = {
     home: string,
     login: string,
     register: string,
+    partialStory: string,
   },
 };
 
@@ -11,6 +12,7 @@ const fr: AppDefinition = {
     home: "Accueil",
     login: "Se connecter",
     register: "Créer un compte",
+    partialStory: "Écrire",
   },
 };
 
@@ -19,6 +21,7 @@ const en: AppDefinition = {
     home: "Home",
     login: "Login",
     register: "Register",
+    partialStory: "Write",
   },
 };
 

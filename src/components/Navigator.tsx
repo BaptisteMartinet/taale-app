@@ -51,7 +51,7 @@ const Navigator = observer(() => {
         <Stack.Screen name="Login" component={Login} options={{ title: t('screens.login') }} />
         <Stack.Screen name="Register" component={Register} options={{ title: t('screens.register') }} />
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
-        <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: 'test' }} listeners={{ focus: partialStoryHandler }} />
+        <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: t('screens.partialStory') }} listeners={{ focus: partialStoryHandler }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
