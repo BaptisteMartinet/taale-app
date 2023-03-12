@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import * as SecureStore from 'expo-secure-store';
+import { AppName, AppVersion } from '_constants';
 
 const httpLink = createHttpLink({
   uri: 'https://taale-api.herokuapp.com/',
@@ -20,6 +21,8 @@ const authLink = setContext(async (_, { headers }) => {
 });
 
 export default new ApolloClient({
+  name: AppName,
+  version: AppVersion,
   link: authLink.concat(httpLink),
   cache: new InMemoryCache({
     typePolicies: {
