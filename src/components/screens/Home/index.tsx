@@ -11,15 +11,14 @@ import { SentencesList } from 'components/common';
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const Home = observer((props: NavigationProps) => {
+  const { navigation } = props;
   return (
     <View style={styles.container}>
       <SentencesList sentences={store.dailyStory?.sentences ?? []} disableControls/>
       <FAB
         icon="pencil-plus"
         style={styles.fab}
-        onPress={() => {
-          console.warn('Not handled'); //TODO FAB redirection
-        }}
+        onPress={() => navigation.navigate('PartialStory')}
       />
     </View>
   );

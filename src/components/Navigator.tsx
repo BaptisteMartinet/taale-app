@@ -4,7 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { homeHandler } from 'store/handlers';
-import { Loading, Login, Home, Register, Onboarding } from 'components/screens';
+import {
+  Loading,
+  Login,
+  Home,
+  Register,
+  Onboarding,
+  PartialStory,
+} from 'components/screens';
 import AppStore from 'store/common/app';
 
 export type RootStackParamList = {
@@ -12,6 +19,7 @@ export type RootStackParamList = {
   Login: undefined;
   Register: undefined;
   Onboarding: undefined;
+  PartialStory: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -42,6 +50,7 @@ const Navigator = observer(() => {
         <Stack.Screen name="Login" component={Login} options={{ title: t('screens.login') }} />
         <Stack.Screen name="Register" component={Register} options={{ title: t('screens.register') }} />
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ title: t('screens.onboarding'), headerShown: false }} />
+        <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: 'test' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
