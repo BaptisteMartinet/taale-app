@@ -5,6 +5,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { observer } from 'mobx-react';
 import { FAB } from 'react-native-paper';
+import accountStore from 'store/common/account';
 import store from 'store/screens/home';
 import { SentencesList } from 'components/common';
 
@@ -18,7 +19,12 @@ const Home = observer((props: NavigationProps) => {
       <FAB
         icon="pencil-plus"
         style={styles.fab}
-        onPress={() => navigation.navigate('PartialStory')}
+        onPress={() => {
+          if (accountStore.user !== null)
+            navigation.navigate('PartialStory');
+          else
+            navigation.navigate('Login');
+        }}
       />
     </View>
   );
