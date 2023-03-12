@@ -26,7 +26,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const Navigator = observer(() => {
   const { t } = useTranslation('common', { keyPrefix: 'app' });
-  if (AppStore.onboardingCompleted === null)
+  if (AppStore.loading)
     return <Loading />;
   return (
     <NavigationContainer>
