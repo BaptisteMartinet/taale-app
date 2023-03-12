@@ -3,7 +3,6 @@ export type AppDefinition = {
     home: string,
     login: string,
     register: string,
-    onboarding: string,
   },
 };
 
@@ -12,7 +11,6 @@ const fr: AppDefinition = {
     home: "Accueil",
     login: "Se connecter",
     register: "Créer un compte",
-    onboarding: "À propos",
   },
 };
 
@@ -21,7 +19,6 @@ const en: AppDefinition = {
     home: "Home",
     login: "Login",
     register: "Register",
-    onboarding: "About",
   },
 };
 
