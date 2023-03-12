@@ -21,17 +21,18 @@ export function handleWithSnack(promise: Promise<unknown>, opts: Opts): void {
       onError(error);
     if (errorMessage) {
       switch (typeof errorMessage) {
-        case 'string': snackbarStore.display(errorMessage, { duration: 'long' });
+        case 'string':
+          return snackbarStore.display(errorMessage, { duration: 'long' });
         case 'boolean':
           if (!isApolloError(error))
-            return snackbarStore.display(i18n.t('_Default', { ns: 'errors' }), { duration: 'long' });
-          // Note: Only displays the first error in the graphQLErrors array
+            break; 
           const errorCode = error.graphQLErrors.at(0)?.extensions.code;
           if (typeof errorCode !== 'string')
             break;
           snackbarStore.display(i18n.t([errorCode, '_Default'], { ns: 'errors' }), { duration: 'long' });
         default: break;
       }
+      snackbarStore.display(i18n.t('_Default', { ns: 'errors' }), { duration: 'long' });
     }
   });
 }

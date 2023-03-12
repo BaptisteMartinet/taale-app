@@ -3,6 +3,7 @@ export type AppDefinition = {
     home: string,
     login: string,
     register: string,
+    onboarding: string,
   },
 };
 
@@ -11,6 +12,7 @@ const fr: AppDefinition = {
     home: "L'histoire du jour",
     login: "Se connecter",
     register: "Créer un compte",
+    onboarding: "À propos",
   },
 };
 
@@ -19,6 +21,7 @@ const en: AppDefinition = {
     home: "Today's story",
     login: "Login",
     register: "Register",
+    onboarding: "About",
   },
 };
 
