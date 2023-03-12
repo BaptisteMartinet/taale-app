@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { homeHandler, partialStoryHandler } from 'store/handlers';
+import AppStore from 'store/common/app';
+import OnboardingStore from 'store/screens/onboarding';
 import {
   Loading,
   Login,
@@ -12,7 +14,6 @@ import {
   Onboarding,
   PartialStory,
 } from 'components/screens';
-import AppStore from 'store/common/app';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -31,7 +32,7 @@ const Navigator = observer(() => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={AppStore.onboardingCompleted ? 'Home' : 'Onboarding'}
+        initialRouteName={OnboardingStore.onboardingCompleted ? 'Home' : 'Onboarding'}
         screenOptions={{
           headerStyle: {
             backgroundColor: '#2b2b2b',
