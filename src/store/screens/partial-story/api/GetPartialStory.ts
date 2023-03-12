@@ -7,6 +7,10 @@ query PartialStory {
     partialStory {
       id
       text
+      owner {
+        id
+        username
+      }
       createdAt
       updatedAt
     }
