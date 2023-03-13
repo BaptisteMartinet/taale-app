@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import * as SecureStore from 'expo-secure-store';
+import i18n from 'lang';
 import { AppName, AppVersion } from '_constants';
 
 const httpLink = createHttpLink({
@@ -15,7 +16,7 @@ const authLink = setContext(async (_, { headers }) => {
     headers: {
       ...headers,
       authorization: `Bearer ${token}`,
-      'content-language': 'fr', // TODO
+      'content-language': i18n.language,
     }
   }
 });
