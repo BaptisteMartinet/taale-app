@@ -37,5 +37,5 @@ export interface PartialStoryResponse {
 }
 
 export default function exec() {
-  return apolloClient.query<PartialStoryResponse>({ query });
+  return apolloClient.query<PartialStoryResponse>({ query, fetchPolicy: 'no-cache' });
 }
