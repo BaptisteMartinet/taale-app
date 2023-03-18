@@ -1,6 +1,6 @@
 import type { Sentence } from './api';
 
-import { makeObservable, observable, action } from 'mobx';
+import { makeObservable, observable, action, computed } from 'mobx';
 import { GetPartialStory } from './api';
 
 class PartialStoryStore {
@@ -10,7 +10,12 @@ class PartialStoryStore {
     makeObservable(this, {
       partialStory: observable,
       setPartialStory: action,
+      lastSentence: computed,
     });
+  }
+
+  public get lastSentence() {
+    return this.partialStory?.at(-1);
   }
 
   public setPartialStory(partialStory: Sentence[]) {
