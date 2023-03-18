@@ -3,6 +3,7 @@ import register, { type RegisterScreenDefinition } from './register';
 import onboarding, { type OnboardingScreenDefinition } from './onboarding';
 import home, { type HomeScreenDefinition } from './home';
 import partialStory, { type PartialStoryScreenDefinition } from './partialStory';
+import participationSuccess, { type ParticipationSuccessScreenDefinition } from './participationSuccess';
 
 export type ScreensDefinition = {
   login: LoginScreenDefinition,
@@ -10,6 +11,7 @@ export type ScreensDefinition = {
   onboarding: OnboardingScreenDefinition,
   home: HomeScreenDefinition,
   partialStory: PartialStoryScreenDefinition,
+  participationSuccess: ParticipationSuccessScreenDefinition,
 }
 
 const fr: ScreensDefinition = {
@@ -18,6 +20,7 @@ const fr: ScreensDefinition = {
   onboarding: onboarding.fr,
   home: home.fr,
   partialStory: partialStory.fr,
+  participationSuccess: participationSuccess.fr,
 };
 
 const en: ScreensDefinition = {
@@ -26,6 +29,7 @@ const en: ScreensDefinition = {
   onboarding: onboarding.en,
   home: home.en,
   partialStory: partialStory.en,
+  participationSuccess: participationSuccess.en,
 };
 
 export default {
