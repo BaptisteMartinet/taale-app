@@ -21,7 +21,7 @@ class AppStore {
     await Promise.all([
       onboardingStore.refresh(),
       accountStore.refreshAccount(),
-    ]);
+    ]).catch((e) => { /* empty */ });
     this.setLoaded();
   }
 }
