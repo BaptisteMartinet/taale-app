@@ -3,6 +3,7 @@ import type { User, LoginVariables, RegisterVariables } from './api';
 import assert from 'assert';
 import * as SecureStore from 'expo-secure-store';
 import { action, makeObservable, observable } from 'mobx';
+import { AuthTokenKey } from '_constants';
 import { loginMutation, RegisterMutation, GetAccount } from './api';
 
 class AccountStore {
@@ -24,7 +25,7 @@ class AccountStore {
     assert(data);
     const { user, token } = data.public.account.login;
     this.setUser(user);
-    await SecureStore.setItemAsync('token', token);
+    await SecureStore.setItemAsync(AuthTokenKey, token);
   }
 
   register(variables: RegisterVariables) {
