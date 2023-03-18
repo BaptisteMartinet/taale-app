@@ -1,4 +1,5 @@
 import type { ImageSourcePropType } from 'react-native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
@@ -10,7 +11,6 @@ import {
   useWindowDimensions,
 } from 'react-native';
 import { IconButton } from 'react-native-paper';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import OnboardingStore from 'store/screens/onboarding';
 
