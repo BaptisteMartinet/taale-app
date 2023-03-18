@@ -26,7 +26,7 @@ const NewSentenceForm = () => {
     <Formik
       initialValues={{ text: '' }}
       validationSchema={NewSentenceSchema}
-      onSubmit={(values) => {
+      onSubmit={(values, actions) => {
         const { text } = values;
         const { lastSentence } = store;
         if (!lastSentence)
@@ -35,6 +35,7 @@ const NewSentenceForm = () => {
         handleWithSnack(promise, {
           successMessage: null,
           onSuccess: () => {
+            actions.resetForm();
             navigation.navigate('ParticipationSuccess');
           },
           errorMessage: true,
