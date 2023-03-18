@@ -10,15 +10,12 @@ const httpLink = createHttpLink({
 
 const authLink = setContext(async (_, { headers }) => {
   const token = await SecureStore.getItemAsync(AuthTokenKey);
-  if (token === null)
-    return { headers };
-  return {
-    headers: {
-      ...headers,
-      authorization: `Bearer ${token}`,
-      'content-language': i18n.language,
-    }
-  }
+  if (headers === undefined)
+    headers = {};
+  headers['content-language'] = i18n.language;
+  if (token !== null)
+    headers['authorization'] = `Bearer ${token}`;
+  return { headers };
 });
 
 export default new ApolloClient({
