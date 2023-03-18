@@ -2,7 +2,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
-import { StyleSheet, View, Keyboard } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { IconButton, TextInput } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
@@ -17,7 +17,7 @@ const NewSentenceForm = () => {
   return (
     <Formik
       initialValues={{ text: '' }}
-      onSubmit={(values, actions) => {
+      onSubmit={(values) => {
         const { text } = values;
         const { lastSentence } = store;
         if (!lastSentence)
@@ -26,10 +26,7 @@ const NewSentenceForm = () => {
         handleWithSnack(promise, {
           successMessage: t('writeSuccess'),
           onSuccess: () => {
-            actions.resetForm();
-            Keyboard.dismiss();
-            store.refresh().catch((e) => console.error(e));
-            //navigation.replace('PartialStory'); TODO redirect to action page
+            navigation.navigate('ParticipationSuccess');
           },
           errorMessage: true,
         });

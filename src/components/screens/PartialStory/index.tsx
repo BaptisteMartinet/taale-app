@@ -18,6 +18,7 @@ import NewSentenceForm from './NewSentenceForm';
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'PartialStory'>;
 
 const PartialStory = observer((props: NavigationProps) => {
+  const { navigation } = props;
   const headerHeight = useHeaderHeight();
   return (
     <SafeAreaView style={styles.container}>
@@ -27,7 +28,11 @@ const PartialStory = observer((props: NavigationProps) => {
         keyboardVerticalOffset={headerHeight}
       >
         <View style={styles.container}>
-          <SentencesList sentences={store.partialStory ?? []} />
+          <SentencesList
+            sentences={store.partialStory ?? []}
+            onReport={() => navigation.navigate('ParticipationSuccess')}
+            onMarkedCompleted={() => navigation.navigate('ParticipationSuccess')}
+          />
           <NewSentenceForm/>
         </View>
       </KeyboardAvoidingView>
