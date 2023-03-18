@@ -3,7 +3,7 @@ import type { User, LoginVariables, RegisterVariables } from './api';
 import assert from 'assert';
 import * as SecureStore from 'expo-secure-store';
 import { action, makeObservable, observable } from 'mobx';
-import { loginMutation, RegisterMutation } from './api';
+import { loginMutation, RegisterMutation, GetAccount } from './api';
 
 class AccountStore {
   user: User | null = null;
@@ -29,6 +29,11 @@ class AccountStore {
 
   register(variables: RegisterVariables) {
     return RegisterMutation(variables);
+  }
+
+  public async refreshAccount() {
+    const res = await GetAccount();
+    this.setUser(res.data.authenticated.account);
   }
 }
 

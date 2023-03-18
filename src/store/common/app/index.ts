@@ -1,24 +1,28 @@
 import { makeObservable, observable, action } from 'mobx';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import accountStore from 'store/common/account';
+import onboardingStore from 'store/screens/onboarding';
 
 class AppStore {
-  onboardingCompleted: boolean | null = null;
+  loading: boolean = true;
 
   constructor() {
     makeObservable(this, {
-      onboardingCompleted: observable,
-      setOnboardingCompleted: action,
+      loading: observable,
+      setLoaded: action,
     });
-    this.refreshOnboardingState().catch(e => console.error(e));
+    this.refresh().catch((e => console.error(e))); // TODO error snack
   }
 
-  public setOnboardingCompleted(state: boolean) {
-    this.onboardingCompleted = state;
+  public setLoaded() {
+    this.loading = false;
   }
 
-  private async refreshOnboardingState() {
-    const onboardingState = await AsyncStorage.getItem('onboarding');
-    this.setOnboardingCompleted(onboardingState === 'completed');
+  public async refresh() {
+    await Promise.all([
+      onboardingStore.refresh(),
+      accountStore.refreshAccount(),
+    ]);
+    this.setLoaded();
   }
 }
 

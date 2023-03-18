@@ -1,4 +1,8 @@
-import { ReportSentence, MarkSentenceCompleted } from './api';
+import {
+  ReportSentence,
+  MarkSentenceCompleted,
+  CreateSentence,
+ } from './api';
 
 class SentenceStore {
   public report(sentenceId: number) {
@@ -8,6 +12,8 @@ class SentenceStore {
   public markCompleted(sentenceId: number) {
     return MarkSentenceCompleted({ sentenceId });
   }
+
+  public create = CreateSentence;
 }
 
 export default new SentenceStore();

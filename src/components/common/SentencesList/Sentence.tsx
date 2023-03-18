@@ -21,10 +21,12 @@ export interface Sentence {
 export interface SentenceProps {
   sentence: Sentence;
   disableControls?: boolean;
+  onReport?: (sentence: Sentence) => void,
+  onMarkedCompleted?: (sentence: Sentence) => void,
 }
 
 const Sentence = (props: SentenceProps) => {
-  const { sentence, disableControls } = props;
+  const { sentence, disableControls, onReport, onMarkedCompleted } = props;
   const { t } = useTranslation('common', { keyPrefix: 'sentencesList' });
   const [menuVisibility, setMenuVisibility] = React.useState(false);
   return (
@@ -52,6 +54,10 @@ const Sentence = (props: SentenceProps) => {
           const promise = sentenceStore.report(sentence.id);
           handleWithSnack(promise, {
             successMessage: t('reportSuccessfull'),
+            onSuccess: () => {
+              setMenuVisibility(false);
+              onReport?.(sentence);
+            },
             errorMessage: true,
           });
         }}
@@ -63,6 +69,10 @@ const Sentence = (props: SentenceProps) => {
           const promise = sentenceStore.markCompleted(sentence.id);
           handleWithSnack(promise, {
             successMessage: t('markCompletedSuccessfull'),
+            onSuccess: () => {
+              setMenuVisibility(false);
+              onMarkedCompleted?.(sentence);
+            },
             errorMessage: true,
           });
         }}

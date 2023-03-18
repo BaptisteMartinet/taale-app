@@ -1,4 +1,5 @@
 import type { ImageSourcePropType } from 'react-native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
@@ -10,9 +11,8 @@ import {
   useWindowDimensions,
 } from 'react-native';
 import { IconButton } from 'react-native-paper';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import OnboardingStore from 'store/screens/onboarding';
 
 export interface OnboardingItemProps {
   image: ImageSourcePropType;
@@ -36,7 +36,7 @@ const OnboardingItem = (props: OnboardingItemProps) => {
               iconColor="whitesmoke"
               size={96}
               onPress={() => {
-                AsyncStorage.setItem('onboarding', 'completed').catch(e => console.error(e));
+                OnboardingStore.saveOnboardingCompleted().catch((e) => console.error(e));
                 navigation.replace('Home');
               }}
             />

@@ -3,25 +3,25 @@ export type AppDefinition = {
     home: string,
     login: string,
     register: string,
-    onboarding: string,
+    partialStory: string,
   },
 };
 
 const fr: AppDefinition = {
   screens: {
-    home: "L'histoire du jour",
+    home: "Accueil",
     login: "Se connecter",
     register: "Créer un compte",
-    onboarding: "À propos",
+    partialStory: "Participer",
   },
 };
 
 const en: AppDefinition = {
   screens: {
-    home: "Today's story",
+    home: "Home",
     login: "Login",
     register: "Register",
-    onboarding: "About",
+    partialStory: "Participate",
   },
 };
 
