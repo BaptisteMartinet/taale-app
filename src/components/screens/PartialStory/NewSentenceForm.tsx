@@ -7,7 +7,7 @@ import { IconButton, TextInput } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
-import Yup from 'yup';
+import * as Yup from 'yup';
 import { handleWithSnack } from 'core/utils/promises';
 import sentenceStore from 'store/common/sentence';
 import store from 'store/screens/partial-story';
