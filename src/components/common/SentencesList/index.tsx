@@ -8,15 +8,24 @@ import Sentence from './Sentence';
 export interface SentencesListProps {
   sentences: SentenceT[];
   disableControls?: boolean;
+  onReport?: (sentence: SentenceT) => void,
+  onMarkedCompleted?: (sentence: SentenceT) => void,
 }
 
 const SentencesList = (props: SentencesListProps) => {
-  const { sentences, disableControls } = props;
+  const { sentences, disableControls, onReport, onMarkedCompleted } = props;
   return (
     <FlatList
       style={styles.container}
       data={sentences}
-      renderItem={({ item }) => <Sentence sentence={item} disableControls={disableControls} />}
+      renderItem={({ item }) => (
+        <Sentence
+          sentence={item}
+          disableControls={disableControls}
+          onReport={onReport}
+          onMarkedCompleted={onMarkedCompleted}
+        />
+      )}
       keyExtractor={(item) => item.id.toString()}
       ListEmptyComponent={ActivityIndicator}
       ItemSeparatorComponent={() => <Divider style={{ width: '5%' }} />}
