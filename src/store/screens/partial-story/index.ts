@@ -18,11 +18,12 @@ class PartialStoryStore {
     return this.partialStory?.at(-1);
   }
 
-  public setPartialStory(partialStory: Sentence[]) {
+  public setPartialStory(partialStory: Sentence[] | null) {
     this.partialStory = partialStory;
   }
 
   public async refresh() {
+    this.setPartialStory(null);
     const res = await GetPartialStory();
     this.setPartialStory(res.data.authenticated.partialStory);
   }
