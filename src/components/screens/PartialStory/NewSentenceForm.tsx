@@ -33,7 +33,7 @@ const NewSentenceForm = () => {
           return;
         const promise = sentenceStore.create({ text, parentSentenceId: lastSentence.id });
         handleWithSnack(promise, {
-          successMessage: t('writeSuccess'),
+          successMessage: null,
           onSuccess: () => {
             navigation.navigate('ParticipationSuccess');
           },
