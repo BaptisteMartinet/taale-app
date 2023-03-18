@@ -1,16 +1,16 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { IconButton, TextInput } from 'react-native-paper';
-
-// TODO texts
+import { useTranslation } from 'react-i18next';
 
 const NewSentenceForm = () => {
+  const { t} = useTranslation('screens', { keyPrefix: 'partialStory' });
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.textInput}
         mode="outlined"
-        placeholder="Écrire"
+        placeholder={t('write')}
         multiline
       />
       <View style={styles.iconWrapper}>
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     flexDirection: 'row',
+    paddingHorizontal: 4,
   },
   textInput: {
     flex: 0.85,
