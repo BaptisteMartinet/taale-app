@@ -54,7 +54,10 @@ const Sentence = (props: SentenceProps) => {
           const promise = sentenceStore.report(sentence.id);
           handleWithSnack(promise, {
             successMessage: t('reportSuccessfull'),
-            onSuccess: () => onReport?.(sentence),
+            onSuccess: () => {
+              setMenuVisibility(false);
+              onReport?.(sentence);
+            },
             errorMessage: true,
           });
         }}
@@ -66,7 +69,10 @@ const Sentence = (props: SentenceProps) => {
           const promise = sentenceStore.markCompleted(sentence.id);
           handleWithSnack(promise, {
             successMessage: t('markCompletedSuccessfull'),
-            onSuccess: () => onMarkedCompleted?.(sentence),
+            onSuccess: () => {
+              setMenuVisibility(false);
+              onMarkedCompleted?.(sentence);
+            },
             errorMessage: true,
           });
         }}
