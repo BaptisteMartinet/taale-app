@@ -33,6 +33,6 @@ export type GetAccountResponse = {
   },
 }
 
-export default function exec() {
+export default function GetAccount() {
   return apolloClient.query<GetAccountResponse>({ query });
 }

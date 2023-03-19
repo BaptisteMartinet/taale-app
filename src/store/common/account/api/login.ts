@@ -47,6 +47,6 @@ export interface LoginVariables {
   password: string;
 }
 
-const exec = (variables: LoginVariables) => apolloClient.mutate<LoginResponse>({ mutation, variables });
-
-export default exec;
+export default function Login(variables: LoginVariables) {
+  return apolloClient.mutate<LoginResponse>({ mutation, variables });
+}

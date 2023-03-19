@@ -15,6 +15,6 @@ export interface MarkSentenceCompletedVariables {
   sentenceId: number;
 }
 
-const exec = (variables: MarkSentenceCompletedVariables) => apolloClient.mutate<boolean>({ mutation, variables });
-
-export default exec;
+export default function MarkSentenceCompleted(variables: MarkSentenceCompletedVariables) {
+  return apolloClient.mutate<boolean>({ mutation, variables });
+}

@@ -36,6 +36,6 @@ export interface PartialStoryResponse {
   },
 }
 
-export default function exec() {
+export default function GetPartialStory() {
   return apolloClient.query<PartialStoryResponse>({ query, fetchPolicy: 'no-cache' });
 }

@@ -21,22 +21,19 @@ query DailyStory {
 }
 `;
 
-export interface Owner
-{
+export interface Owner {
   id: number;
   username: number;
 }
 
-export interface Sentence
-{
+export interface Sentence {
   id: number;
   text: string;
   owner: Owner;
   createdAt: number;
 }
 
-export interface Story
-{
+export interface Story {
   id: number;
   sentences: Sentence[];
   createdAt: number;
@@ -48,6 +45,6 @@ export type DailyStoryResponse = {
   },
 };
 
-const exec = () => apolloClient.query<DailyStoryResponse>({ query });
-
-export default exec;
+export default function GetDailyStory() {
+  return apolloClient.query<DailyStoryResponse>({ query });
+}

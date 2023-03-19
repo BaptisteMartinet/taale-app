@@ -15,6 +15,6 @@ export interface ReportSentenceVariables {
   sentenceId: number;
 }
 
-const exec = (variables: ReportSentenceVariables) => apolloClient.mutate<boolean>({ mutation, variables });
-
-export default exec;
+export default function ReportSentence(variables: ReportSentenceVariables) {
+  return apolloClient.mutate<boolean>({ mutation, variables });
+}
