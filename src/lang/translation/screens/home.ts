@@ -28,7 +28,7 @@ const fr: HomeScreenDefinition = {
     guest: "Invité",
   },
   statistics: {
-    title: "Statistiques",
+    title: "Taale en chiffres",
     stats: {
       users: "Utilisateurs",
       trees: "Arbres",
