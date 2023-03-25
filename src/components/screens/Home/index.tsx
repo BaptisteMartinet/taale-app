@@ -8,6 +8,7 @@ import { FAB } from 'react-native-paper';
 import { observer } from 'mobx-react';
 import accountStore from 'store/common/account';
 import Hero from './Hero';
+import Statistics from './Statistics';
 
 // TODO: homepage design, stats, dailyStory, my participations
 
@@ -20,6 +21,9 @@ const Home = observer((props: NavigationProps) => {
     <View style={styles.container}>
       <ScrollView>
         <Hero />
+        <View style={{ paddingHorizontal: 10 }}>
+          <Statistics />
+        </View>
       </ScrollView>
       <FAB
         icon="pencil-plus"

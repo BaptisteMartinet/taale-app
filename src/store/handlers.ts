@@ -3,7 +3,7 @@ import homeStore from 'store/screens/home';
 import partialStoryStore from 'store/screens/partial-story';
 
 export function homeHandler() {
-  const promise = homeStore.init();
+  const promise = homeStore.refresh();
   handleWithSnack(promise, { successMessage: null, errorMessage: true });
 }
 
