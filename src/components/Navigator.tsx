@@ -14,6 +14,7 @@ import {
   Onboarding,
   PartialStory,
   ParticipationSuccess,
+  StoryViewer,
 } from 'components/screens';
 
 export type RootStackParamList = {
@@ -23,6 +24,7 @@ export type RootStackParamList = {
   Onboarding: undefined;
   PartialStory: undefined;
   ParticipationSuccess: undefined;
+  StoryViewer: { storyId: number },
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -55,6 +57,7 @@ const Navigator = observer(() => {
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
         <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: t('screens.partialStory') }} listeners={{ focus: partialStoryHandler }} />
         <Stack.Screen name="ParticipationSuccess" component={ParticipationSuccess} options={{ headerShown: false }} />
+        <Stack.Screen name="StoryViewer" component={StoryViewer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
