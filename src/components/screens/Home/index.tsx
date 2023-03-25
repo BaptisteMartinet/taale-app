@@ -7,8 +7,9 @@ import { StyleSheet, View } from 'react-native';
 import { FAB } from 'react-native-paper';
 import { observer } from 'mobx-react';
 import accountStore from 'store/common/account';
-import store from 'store/screens/home';
-import { SentencesList } from 'components/common';
+// import store from 'store/screens/home';
+
+// TODO: homepage design, stats, dailyStory, my participations
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -17,7 +18,6 @@ const Home = observer((props: NavigationProps) => {
   const { t } = useTranslation('screens', { keyPrefix: 'home' });
   return (
     <View style={styles.container}>
-      <SentencesList sentences={store.dailyStory?.sentences ?? []} disableControls/>
       <FAB
         icon="pencil-plus"
         label={t('participate')}
@@ -36,7 +36,6 @@ const Home = observer((props: NavigationProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2b2b2b',
   },
   fab: {
     position: 'absolute',

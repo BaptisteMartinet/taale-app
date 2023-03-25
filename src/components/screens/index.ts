@@ -5,3 +5,4 @@ export { default as Register } from './Register';
 export { default as Onboarding } from './Onboarding';
 export { default as PartialStory } from './PartialStory';
 export { default as ParticipationSuccess } from './ParticipationSuccess';
+export { default as StoryViewer } from './StoryViewer';
