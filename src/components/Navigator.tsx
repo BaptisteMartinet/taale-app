@@ -49,7 +49,7 @@ const Navigator = observer(() => {
           },
         }}
       >
-        <Stack.Screen name="Home" component={Home} options={{ title: t('screens.home') }} listeners={{ focus: homeHandler }} />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} listeners={{ focus: homeHandler }} />
         <Stack.Screen name="Login" component={Login} options={{ title: t('screens.login') }} />
         <Stack.Screen name="Register" component={Register} options={{ title: t('screens.register') }} />
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />

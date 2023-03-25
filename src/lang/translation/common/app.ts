@@ -1,6 +1,5 @@
 export type AppDefinition = {
   screens: {
-    home: string,
     login: string,
     register: string,
     partialStory: string,
@@ -9,7 +8,6 @@ export type AppDefinition = {
 
 const fr: AppDefinition = {
   screens: {
-    home: "Accueil",
     login: "Se connecter",
     register: "Créer un compte",
     partialStory: "Participer",
@@ -18,7 +16,6 @@ const fr: AppDefinition = {
 
 const en: AppDefinition = {
   screens: {
-    home: "Home",
     login: "Login",
     register: "Register",
     partialStory: "Participate",
