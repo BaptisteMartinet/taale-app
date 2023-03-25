@@ -10,7 +10,7 @@ import accountStore from 'store/common/account';
 import Hero from './Hero';
 import Statistics from './Statistics';
 
-// TODO: homepage design, stats, dailyStory, my participations
+// TODO:  dailyStory, my participations
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
