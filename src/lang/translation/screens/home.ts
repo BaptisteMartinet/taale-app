@@ -4,6 +4,16 @@ export type HomeScreenDefinition = {
     hello: string,
     guest: string,
   },
+  statistics: {
+    title: string,
+    stats: {
+      users: string,
+      trees: string,
+      stories: string,
+      sentences: string,
+    },
+    nullValue: string,
+  },
 };
 
 const fr: HomeScreenDefinition = {
@@ -12,6 +22,16 @@ const fr: HomeScreenDefinition = {
     hello: "Bonjour,",
     guest: "Invité",
   },
+  statistics: {
+    title: "Statistiques",
+    stats: {
+      users: "Utilisateurs",
+      trees: "Arbres",
+      stories: "Branches (Histoires)",
+      sentences: "Feuilles (Paragraphes écrits)",
+    },
+    nullValue: "N/A",
+  },
 };
 
 const en: HomeScreenDefinition = {
@@ -19,6 +39,16 @@ const en: HomeScreenDefinition = {
   hero: {
     hello: "Hello,",
     guest: "Guest",
+  },
+  statistics: {
+    title: "Statistics",
+    stats: {
+      users: "Users",
+      trees: "Trees",
+      stories: "Branches (Stories)",
+      sentences: "Leafs (Written paragraphs)",
+    },
+    nullValue: "N/A",
   },
 };
 

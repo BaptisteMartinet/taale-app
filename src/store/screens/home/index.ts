@@ -1,15 +1,18 @@
-import type { Story } from './api';
+import type { Story, StatisticsQuery } from './api';
 
 import { action, makeObservable, observable } from 'mobx';
-import { GetDailyStory } from './api';
+import { GetDailyStory, GetStatistics } from './api';
 
 class HomeStore {
   public dailyStory: Story | null = null;
+  public statistics: StatisticsQuery | null = null;
 
   constructor() {
     makeObservable(this, {
       dailyStory: observable,
+      statistics: observable,
       setDailyStory: action,
+      setStatistics: action,
     });
   }
 
@@ -17,9 +20,17 @@ class HomeStore {
     this.dailyStory = story;
   }
 
-  async init() {
-    const res = await GetDailyStory();
-    this.setDailyStory(res.data.public.dailyStory);
+  setStatistics(statistics: StatisticsQuery) {
+    this.statistics = statistics;
+  }
+
+  public async refresh() {
+    const [dailyStoryRes, statisticsRes] = await Promise.all([
+      GetDailyStory(),
+      GetStatistics(),
+    ]);
+    this.setDailyStory(dailyStoryRes.data.public.dailyStory);
+    this.setStatistics(statisticsRes.data.public.statistics);
   }
 }
 
