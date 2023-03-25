@@ -27,7 +27,7 @@ const fr: HomeScreenDefinition = {
     stats: {
       users: "Utilisateurs",
       trees: "Arbres",
-      stories: "Branches (Histoires)",
+      stories: "Branches (Histoires crées)",
       sentences: "Feuilles (Paragraphes écrits)",
     },
     nullValue: "N/A",
