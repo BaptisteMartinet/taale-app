@@ -3,18 +3,24 @@ import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import { handleWithSnack } from 'core/utils/promises';
 import { SentencesList } from 'components/common';
-
-// TODO store
+import store from 'store/screens/story-viewer';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'StoryViewer'>;
 
 const StoryViewer = (props: NavigationProps) => {
-  const { route } = props;
-  const { params } = route;
+  const { storyId } = props.route.params;
+  useFocusEffect(() => {
+    React.useCallback(() => {
+      const promise = store.refresh(storyId);
+      handleWithSnack(promise, { successMessage: null, errorMessage: true });
+    }, [storyId])
+  });
   return (
     <SafeAreaView style={styles.container}>
-      <SentencesList sentences={[]} disableControls/>
+      <SentencesList sentences={store.story?.sentences ?? []} disableControls />
     </SafeAreaView>
   );
 };
