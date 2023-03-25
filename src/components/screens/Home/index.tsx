@@ -11,6 +11,7 @@ import accountStore from 'store/common/account';
 import store from 'store/screens/home';
 import Hero from './Hero';
 import Statistics from './Statistics';
+import DailyStory from './DailyStory';
 
 // TODO:  dailyStory, my participations
 
@@ -33,6 +34,7 @@ const Home = observer((props: NavigationProps) => {
         <Hero />
         <View style={styles.cardsContainer}>
           <Statistics />
+          <DailyStory />
         </View>
       </ScrollView>
       <FAB

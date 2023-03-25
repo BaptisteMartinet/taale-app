@@ -14,6 +14,11 @@ export type HomeScreenDefinition = {
     },
     nullValue: string,
   },
+  dailyStory: {
+    title: string,
+    subtitle: string,
+    error: string,
+  },
 };
 
 const fr: HomeScreenDefinition = {
@@ -32,6 +37,11 @@ const fr: HomeScreenDefinition = {
     },
     nullValue: "N/A",
   },
+  dailyStory: {
+    title: "L'histoire du jour",
+    subtitle: "Une nouvelle histoire tous les jours à minuit !",
+    error: "Une erreur est survenue",
+  },
 };
 
 const en: HomeScreenDefinition = {
@@ -49,6 +59,11 @@ const en: HomeScreenDefinition = {
       sentences: "Leafs (Written paragraphs)",
     },
     nullValue: "N/A",
+  },
+  dailyStory: {
+    title: "Today's story",
+    subtitle: "A new story every day at midnight!",
+    error: "Something went wrong",
   },
 };
 
