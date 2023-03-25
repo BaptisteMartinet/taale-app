@@ -33,6 +33,9 @@ class AccountStore {
   }
 
   public async refreshAccount() {
+    const authToken = await SecureStore.getItemAsync(AuthTokenKey);
+    if (authToken === null)
+      return;
     const res = await GetAccount();
     this.setUser(res.data.authenticated.account);
   }
