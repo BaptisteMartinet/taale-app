@@ -20,7 +20,7 @@ const Statistics = observer(() => {
           <Avatar.Icon
             {...props}
             icon="chart-donut"
-            color="orange"
+            color="whitesmoke"
             size={48}
             style={{ backgroundColor: 'transparent' }}
           />
