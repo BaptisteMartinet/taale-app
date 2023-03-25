@@ -8,7 +8,7 @@ import sentenceStore from 'store/common/sentence';
 
 export interface Owner {
   id: number;
-  username: number;
+  username: string;
 }
 
 export interface Sentence {
