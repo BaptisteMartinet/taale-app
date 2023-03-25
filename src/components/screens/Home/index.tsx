@@ -21,7 +21,7 @@ const Home = observer((props: NavigationProps) => {
     <View style={styles.container}>
       <ScrollView>
         <Hero />
-        <View style={{ paddingHorizontal: 10 }}>
+        <View style={styles.cardsContainer}>
           <Statistics />
         </View>
       </ScrollView>
@@ -43,6 +43,9 @@ const Home = observer((props: NavigationProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  cardsContainer: {
+    paddingHorizontal: 10,
   },
   fab: {
     position: 'absolute',
