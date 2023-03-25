@@ -3,11 +3,11 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { FAB } from 'react-native-paper';
 import { observer } from 'mobx-react';
 import accountStore from 'store/common/account';
-// import store from 'store/screens/home';
+import Hero from './Hero';
 
 // TODO: homepage design, stats, dailyStory, my participations
 
@@ -18,6 +18,9 @@ const Home = observer((props: NavigationProps) => {
   const { t } = useTranslation('screens', { keyPrefix: 'home' });
   return (
     <View style={styles.container}>
+      <ScrollView>
+        <Hero />
+      </ScrollView>
       <FAB
         icon="pencil-plus"
         label={t('participate')}

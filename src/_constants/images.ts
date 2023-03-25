@@ -7,4 +7,8 @@ export default {
     slide5: require('../../assets/onboarding/slide5.png'),
     slide6: require('../../assets/onboarding/slide6.png'),
   },
+
+  home: {
+    treeBackground: require('../../assets/home/treeBackground.jpg'),
+  },
 };
