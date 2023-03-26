@@ -12,8 +12,7 @@ import store from 'store/screens/home';
 import Hero from './Hero';
 import Statistics from './Statistics';
 import DailyStory from './DailyStory';
-
-// TODO:  dailyStory, my participations
+import MyLibrary from './MyLibrary';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -35,6 +34,7 @@ const Home = observer((props: NavigationProps) => {
         <View style={styles.cardsContainer}>
           <Statistics />
           <DailyStory />
+          <MyLibrary />
         </View>
       </ScrollView>
       <FAB

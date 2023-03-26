@@ -19,6 +19,10 @@ export type HomeScreenDefinition = {
     subtitle: string,
     error: string,
   },
+  myLibrary: {
+    title: string,
+    subtitle: string,
+  },
 };
 
 const fr: HomeScreenDefinition = {
@@ -42,6 +46,10 @@ const fr: HomeScreenDefinition = {
     subtitle: "Une nouvelle histoire tous les jours à minuit !",
     error: "Une erreur est survenue",
   },
+  myLibrary: {
+    title: "Bibliothèque",
+    subtitle: "Retrouve toutes tes histoires",
+  },
 };
 
 const en: HomeScreenDefinition = {
@@ -64,6 +72,10 @@ const en: HomeScreenDefinition = {
     title: "Today's story",
     subtitle: "A new story every day at midnight!",
     error: "Something went wrong",
+  },
+  myLibrary: {
+    title: "Library",
+    subtitle: "Find all your stories",
   },
 };
 
