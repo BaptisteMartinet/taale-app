@@ -3,6 +3,8 @@ export type AppDefinition = {
     login: string,
     register: string,
     partialStory: string,
+    storyViewer: string,
+    library: string,
   },
 };
 
@@ -11,6 +13,8 @@ const fr: AppDefinition = {
     login: "Se connecter",
     register: "Créer un compte",
     partialStory: "Participer",
+    storyViewer: "Lecteur",
+    library: "Bibliothèque",
   },
 };
 
@@ -19,6 +23,8 @@ const en: AppDefinition = {
     login: "Login",
     register: "Register",
     partialStory: "Participate",
+    storyViewer: "Reader",
+    library: "Library",
   },
 };
 

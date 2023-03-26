@@ -32,7 +32,7 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const Navigator = observer(() => {
-  const { t } = useTranslation('common', { keyPrefix: 'app' });
+  const { t } = useTranslation('common', { keyPrefix: 'app.screens' });
   if (AppStore.loading)
     return <Loading />;
   return (
@@ -54,13 +54,13 @@ const Navigator = observer(() => {
         }}
       >
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} listeners={{ focus: homeHandler }} />
-        <Stack.Screen name="Login" component={Login} options={{ title: t('screens.login') }} />
-        <Stack.Screen name="Register" component={Register} options={{ title: t('screens.register') }} />
+        <Stack.Screen name="Login" component={Login} options={{ title: t('login') }} />
+        <Stack.Screen name="Register" component={Register} options={{ title: t('register') }} />
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
-        <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: t('screens.partialStory') }} listeners={{ focus: partialStoryHandler }} />
+        <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: t('partialStory') }} listeners={{ focus: partialStoryHandler }} />
         <Stack.Screen name="ParticipationSuccess" component={ParticipationSuccess} options={{ headerShown: false }} />
-        <Stack.Screen name="StoryViewer" component={StoryViewer} />
-        <Stack.Screen name="Library" component={Library} />
+        <Stack.Screen name="StoryViewer" component={StoryViewer} options={{ title: t('storyViewer') }} />
+        <Stack.Screen name="Library" component={Library} options={{ title: t('library') }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
