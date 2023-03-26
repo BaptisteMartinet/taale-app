@@ -1,4 +1,5 @@
 import { makeObservable, observable, action } from 'mobx';
+import { handleWithSnack } from 'core/utils/promises';
 import accountStore from 'store/common/account';
 import onboardingStore from 'store/screens/onboarding';
 
@@ -10,7 +11,8 @@ class AppStore {
       loading: observable,
       setLoaded: action,
     });
-    this.refresh().catch((e => console.error(e))); // TODO error snack
+    const promise = this.refresh();
+    handleWithSnack(promise, { successMessage: null, errorMessage: true });
   }
 
   public setLoaded() {
