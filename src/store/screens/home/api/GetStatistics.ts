@@ -28,5 +28,5 @@ export type GetStatisticsResponse = {
 };
 
 export default function GetStatistics() {
-  return apolloClient.query<GetStatisticsResponse>({ query });
+  return apolloClient.query<GetStatisticsResponse>({ query, fetchPolicy: 'no-cache' });
 }
