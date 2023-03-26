@@ -6,3 +6,4 @@ export { default as Onboarding } from './Onboarding';
 export { default as PartialStory } from './PartialStory';
 export { default as ParticipationSuccess } from './ParticipationSuccess';
 export { default as StoryViewer } from './StoryViewer';
+export { default as Library } from './Library';
