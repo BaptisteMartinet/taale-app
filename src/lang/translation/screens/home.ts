@@ -43,7 +43,7 @@ const fr: HomeScreenDefinition = {
   },
   dailyStory: {
     title: "L'histoire du jour",
-    subtitle: "Une nouvelle histoire tous les jours à minuit !",
+    subtitle: "Une nouvelle histoire tous les jours à minuit",
     error: "Une erreur est survenue",
   },
   myLibrary: {
@@ -70,7 +70,7 @@ const en: HomeScreenDefinition = {
   },
   dailyStory: {
     title: "Today's story",
-    subtitle: "A new story every day at midnight!",
+    subtitle: "A new story every day at midnight",
     error: "Something went wrong",
   },
   myLibrary: {
