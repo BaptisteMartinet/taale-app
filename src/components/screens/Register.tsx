@@ -24,7 +24,7 @@ type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
 const Register = (props: NavigationProps) => {
   const { navigation } = props;
   const { t } = useTranslation('screens', { keyPrefix: 'register' });
-  const [codeValidationModalOpen, setCodeValidationModalOpen] = React.useState(true);
+  const [codeValidationModalOpen, setCodeValidationModalOpen] = React.useState(false);
   const registerVariablesRef = React.useRef<Omit<RegisterVariables, 'emailValidationCode'> | null>(null);
 
   return (
