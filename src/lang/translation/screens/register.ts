@@ -11,23 +11,23 @@ export type RegisterScreenDefinition = {
 
 const fr: RegisterScreenDefinition = {
   form: {
-    headlineTitle: 'Bienvenue sur Taale',
-    headlineDescription: 'Créer votre compte',
+    headlineTitle: "Bienvenue sur Taale",
+    headlineDescription: "Créer votre compte",
     username: "Nom d'utilisateur",
-    email: 'Email',
-    password: 'Mot de passe',
-    submit: 'Créer mon compte',
+    email: "Email",
+    password: "Mot de passe",
+    submit: "Créer mon compte",
   },
 };
 
 const en: RegisterScreenDefinition = {
   form: {
-    headlineTitle: 'Welcome to Taale!',
-    headlineDescription: 'Create an account',
-    username: 'Username',
-    email: 'Email',
-    password: 'Password',
-    submit: 'Sign Up',
+    headlineTitle: "Welcome to Taale!",
+    headlineDescription: "Create an account",
+    username: "Username",
+    email: "Email",
+    password: "Password",
+    submit: "Sign Up",
   },
 };
 
