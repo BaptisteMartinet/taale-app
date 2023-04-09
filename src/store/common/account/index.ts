@@ -20,7 +20,7 @@ class AccountStore {
     this.user = user;
   }
 
-  async login(variables: LoginVariables) {
+  public async login(variables: LoginVariables) {
     const { data } = await loginMutation(variables);
     assert(data);
     const { user, token } = data.public.account.login;
@@ -28,7 +28,7 @@ class AccountStore {
     await SecureStore.setItemAsync(AuthTokenKey, token);
   }
 
-  register(variables: RegisterVariables) {
+  public register(variables: RegisterVariables) {
     return RegisterMutation(variables);
   }
 
