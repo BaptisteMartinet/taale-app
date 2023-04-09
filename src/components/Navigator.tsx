@@ -3,7 +3,11 @@ import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { homeHandler, partialStoryHandler } from 'store/handlers';
+import {
+  homeHandler,
+  partialStoryHandler,
+  libraryHandler,
+} from 'store/handlers';
 import AppStore from 'store/common/app';
 import OnboardingStore from 'store/screens/onboarding';
 import {
@@ -60,7 +64,7 @@ const Navigator = observer(() => {
         <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: t('partialStory') }} listeners={{ focus: partialStoryHandler }} />
         <Stack.Screen name="ParticipationSuccess" component={ParticipationSuccess} options={{ headerShown: false }} />
         <Stack.Screen name="StoryViewer" component={StoryViewer} options={{ title: t('storyViewer') }} />
-        <Stack.Screen name="Library" component={Library} options={{ title: t('library') }} />
+        <Stack.Screen name="Library" component={Library} options={{ title: t('library') }} listeners={{ focus: libraryHandler }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
