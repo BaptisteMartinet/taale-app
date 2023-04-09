@@ -11,9 +11,9 @@ import { handleWithSnack } from 'core/utils/promises';
 import store from 'store/common/account';
 
 const RegisterValidationSchema = Yup.object().shape({
-  username: Yup.string().required().min(2).max(30),
-  email: Yup.string().required().email(),
-  password: Yup.string().required().min(6),
+  username: Yup.string().min(2).max(30).required(),
+  email: Yup.string().email().required(),
+  password: Yup.string().min(6).required(),
 });
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
