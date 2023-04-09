@@ -7,6 +7,7 @@ import { AuthTokenKey } from '_constants';
 import {
   loginMutation,
   UsernameAvailability,
+  VerifyEmail,
   RegisterMutation,
   GetAccount,
 } from './api';
@@ -41,6 +42,10 @@ class AccountStore {
   public async usernameAvailability(username: string): Promise<boolean> {
     const res = await UsernameAvailability({ username });
     return res.data.public.account.usernameAvailability;
+  }
+
+  public verifyEmail(email: string) {
+    return VerifyEmail({ email });
   }
 
   public async refreshAccount() {

@@ -20,3 +20,8 @@ export {
   type UsernameAvailabilityVariables,
   type UsernameAvailabilityResponse,
 } from './UsernameAvailability';
+
+export {
+  default as VerifyEmail,
+  type VerifyEmailVariables,
+} from './VerifyEmail';
