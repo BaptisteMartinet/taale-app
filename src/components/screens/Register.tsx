@@ -10,13 +10,19 @@ import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { handleWithSnack } from 'core/utils/promises';
+import {
+  UsernameMinLength,
+  UsernameMaxLength,
+  PasswordMinLength,
+  EmailVerificationCodeLength,
+} from 'core/constants';
 import { CodeValidationModal } from 'components/common';
 import store from 'store/common/account';
 
 const RegisterValidationSchema = Yup.object().shape({
-  username: Yup.string().min(2).max(30).required(),
+  username: Yup.string().min(UsernameMinLength).max(UsernameMaxLength).required(),
   email: Yup.string().email().required(),
-  password: Yup.string().min(6).required(),
+  password: Yup.string().min(PasswordMinLength).required(),
 });
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
@@ -100,7 +106,7 @@ const Register = (props: NavigationProps) => {
       </Formik>
       <CodeValidationModal
         visible={codeValidationModalOpen}
-        codeLength={4}
+        codeLength={EmailVerificationCodeLength}
         onResendCode={() => {
           const email = registerVariablesRef.current?.email;
           assert(email !== undefined)
