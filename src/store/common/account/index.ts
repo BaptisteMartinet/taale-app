@@ -4,7 +4,12 @@ import assert from 'assert';
 import * as SecureStore from 'expo-secure-store';
 import { action, makeObservable, observable } from 'mobx';
 import { AuthTokenKey } from '_constants';
-import { loginMutation, RegisterMutation, GetAccount } from './api';
+import {
+  loginMutation,
+  UsernameAvailability,
+  RegisterMutation,
+  GetAccount,
+} from './api';
 
 class AccountStore {
   user: User | null = null;
@@ -30,6 +35,12 @@ class AccountStore {
 
   public register(variables: RegisterVariables) {
     return RegisterMutation(variables);
+  }
+
+  // Note: use this for username validation on register screen
+  public async usernameAvailability(username: string): Promise<boolean> {
+    const res = await UsernameAvailability({ username });
+    return res.data.public.account.usernameAvailability;
   }
 
   public async refreshAccount() {

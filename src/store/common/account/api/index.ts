@@ -14,3 +14,9 @@ export {
   default as GetAccount,
   type GetAccountResponse,
 } from './GetAccount';
+
+export {
+  default as UsernameAvailability,
+  type UsernameAvailabilityVariables,
+  type UsernameAvailabilityResponse,
+} from './UsernameAvailability';
