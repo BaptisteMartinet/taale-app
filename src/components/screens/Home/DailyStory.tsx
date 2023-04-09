@@ -17,10 +17,9 @@ const DailyStory = () => {
       style={styles.container}
       onPress={() => {
         const storyId = store.dailyStory?.id;
-        if (storyId !== undefined)
-          navigation.navigate('StoryViewer', { storyId });
-        else
-          snackbarStore.display(t('error'));
+        if (storyId === undefined)
+          return snackbarStore.display(t('error'));
+        navigation.navigate('StoryViewer', { storyId });
       }}
     >
       <Card.Title
