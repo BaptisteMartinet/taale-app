@@ -1,6 +1,8 @@
 import type { RootStackParamList } from 'components/Navigator';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RegisterVariables } from 'store/common/account/api';
 
+import assert from 'assert';
 import React from 'react';
 import { StyleSheet, View, Keyboard } from 'react-native';
 import { TextInput, Button, Text } from 'react-native-paper';
@@ -8,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { handleWithSnack } from 'core/utils/promises';
+import { CodeValidationModal } from 'components/common';
 import store from 'store/common/account';
 
 const RegisterValidationSchema = Yup.object().shape({
@@ -18,10 +21,12 @@ const RegisterValidationSchema = Yup.object().shape({
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
-// todo validation code popup
-
 const Register = (props: NavigationProps) => {
+  const { navigation } = props;
   const { t } = useTranslation('screens', { keyPrefix: 'register' });
+  const [codeValidationModalOpen, setCodeValidationModalOpen] = React.useState(true);
+  const registerVariablesRef = React.useRef<Omit<RegisterVariables, 'emailValidationCode'> | null>(null);
+
   return (
     <View style={styles.container}>
       <Formik
@@ -34,9 +39,11 @@ const Register = (props: NavigationProps) => {
         onSubmit={values => {
           const { email } = values;
           Keyboard.dismiss();
+          registerVariablesRef.current = values;
           const promise = store.verifyEmail(email);
           handleWithSnack(promise, {
             successMessage: null,
+            onSuccess: () => setCodeValidationModalOpen(true),
             errorMessage: true,
           });
         }}
@@ -50,6 +57,7 @@ const Register = (props: NavigationProps) => {
             <TextInput
               label={t('form.username')}
               mode="outlined"
+              textContentType="username"
               right={<TextInput.Icon icon="account-circle" />}
               style={styles.textField}
               value={values.username}
@@ -60,6 +68,7 @@ const Register = (props: NavigationProps) => {
               label={t('form.email')}
               mode="outlined"
               keyboardType="email-address"
+              textContentType="emailAddress"
               right={<TextInput.Icon icon="email" />}
               style={styles.textField}
               value={values.email}
@@ -70,6 +79,7 @@ const Register = (props: NavigationProps) => {
               label={t('form.password')}
               mode="outlined"
               secureTextEntry
+              textContentType="password"
               right={<TextInput.Icon icon="lock" />}
               style={styles.textField}
               value={values.password}
@@ -88,6 +98,26 @@ const Register = (props: NavigationProps) => {
           </View>
         )}
       </Formik>
+      <CodeValidationModal
+        visible={codeValidationModalOpen}
+        codeLength={4}
+        onResendCode={() => { }}
+        onCodeCompleted={(emailValidationCode) => {
+          assert(registerVariablesRef.current !== null);
+          const promise = store.register({
+            emailValidationCode,
+            ...registerVariablesRef.current,
+          });
+          handleWithSnack(promise, {
+            successMessage: null,
+            onSuccess: () => {
+              setCodeValidationModalOpen(false);
+              navigation.navigate('Login');
+            },
+            errorMessage: true,
+          });
+        }}
+      />
     </View>
   );
 };
