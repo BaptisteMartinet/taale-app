@@ -15,6 +15,7 @@ export interface ValidationCodeModalProps extends Omit<ModalProps, 'children' | 
 const CodeValidationModal = (props: ValidationCodeModalProps) => {
   const { codeLength, onCodeChange, onCodeCompleted, onResendCode, ...passedProps } = props;
   const { t } = useTranslation('common', { keyPrefix: 'codeValidationModal' });
+  const [codeTextInputDisabled, setCodeTextInputDisabled] = React.useState(false);
   const [resendBtnDisabled, setResendBtnDisabled] = React.useState(false);
   const placeholderStr = React.useMemo(() => ''.padStart(codeLength, '-'), [codeLength]);
 
@@ -32,14 +33,18 @@ const CodeValidationModal = (props: ValidationCodeModalProps) => {
         maxLength={codeLength}
         onChangeText={text => {
           onCodeChange?.(text);
-          if (text.length >= codeLength)
+          if (text.length >= codeLength) {
+            setCodeTextInputDisabled(true);
             onCodeCompleted?.(text);
+          }
         }}
+        disabled={codeTextInputDisabled}
       />
       <Button
         icon="reload"
         style={styles.resendCodeBtn}
         onPress={() => {
+          setCodeTextInputDisabled(false);
           setResendBtnDisabled(true);
           setTimeout(() => {
             setResendBtnDisabled(false);
