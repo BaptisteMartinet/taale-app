@@ -9,12 +9,12 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext(async (_, { headers }) => {
-  const token = await SecureStore.getItemAsync(AuthTokenKey);
   if (headers === undefined)
     headers = {};
-  headers['content-language'] = i18n.language;
+  const token = await SecureStore.getItemAsync(AuthTokenKey);
   if (token !== null)
-    headers['authorization'] = `Bearer ${token}`;
+    headers.authorization = `Bearer ${token}`;
+  headers['content-language'] = i18n.language;
   return { headers };
 });
 
