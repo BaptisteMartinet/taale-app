@@ -101,7 +101,15 @@ const Register = (props: NavigationProps) => {
       <CodeValidationModal
         visible={codeValidationModalOpen}
         codeLength={4}
-        onResendCode={() => { }}
+        onResendCode={() => {
+          const email = registerVariablesRef.current?.email;
+          assert(email !== undefined)
+          const promise = store.resendEmailVerificationCode(email);
+          handleWithSnack(promise, {
+            successMessage: null,
+            errorMessage: true,
+          });
+        }}
         onCodeCompleted={(emailValidationCode) => {
           assert(registerVariablesRef.current !== null);
           const promise = store.register({
