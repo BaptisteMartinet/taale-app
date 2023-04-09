@@ -18,8 +18,9 @@ const RegisterValidationSchema = Yup.object().shape({
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
+// todo validation code popup
+
 const Register = (props: NavigationProps) => {
-  const { navigation } = props;
   const { t } = useTranslation('screens', { keyPrefix: 'register' });
   return (
     <View style={styles.container}>
@@ -31,12 +32,12 @@ const Register = (props: NavigationProps) => {
         }}
         validationSchema={RegisterValidationSchema}
         onSubmit={values => {
+          const { email } = values;
           Keyboard.dismiss();
-          const promise = store.register(values);
+          const promise = store.verifyEmail(email);
           handleWithSnack(promise, {
             successMessage: null,
             errorMessage: true,
-            onSuccess: () => { navigation.navigate('Login'); },
           });
         }}
       >
