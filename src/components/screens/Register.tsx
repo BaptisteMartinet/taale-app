@@ -117,7 +117,7 @@ const Register = (props: NavigationProps) => {
             ...registerVariablesRef.current,
           });
           handleWithSnack(promise, {
-            successMessage: null,
+            successMessage: t('registerSucces'),
             onSuccess: () => {
               setCodeValidationModalOpen(false);
               navigation.navigate('Login');

@@ -6,6 +6,7 @@ export type RegisterScreenDefinition = {
     email: string,
     password: string,
     submit: string,
+    registerSucces: string,
   },
 };
 
@@ -17,6 +18,7 @@ const fr: RegisterScreenDefinition = {
     email: "Email",
     password: "Mot de passe",
     submit: "Créer mon compte",
+    registerSucces: "Compte créé avec succès",
   },
 };
 
@@ -28,6 +30,7 @@ const en: RegisterScreenDefinition = {
     email: "Email",
     password: "Password",
     submit: "Sign Up",
+    registerSucces: "Account successfully created",
   },
 };
 
