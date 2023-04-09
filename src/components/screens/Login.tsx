@@ -48,6 +48,7 @@ const Login = (props: NavigationProps) => {
               label={t('form.email')}
               mode="outlined"
               keyboardType="email-address"
+              textContentType="emailAddress"
               right={<TextInput.Icon icon="email" />}
               style={styles.textField}
               value={values.email}
@@ -58,6 +59,7 @@ const Login = (props: NavigationProps) => {
               label={t('form.password')}
               mode="outlined"
               secureTextEntry
+              textContentType="password"
               right={<TextInput.Icon icon="lock" />}
               style={styles.textField}
               value={values.password}
