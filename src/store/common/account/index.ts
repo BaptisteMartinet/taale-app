@@ -3,7 +3,7 @@ import type { User, LoginVariables, RegisterVariables } from './api';
 import assert from 'assert';
 import * as SecureStore from 'expo-secure-store';
 import { action, makeObservable, observable } from 'mobx';
-import { AuthTokenKey } from '_constants';
+import { AuthTokenKey } from 'core/constants';
 import {
   loginMutation,
   UsernameAvailability,

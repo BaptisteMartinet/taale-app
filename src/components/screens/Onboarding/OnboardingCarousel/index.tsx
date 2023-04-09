@@ -3,7 +3,7 @@ import type { OnboardingItemProps } from './OnboardingItem';
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { Images } from '_constants';
+import { Images } from 'core/constants';
 import OnboardingItem from './OnboardingItem';
 import Paginator from './Paginator';
 
