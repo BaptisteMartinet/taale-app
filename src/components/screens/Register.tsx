@@ -1,5 +1,5 @@
-import type { RootStackParamList } from 'components/Navigator';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RootStackParamList } from 'components/Navigator';
 import type { RegisterVariables } from 'store/common/account/api';
 
 import assert from 'assert';
