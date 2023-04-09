@@ -25,3 +25,8 @@ export {
   default as VerifyEmail,
   type VerifyEmailVariables,
 } from './VerifyEmail';
+
+export {
+  default as ResendEmailVerificationCode,
+  type ResendEmailVerificationCodeVariables,
+} from './ResendEmailVerificationCode';

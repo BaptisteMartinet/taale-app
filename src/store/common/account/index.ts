@@ -8,6 +8,7 @@ import {
   loginMutation,
   UsernameAvailability,
   VerifyEmail,
+  ResendEmailVerificationCode,
   RegisterMutation,
   GetAccount,
 } from './api';
@@ -46,6 +47,10 @@ class AccountStore {
 
   public verifyEmail(email: string) {
     return VerifyEmail({ email });
+  }
+
+  public resendEmailVerificationCode(email: string) {
+    return ResendEmailVerificationCode({ email });
   }
 
   public async refreshAccount() {
