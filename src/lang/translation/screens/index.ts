@@ -4,6 +4,7 @@ import onboarding, { type OnboardingScreenDefinition } from './onboarding';
 import home, { type HomeScreenDefinition } from './home';
 import partialStory, { type PartialStoryScreenDefinition } from './partialStory';
 import participationSuccess, { type ParticipationSuccessScreenDefinition } from './participationSuccess';
+import library, { type LibraryDefinition } from './library';
 
 export type ScreensDefinition = {
   login: LoginScreenDefinition,
@@ -12,6 +13,7 @@ export type ScreensDefinition = {
   home: HomeScreenDefinition,
   partialStory: PartialStoryScreenDefinition,
   participationSuccess: ParticipationSuccessScreenDefinition,
+  library: LibraryDefinition,
 }
 
 const fr: ScreensDefinition = {
@@ -21,6 +23,7 @@ const fr: ScreensDefinition = {
   home: home.fr,
   partialStory: partialStory.fr,
   participationSuccess: participationSuccess.fr,
+  library: library.fr,
 };
 
 const en: ScreensDefinition = {
@@ -30,6 +33,7 @@ const en: ScreensDefinition = {
   home: home.en,
   partialStory: partialStory.en,
   participationSuccess: participationSuccess.en,
+  library: library.en,
 };
 
 export default {

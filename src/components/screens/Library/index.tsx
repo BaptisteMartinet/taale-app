@@ -5,21 +5,28 @@ import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import { Text } from 'react-native-paper';
 import { observer } from 'mobx-react';
+import { useTranslation } from 'react-i18next';
 import store from 'store/screens/library';
 import StoryPreview from './StoryPreview';
-
-// TODO message when list is empty and translation
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Library'>;
 
 const Library = observer((props: NavigationProps) => {
+  const { t } = useTranslation('screens', { keyPrefix: 'library' });
   return (
     <View style={styles.container}>
-      <Text variant="titleMedium" style={styles.infoText}>Vous trouverez ici toutes les histoires auxquelles vous avez participé.</Text>
       <FlatList
         data={store.stories}
         renderItem={({ item }) => <StoryPreview story={item} />}
         keyExtractor={item => item.id.toString()}
+        ListHeaderComponent={
+          <Text
+            variant="titleMedium"
+            style={styles.infoText}
+          >
+            {t('pageInfo')}
+          </Text>
+        }
       />
     </View>
   );
