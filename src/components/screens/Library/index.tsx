@@ -2,10 +2,11 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
 import { Text } from 'react-native-paper';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
+import { handleWithSnack } from 'core/utils/promises';
 import store from 'store/screens/library';
 import StoryPreview from './StoryPreview';
 
@@ -19,6 +20,15 @@ const Library = observer((props: NavigationProps) => {
         data={store.stories}
         renderItem={({ item }) => <StoryPreview story={item} />}
         keyExtractor={item => item.id.toString()}
+        refreshControl={
+          <RefreshControl
+            refreshing={store.loading}
+            onRefresh={() => {
+              const promise = store.refresh();
+              handleWithSnack(promise, { successMessage: null, errorMessage: true });
+            }}
+          />
+        }
         ListHeaderComponent={
           <Text
             variant="titleMedium"
