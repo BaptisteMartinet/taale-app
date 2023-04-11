@@ -17,12 +17,12 @@ const Library = observer((props: NavigationProps) => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={store.stories}
+        data={store.stories.result?.data.authenticated.myStories}
         renderItem={({ item }) => <StoryPreview story={item} />}
         keyExtractor={item => item.id.toString()}
         refreshControl={
           <RefreshControl
-            refreshing={store.loading}
+            refreshing={store.stories.loading}
             onRefresh={() => {
               const promise = store.refresh();
               handleWithSnack(promise, { successMessage: null, errorMessage: true });
