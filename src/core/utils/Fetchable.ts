@@ -50,21 +50,21 @@ class Fetchable<ArgsType extends any[], ResultType> {
   public async ensureSuccessReload(...args: ArgsType) {
     const { thenUnhandled, catchUnhandled } = this.opts;
     this.setStatus('pending');
-    return this.fetch(...args).then((res => (
+    return this.fetch(...args).then((res => {
       runInAction(() => {
         this.setResult(res);
         this.setError(undefined);
         this.setStatus('success');
-        thenUnhandled?.(res);
-        return res;
-      })
-    ))).catch(error => {
+      });
+      thenUnhandled?.(res);
+      return res;
+    })).catch(error => {
       runInAction(() => {
         this.setResult(undefined);
         this.setError(error);
         this.setStatus('error');
-        catchUnhandled?.(error);
       });
+      catchUnhandled?.(error);
       throw error;
     });
   }
