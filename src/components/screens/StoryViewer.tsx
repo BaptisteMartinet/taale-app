@@ -3,8 +3,11 @@ import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
+import { Text } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';
 import { observer } from 'mobx-react';
+import { useTranslation } from 'react-i18next';
+import { format } from 'date-fns';
 import { handleWithSnack } from 'core/utils/promises';
 import { SentencesList } from 'components/common';
 import store from 'store/screens/story-viewer';
@@ -19,9 +22,23 @@ const StoryViewer = observer((props: NavigationProps) => {
       handleWithSnack(promise, { successMessage: null, errorMessage: true });
     }, [storyId])
   );
+  const { t } = useTranslation('screens', { keyPrefix: 'storyViewer' });
+  const story = store.story.result;
+
   return (
     <SafeAreaView style={styles.container}>
-      <SentencesList data={store.story.result?.sentences} disableControls />
+      <SentencesList
+        data={story?.sentences}
+        disableControls
+        style={styles.sentencesList}
+        ListHeaderComponent={
+          (story?.createdAt !== undefined ? (
+            <Text variant="labelMedium" style={styles.dateHeader}>
+              {`${t('completedTitle')} ${format(story.createdAt, t('dateFormat'))}`}
+            </Text>
+          ) : null)
+        }
+      />
     </SafeAreaView>
   );
 });
@@ -29,6 +46,13 @@ const StoryViewer = observer((props: NavigationProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  sentencesList: {
+    padding: 20,
+  },
+  dateHeader: {
+    textAlign: 'center',
+    marginVertical: 10,
   },
 });
 

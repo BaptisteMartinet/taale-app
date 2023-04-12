@@ -5,6 +5,7 @@ import home, { type HomeScreenDefinition } from './home';
 import partialStory, { type PartialStoryScreenDefinition } from './partialStory';
 import participationSuccess, { type ParticipationSuccessScreenDefinition } from './participationSuccess';
 import library, { type LibraryDefinition } from './library';
+import storyViewer, { type StoryViewerDefinition } from './storyViewer';
 
 export type ScreensDefinition = {
   login: LoginScreenDefinition,
@@ -14,6 +15,7 @@ export type ScreensDefinition = {
   partialStory: PartialStoryScreenDefinition,
   participationSuccess: ParticipationSuccessScreenDefinition,
   library: LibraryDefinition,
+  storyViewer: StoryViewerDefinition,
 }
 
 const fr: ScreensDefinition = {
@@ -24,6 +26,7 @@ const fr: ScreensDefinition = {
   partialStory: partialStory.fr,
   participationSuccess: participationSuccess.fr,
   library: library.fr,
+  storyViewer: storyViewer.fr,
 };
 
 const en: ScreensDefinition = {
@@ -34,6 +37,7 @@ const en: ScreensDefinition = {
   partialStory: partialStory.en,
   participationSuccess: participationSuccess.en,
   library: library.en,
+  storyViewer: storyViewer.en,
 };
 
 export default {
