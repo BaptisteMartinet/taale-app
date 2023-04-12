@@ -21,6 +21,7 @@ class Fetchable<ArgsType extends any[], ResultType> {
       setError: action,
       setStatus: action,
       loading: computed,
+      reset: action,
     });
   }
 
@@ -38,6 +39,15 @@ class Fetchable<ArgsType extends any[], ResultType> {
 
   public get loading() {
     return this.status === 'pending';
+  }
+
+  /**
+   * Resets the Fetchable to its uninitialized state
+   */
+  public reset() {
+    this.setResult(undefined);
+    this.setError(undefined);
+    this.setStatus('uninitialized');
   }
 
   /**
