@@ -8,14 +8,18 @@ import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import {
+  SentenceTextMinLength,
+  SentenceTextMaxLength,
+} from 'core/constants';
 import { handleWithSnack } from 'core/utils/promises';
 import sentenceStore from 'store/common/sentence';
 import store from 'store/screens/partial-story';
 
 const NewSentenceSchema = Yup.object().shape({
   text: Yup.string()
-    .min(10, 'Too short')
-    .max(280, 'Too long')
+    .min(SentenceTextMinLength, 'Too short')
+    .max(SentenceTextMaxLength, 'Too long')
     .required('Required')
 });
 
