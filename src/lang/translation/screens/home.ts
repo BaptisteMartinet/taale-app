@@ -35,7 +35,7 @@ const fr: HomeScreenDefinition = {
     title: "Taale en chiffres",
     stats: {
       users: "Utilisateurs",
-      trees: "Arbres",
+      trees: "Arbres (Langues supportées)",
       stories: "Branches (Histoires crées)",
       sentences: "Feuilles (Paragraphes écrits)",
     },
@@ -62,7 +62,7 @@ const en: HomeScreenDefinition = {
     title: "Statistics",
     stats: {
       users: "Users",
-      trees: "Trees",
+      trees: "Trees (Supported languages)",
       stories: "Branches (Stories)",
       sentences: "Leafs (Written paragraphs)",
     },
