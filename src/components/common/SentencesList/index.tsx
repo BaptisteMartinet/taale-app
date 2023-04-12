@@ -2,7 +2,7 @@ import type { FlatListProps } from 'react-native';
 import type { Sentence as SentenceT } from './Sentence';
 
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 import { ActivityIndicator, Divider } from 'react-native-paper';
 import Sentence from './Sentence';
 
@@ -19,7 +19,6 @@ const SentencesList = (props: SentencesListProps) => {
   return (
     <FlatList
       {...passedProps}
-      style={styles.container}
       renderItem={({ item }) => (
         <Sentence
           sentence={item}
@@ -34,11 +33,5 @@ const SentencesList = (props: SentencesListProps) => {
     />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-  },
-});
 
 export default SentencesList;
