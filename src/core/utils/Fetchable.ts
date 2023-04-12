@@ -40,13 +40,19 @@ class Fetchable<ArgsType extends any[], ResultType> {
     return this.status === 'pending';
   }
 
+  /**
+   * Return the last result, reload otherwise.
+   */
   public ensureSuccess(...args: ArgsType) {
     if (this.status === 'success')
       return this.result as ResultType;
     return this.ensureSuccessReload(...args);
   }
 
-  // TODO This has some race conditions issues when a promise is already pending
+  /**
+   * Reload and returns the result.
+   * Does not handle race conditions between reloads
+   */
   public async ensureSuccessReload(...args: ArgsType) {
     const { thenUnhandled, catchUnhandled } = this.opts;
     this.setStatus('pending');
