@@ -51,7 +51,7 @@ const Sentence = (props: SentenceProps) => {
         title={t('report')}
         disabled={disableControls}
         onPress={() => {
-          const promise = sentenceStore.report(sentence.id);
+          const promise = sentenceStore.report({ sentenceId: sentence.id });
           handleWithSnack(promise, {
             successMessage: t('reportSuccessfull'),
             onSuccess: () => {
@@ -66,7 +66,7 @@ const Sentence = (props: SentenceProps) => {
         title={t('markCompleted')}
         disabled={disableControls}
         onPress={() => {
-          const promise = sentenceStore.markCompleted(sentence.id);
+          const promise = sentenceStore.markCompleted({ sentenceId: sentence.id });
           handleWithSnack(promise, {
             successMessage: t('markCompletedSuccessfull'),
             onSuccess: () => {
