@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { handleWithSnack } from 'core/utils/promises';
 import store from 'store/screens/library';
 import StoryPreview from './StoryPreview';
+import EmptyLibrary from './EmptyLibrary';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Library'>;
 
@@ -37,6 +38,7 @@ const Library = observer((props: NavigationProps) => {
             {t('pageInfo')}
           </Text>
         }
+        ListEmptyComponent={<EmptyLibrary />}
       />
     </View>
   );
