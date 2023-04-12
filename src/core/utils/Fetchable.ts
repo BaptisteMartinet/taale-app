@@ -12,7 +12,7 @@ class Fetchable<ArgsType extends any[], ResultType> {
   public error: Error | undefined = undefined;
   public status: FetchableStatus = 'uninitialized';
 
-  constructor(private fetch: (...args: ArgsType) => Promise<ResultType>, private opts: FetchableOpts<ResultType>) {
+  constructor(private fetch: (...args: ArgsType) => Promise<ResultType>, private opts: FetchableOpts<ResultType> = {}) {
     makeObservable(this, {
       result: observable,
       error: observable,
