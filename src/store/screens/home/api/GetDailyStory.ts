@@ -23,6 +23,7 @@ export type DailyStoryResponse = {
   },
 };
 
-export default function GetDailyStory() {
-  return apolloClient.query<DailyStoryResponse>({ query });
+export default async function GetDailyStory() {
+  const res = await apolloClient.query<DailyStoryResponse>({ query });
+  return res.data.public.dailyStory;
 }

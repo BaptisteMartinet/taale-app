@@ -1,25 +1,11 @@
-import type { Story } from './api';
-
-import { makeObservable, observable, action } from 'mobx';
+import Fetchable from 'core/utils/Fetchable';
 import { GetStory } from './api';
 
 class StoryViewerStore {
-  public story: Story | null = null;
-
-  constructor() {
-    makeObservable(this, {
-      story: observable,
-      setStory: action,
-    });
-  }
-
-  setStory(story: Story) {
-    this.story = story;
-  }
+  public story = new Fetchable(GetStory, { catchUnhandled: console.error });
 
   public async refresh(storyId: number) {
-    const res = await GetStory({ storyId });
-    this.setStory(res.data.public.story);
+    await this.story.ensureSuccessReload({ storyId });
   }
 }
 

@@ -1,45 +1,15 @@
-import type { Story, StatisticsQuery } from './api';
-
-import { action, makeObservable, observable } from 'mobx';
+import Fetchable from 'core/utils/Fetchable';
 import { GetDailyStory, GetStatistics } from './api';
 
 class HomeStore {
-  public loading: boolean = false;
-  public dailyStory: Story | null = null;
-  public statistics: StatisticsQuery | null = null;
-
-  constructor() {
-    makeObservable(this, {
-      loading: observable,
-      dailyStory: observable,
-      statistics: observable,
-      setLoading: action,
-      setDailyStory: action,
-      setStatistics: action,
-    });
-  }
-
-  setLoading(loading: boolean) {
-    this.loading = loading;
-  }
-
-  setDailyStory(story: Story | null) {
-    this.dailyStory = story;
-  }
-
-  setStatistics(statistics: StatisticsQuery) {
-    this.statistics = statistics;
-  }
+  public dailyStory = new Fetchable(GetDailyStory, { catchUnhandled: console.error });
+  public statistics = new Fetchable(GetStatistics, { catchUnhandled: console.error });
 
   public async refresh() {
-    this.setLoading(true);
-    const [dailyStoryRes, statisticsRes] = await Promise.all([
-      GetDailyStory(),
-      GetStatistics(),
+    await Promise.all([
+      this.dailyStory.ensureSuccessReload(),
+      this.statistics.ensureSuccessReload(),
     ]);
-    this.setDailyStory(dailyStoryRes.data.public.dailyStory);
-    this.setStatistics(statisticsRes.data.public.statistics);
-    this.setLoading(false);
   }
 }
 

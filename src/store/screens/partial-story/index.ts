@@ -1,31 +1,25 @@
-import type { Sentence } from './api';
-
-import { makeObservable, observable, action, computed } from 'mobx';
+import { makeObservable, computed } from 'mobx';
+import Fetchable from 'core/utils/Fetchable';
 import { GetPartialStory } from './api';
 
 class PartialStoryStore {
-  public partialStory: Sentence[] | null = null;
+  public partialStory = new Fetchable(GetPartialStory, { catchUnhandled: console.error });
 
   constructor() {
     makeObservable(this, {
-      partialStory: observable,
-      setPartialStory: action,
       lastSentence: computed,
     });
   }
 
   public get lastSentence() {
-    return this.partialStory?.at(-1);
-  }
-
-  public setPartialStory(partialStory: Sentence[] | null) {
-    this.partialStory = partialStory;
+    if (this.partialStory.result === undefined)
+      return null;
+    return this.partialStory.result.at(-1);
   }
 
   public async refresh() {
-    this.setPartialStory(null);
-    const res = await GetPartialStory();
-    this.setPartialStory(res.data.authenticated.partialStory);
+    this.partialStory.reset();
+    this.partialStory.ensureSuccessReload();
   }
 }
 

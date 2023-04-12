@@ -27,6 +27,7 @@ export type GetStatisticsResponse = {
   },
 };
 
-export default function GetStatistics() {
-  return apolloClient.query<GetStatisticsResponse>({ query, fetchPolicy: 'no-cache' });
+export default async function GetStatistics() {
+  const res = await apolloClient.query<GetStatisticsResponse>({ query, fetchPolicy: 'no-cache' });
+  return res.data.public.statistics;
 }

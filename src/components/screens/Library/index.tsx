@@ -17,7 +17,7 @@ const Library = observer((props: NavigationProps) => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={store.stories.result?.data.authenticated.myStories}
+        data={store.stories.result}
         renderItem={({ item }) => <StoryPreview story={item} />}
         keyExtractor={item => item.id.toString()}
         refreshControl={

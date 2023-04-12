@@ -25,6 +25,7 @@ export type MyStoriesResponse = {
   },
 };
 
-export default function MyStories() {
-  return apolloClient.query<MyStoriesResponse>({ query });
+export default async function MyStories() {
+  const res = await apolloClient.query<MyStoriesResponse>({ query });
+  return res.data.authenticated.myStories;
 }

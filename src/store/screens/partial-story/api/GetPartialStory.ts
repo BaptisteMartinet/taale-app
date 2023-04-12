@@ -20,7 +20,7 @@ query PartialStory {
 
 export interface UserRestricted {
   id: number;
-  username: number;
+  username: string;
 }
 
 export interface Sentence {
@@ -36,6 +36,7 @@ export interface PartialStoryResponse {
   },
 }
 
-export default function GetPartialStory() {
-  return apolloClient.query<PartialStoryResponse>({ query, fetchPolicy: 'no-cache' });
+export default async function GetPartialStory() {
+  const res = await apolloClient.query<PartialStoryResponse>({ query, fetchPolicy: 'no-cache' });
+  return res.data.authenticated.partialStory;
 }

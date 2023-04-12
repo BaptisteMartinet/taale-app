@@ -49,6 +49,7 @@ export interface GetStoryVariables {
   storyId: number;
 }
 
-export default function GetStory(variables: GetStoryVariables) {
-  return apolloClient.query<GetStoryResponse>({ query, variables });
+export default async function GetStory(variables: GetStoryVariables) {
+  const res = await apolloClient.query<GetStoryResponse>({ query, variables });
+  return res.data.public.story;
 }

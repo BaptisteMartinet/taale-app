@@ -23,7 +23,7 @@ const Home = observer((props: NavigationProps) => {
     <View style={styles.container}>
       <ScrollView refreshControl={
         <RefreshControl
-          refreshing={store.loading}
+          refreshing={store.dailyStory.loading || store.statistics.loading}
           onRefresh={() => {
             const promise = store.refresh();
             handleWithSnack(promise, { successMessage: null, errorMessage: true });
