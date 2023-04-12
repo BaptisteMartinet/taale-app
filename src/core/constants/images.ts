@@ -11,4 +11,8 @@ export default {
   home: {
     treeBackground: require('../../../assets/home/treeBackground.jpg'),
   },
+
+  misc: {
+    empty: require('../../../assets/mics/void.png'),
+  },
 };
