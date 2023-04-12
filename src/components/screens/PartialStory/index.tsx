@@ -29,7 +29,7 @@ const PartialStory = observer((props: NavigationProps) => {
       >
         <View style={styles.container}>
           <SentencesList
-            sentences={store.partialStory.result ?? []}
+            data={store.partialStory.result}
             onReport={() => navigation.navigate('ParticipationSuccess')}
             onMarkedCompleted={() => navigation.navigate('ParticipationSuccess')}
           />

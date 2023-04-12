@@ -1,3 +1,4 @@
+import type { FlatListProps } from 'react-native';
 import type { Sentence as SentenceT } from './Sentence';
 
 import React from 'react';
@@ -5,19 +6,20 @@ import { FlatList, StyleSheet } from 'react-native';
 import { ActivityIndicator, Divider } from 'react-native-paper';
 import Sentence from './Sentence';
 
-export interface SentencesListProps {
-  sentences: SentenceT[];
+export type OmittedProps = 'renderItem' | 'keyExtractor' | 'ListEmptyComponent' | 'ItemSeparatorComponent';
+
+export interface SentencesListProps extends Omit<FlatListProps<SentenceT>, OmittedProps> {
   disableControls?: boolean;
   onReport?: (sentence: SentenceT) => void,
   onMarkedCompleted?: (sentence: SentenceT) => void,
 }
 
 const SentencesList = (props: SentencesListProps) => {
-  const { sentences, disableControls, onReport, onMarkedCompleted } = props;
+  const { disableControls, onReport, onMarkedCompleted, ...passedProps } = props;
   return (
     <FlatList
+      {...passedProps}
       style={styles.container}
-      data={sentences}
       renderItem={({ item }) => (
         <Sentence
           sentence={item}

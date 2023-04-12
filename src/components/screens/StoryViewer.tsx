@@ -21,7 +21,7 @@ const StoryViewer = observer((props: NavigationProps) => {
   );
   return (
     <SafeAreaView style={styles.container}>
-      <SentencesList sentences={store.story.result?.sentences ?? []} disableControls />
+      <SentencesList data={store.story.result?.sentences} disableControls />
     </SafeAreaView>
   );
 });
