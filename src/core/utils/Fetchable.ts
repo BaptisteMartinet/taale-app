@@ -25,15 +25,15 @@ class Fetchable<ArgsType extends any[], ResultType> {
     });
   }
 
-  setResult(result: typeof this.result) {
+  public setResult(result: typeof this.result) {
     this.result = result;
   }
 
-  setError(error: typeof this.error) {
+  public setError(error: typeof this.error) {
     this.error = error;
   }
 
-  setStatus(status: typeof this.status) {
+  public setStatus(status: typeof this.status) {
     this.status = status;
   }
 
