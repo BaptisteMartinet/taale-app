@@ -51,7 +51,7 @@ class Fetchable<ArgsType extends any[], ResultType> {
   }
 
   /**
-   * Return the last result, reload otherwise.
+   * Returns the last result, reloads otherwise.
    */
   public ensureSuccess(...args: ArgsType) {
     if (this.status === 'success')
@@ -60,7 +60,7 @@ class Fetchable<ArgsType extends any[], ResultType> {
   }
 
   /**
-   * Reload and returns the result.
+   * Reloads and returns the result.
    * Does not handle race conditions between reloads
    */
   public async ensureSuccessReload(...args: ArgsType) {
