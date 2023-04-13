@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: '#fafafa',
-    fontWeight: 'bold',
     lineHeight: 32,
   },
   userTitle: {
