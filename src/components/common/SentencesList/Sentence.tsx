@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text } from 'react-native';
 import { Menu, Divider } from 'react-native-paper';
 import { handleWithSnack } from 'core/utils/promises';
+import accountStore from 'store/common/account';
 import sentenceStore from 'store/common/sentence';
 
 export interface Owner {
@@ -35,7 +36,10 @@ const Sentence = (props: SentenceProps) => {
       onDismiss={() => setMenuVisibility(false)}
       anchor={
         <Text
-          style={styles.text}
+          style={[
+            styles.text,
+            { fontWeight: (sentence.owner.id === accountStore.user?.id ? 'bold' : undefined) }
+          ]}
           onPress={() => setMenuVisibility(true)}
         >
           {sentence.text}
