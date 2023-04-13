@@ -16,7 +16,7 @@ const DailyStory = () => {
     <Card
       style={styles.container}
       onPress={() => {
-        const storyId = store.dailyStory.result?.id;
+        const storyId = store.dailyStory.lastResult?.id;
         if (storyId === undefined)
           return snackbarStore.display(t('error'));
         navigation.navigate('StoryViewer', { storyId });

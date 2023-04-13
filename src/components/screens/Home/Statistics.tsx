@@ -10,7 +10,7 @@ const Statistics = observer(() => {
   const formatValue = (value: number | undefined): string => (
     value !== undefined ? value.toString() : t('nullValue')
   );
-  const statistics = store.statistics.result;
+  const statistics = store.statistics.lastResult;
   return (
     <Card style={styles.container}>
       <Card.Title
