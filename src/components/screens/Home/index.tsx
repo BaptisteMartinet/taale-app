@@ -25,7 +25,7 @@ const Home = observer((props: NavigationProps) => {
         <RefreshControl
           refreshing={store.dailyStory.loading || store.statistics.loading}
           onRefresh={() => {
-            const promise = store.refresh();
+            const promise = store.pullRefresh();
             handleWithSnack(promise, { successMessage: null, errorMessage: true });
           }}
         />

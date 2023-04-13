@@ -5,10 +5,17 @@ class HomeStore {
   public dailyStory = new Fetchable(GetDailyStory, { catchUnhandled: console.error });
   public statistics = new Fetchable(GetStatistics, { catchUnhandled: console.error });
 
-  public async refresh() {
-    await Promise.all([
+  public pullRefresh() {
+    return Promise.all([
       this.dailyStory.ensureSuccessReload(),
       this.statistics.ensureSuccessReload(),
+    ]);
+  }
+
+  public refresh() {
+    return Promise.all([
+      this.dailyStory.ensureSuccess(),
+      this.statistics.ensureSuccess(),
     ]);
   }
 }
