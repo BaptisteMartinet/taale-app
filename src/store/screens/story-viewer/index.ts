@@ -5,7 +5,6 @@ class StoryViewerStore {
   public story = new Fetchable(GetStory, { catchUnhandled: console.error });
 
   public async refresh(storyId: number) {
-    this.story.reset();
     await this.story.ensureSuccessReload({ storyId });
   }
 }

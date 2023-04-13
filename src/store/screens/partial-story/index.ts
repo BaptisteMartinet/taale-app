@@ -18,7 +18,6 @@ class PartialStoryStore {
   }
 
   public async refresh() {
-    this.partialStory.reset();
     this.partialStory.ensureSuccessReload();
   }
 }
