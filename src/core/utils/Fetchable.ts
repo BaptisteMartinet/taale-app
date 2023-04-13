@@ -1,6 +1,6 @@
 import { action, computed, makeObservable, observable, runInAction } from 'mobx';
 
-export type FetchableStatus = 'uninitialized' | 'pending' | 'error' | 'success';
+export type FetchableStatus = 'uninitialized' | 'pending' | 'success' | 'error';
 
 export interface FetchableOpts<ResultType> {
   thenUnhandled?: (result: ResultType) => void,
