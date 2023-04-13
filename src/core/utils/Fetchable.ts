@@ -9,13 +9,17 @@ export interface FetchableOpts<ResultType> {
 
 class Fetchable<ArgsType extends any[], ResultType> {
   public result: ResultType | undefined = undefined;
+  public lastResult: ResultType | undefined = undefined;
   public error: Error | undefined = undefined;
+  public lastError: Error | undefined = undefined;
   public status: FetchableStatus = 'uninitialized';
 
   constructor(private fetch: (...args: ArgsType) => Promise<ResultType>, private opts: FetchableOpts<ResultType> = {}) {
     makeObservable(this, {
       result: observable,
+      lastResult: observable,
       error: observable,
+      lastError: observable,
       status: observable,
       setResult: action,
       setError: action,
@@ -27,18 +31,26 @@ class Fetchable<ArgsType extends any[], ResultType> {
 
   public setResult(result: ResultType) {
     this.result = result;
+    this.lastResult = result;
     this.error = undefined;
+    this.lastError = undefined;
     this.status = 'success';
   }
 
   public setError(error: Error) {
     this.error = error;
+    this.lastError = error;
     this.result = undefined;
+    this.lastResult = undefined;
     this.status = 'error';
   }
 
   public setStatus(status: FetchableStatus) {
     this.status = status;
+    if (status === 'pending') {
+      this.result = undefined;
+      this.error = undefined;
+    }
   }
 
   public get loading() {
@@ -50,7 +62,9 @@ class Fetchable<ArgsType extends any[], ResultType> {
    */
   public reset() {
     this.result = undefined;
+    this.lastResult = undefined;
     this.error = undefined;
+    this.lastError = undefined;
     this.status = 'uninitialized';
   }
 
