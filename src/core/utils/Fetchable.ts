@@ -25,15 +25,19 @@ class Fetchable<ArgsType extends any[], ResultType> {
     });
   }
 
-  public setResult(result: typeof this.result) {
+  public setResult(result: ResultType) {
     this.result = result;
+    this.error = undefined;
+    this.status = 'success';
   }
 
-  public setError(error: typeof this.error) {
+  public setError(error: Error) {
     this.error = error;
+    this.result = undefined;
+    this.status = 'error';
   }
 
-  public setStatus(status: typeof this.status) {
+  public setStatus(status: FetchableStatus) {
     this.status = status;
   }
 
@@ -45,9 +49,9 @@ class Fetchable<ArgsType extends any[], ResultType> {
    * Resets the Fetchable to its uninitialized state
    */
   public reset() {
-    this.setResult(undefined);
-    this.setError(undefined);
-    this.setStatus('uninitialized');
+    this.result = undefined;
+    this.error = undefined;
+    this.status = 'uninitialized';
   }
 
   /**
@@ -67,19 +71,11 @@ class Fetchable<ArgsType extends any[], ResultType> {
     const { thenUnhandled, catchUnhandled } = this.opts;
     this.setStatus('pending');
     return this.fetch(...args).then((res => {
-      runInAction(() => {
-        this.setResult(res);
-        this.setError(undefined);
-        this.setStatus('success');
-      });
+      this.setResult(res);
       thenUnhandled?.(res);
       return res;
     })).catch(error => {
-      runInAction(() => {
-        this.setResult(undefined);
-        this.setError(error);
-        this.setStatus('error');
-      });
+      this.setError(error);
       catchUnhandled?.(error);
       throw error;
     });
