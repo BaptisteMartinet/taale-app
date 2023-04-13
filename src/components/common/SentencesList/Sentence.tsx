@@ -48,7 +48,7 @@ const Sentence = (props: SentenceProps) => {
     >
       <Menu.Item
         titleStyle={styles.userTitle}
-        title={`u/${sentence.owner.username} - ${format(sentence.createdAt, 'dd/MM/yy HH:mm')}`}
+        title={`u/${sentence.owner.username} - ${format(sentence.createdAt, t('misc.dateFormat'))}`}
       />
       <Divider />
       <Menu.Item
