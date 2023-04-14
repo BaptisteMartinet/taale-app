@@ -1,4 +1,4 @@
-import { handleWithSnack } from 'core/utils/promises';
+import { handleWithSnack } from 'core/utils/promise';
 import homeStore from 'store/screens/home';
 import partialStoryStore from 'store/screens/partial-story';
 import libraryStore from 'store/screens/library';

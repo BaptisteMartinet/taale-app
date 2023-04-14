@@ -9,7 +9,7 @@ import { TextInput, Button, Text } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { handleWithSnack } from 'core/utils/promises';
+import { handleWithSnack } from 'core/utils/promise';
 import {
   UsernameMinLength,
   UsernameMaxLength,

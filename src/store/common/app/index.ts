@@ -1,5 +1,5 @@
 import { makeObservable, observable, action } from 'mobx';
-import { handleWithSnack } from 'core/utils/promises';
+import { handleWithSnack } from 'core/utils/promise';
 import accountStore from 'store/common/account';
 import onboardingStore from 'store/screens/onboarding';
 

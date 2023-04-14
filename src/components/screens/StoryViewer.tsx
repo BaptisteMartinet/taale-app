@@ -8,7 +8,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
-import { handleWithSnack } from 'core/utils/promises';
+import { handleWithSnack } from 'core/utils/promise';
 import { SentencesList } from 'components/common';
 import store from 'store/screens/story-viewer';
 

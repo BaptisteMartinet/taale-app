@@ -9,7 +9,7 @@ export interface Opts {
   errorMessage: string | true | null;
 };
 
-export function handleWithSnack(promise: Promise<unknown>, opts: Opts): void {
+export default function handleWithSnack(promise: Promise<unknown>, opts: Opts): void {
   const { onSuccess, successMessage, onError, errorMessage } = opts;
   promise.then((value) => {
     if (onSuccess)
@@ -25,7 +25,7 @@ export function handleWithSnack(promise: Promise<unknown>, opts: Opts): void {
           return snackbarStore.display(errorMessage, { duration: 'long' });
         case 'boolean':
           if (!isApolloError(error))
-            break; 
+            break;
           const errorCode = error.graphQLErrors.at(0)?.extensions.code;
           if (typeof errorCode !== 'string')
             break;

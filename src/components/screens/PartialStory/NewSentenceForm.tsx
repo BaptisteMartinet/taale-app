@@ -12,7 +12,7 @@ import {
   SentenceTextMinLength,
   SentenceTextMaxLength,
 } from 'core/constants';
-import { handleWithSnack } from 'core/utils/promises';
+import { handleWithSnack } from 'core/utils/promise';
 import sentenceStore from 'store/common/sentence';
 import store from 'store/screens/partial-story';
 

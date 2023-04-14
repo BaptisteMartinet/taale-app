@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, View, ScrollView, RefreshControl } from 'react-native';
 import { FAB } from 'react-native-paper';
 import { observer } from 'mobx-react';
-import { handleWithSnack } from 'core/utils/promises';
+import { handleWithSnack } from 'core/utils/promise';
 import accountStore from 'store/common/account';
 import store from 'store/screens/home';
 import Hero from './Hero';

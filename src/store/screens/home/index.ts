@@ -1,4 +1,4 @@
-import Fetchable from 'core/utils/Fetchable';
+import { Fetchable } from 'core/utils/promise';
 import { GetDailyStory, GetStatistics } from './api';
 
 class HomeStore {

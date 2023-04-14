@@ -6,7 +6,7 @@ import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
 import { Text } from 'react-native-paper';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
-import { handleWithSnack } from 'core/utils/promises';
+import { handleWithSnack } from 'core/utils/promise';
 import store from 'store/screens/library';
 import StoryPreview from './StoryPreview';
 import EmptyLibrary from './EmptyLibrary';

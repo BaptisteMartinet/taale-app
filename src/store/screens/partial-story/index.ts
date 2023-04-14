@@ -1,5 +1,5 @@
 import { makeObservable, computed } from 'mobx';
-import Fetchable from 'core/utils/Fetchable';
+import { Fetchable } from 'core/utils/promise';
 import { GetPartialStory } from './api';
 
 class PartialStoryStore {
