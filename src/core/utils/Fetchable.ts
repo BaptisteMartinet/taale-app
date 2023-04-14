@@ -1,4 +1,4 @@
-import { action, computed, makeObservable, observable, runInAction } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 
 export type FetchableStatus = 'uninitialized' | 'pending' | 'success' | 'error';
 
