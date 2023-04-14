@@ -19,7 +19,7 @@ class Fetchable<ArgsType extends any[], ResultType> extends ObservablePromiseSta
   /**
    * Reloads and returns the result.
    */
-  public async ensureSuccessReload(...args: ArgsType) {
+  public ensureSuccessReload(...args: ArgsType) {
     const promise = this.fetch(...args);
     this.track(promise, this.opts);
     return promise;
