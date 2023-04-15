@@ -13,8 +13,10 @@ import {
   SentenceTextMaxLength,
 } from 'core/constants';
 import { handleWithSnack } from 'core/utils/promise';
+import { useKeyboardVisible } from 'core/hooks';
 import sentenceStore from 'store/common/sentence';
 import store from 'store/screens/partial-story';
+import CharsProgress from './CharsProgress';
 
 const NewSentenceSchema = Yup.object().shape({
   text: Yup.string()
@@ -26,6 +28,7 @@ const NewSentenceSchema = Yup.object().shape({
 const NewSentenceForm = () => {
   const { t } = useTranslation('screens', { keyPrefix: 'partialStory' });
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const isKeyboardVisible = useKeyboardVisible();
   return (
     <Formik
       initialValues={{ text: '' }}
@@ -46,7 +49,7 @@ const NewSentenceForm = () => {
         });
       }}
     >
-      {({ handleSubmit, handleChange, isSubmitting, values, errors, touched }) => (
+      {({ handleSubmit, handleChange, handleBlur, isSubmitting, values, errors, touched }) => (
         <View style={styles.container}>
           <TextInput
             style={styles.textInput}
@@ -55,16 +58,19 @@ const NewSentenceForm = () => {
             multiline
             value={values.text}
             onChangeText={handleChange('text')}
+            onBlur={handleBlur('text')}
             error={Boolean(errors.text) && touched.text}
           />
-          <View style={styles.iconWrapper}>
-            <IconButton
-              style={styles.icon}
-              icon="send"
-              disabled={isSubmitting}
-              onPress={() => handleSubmit()}
-            />
-          </View>
+          {isKeyboardVisible &&
+            <View style={styles.controlsContainer}>
+              <CharsProgress maxCharsCount={SentenceTextMaxLength} currentCharsCount={values.text.length} />
+              <IconButton
+                icon="send"
+                disabled={isSubmitting}
+                onPress={() => handleSubmit()}
+              />
+            </View>
+          }
         </View>
       )}
     </Formik>
@@ -75,22 +81,19 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     bottom: 0,
+    left: 0,
     width: '100%',
-    flexDirection: 'row',
     paddingHorizontal: 4,
   },
   textInput: {
-    flex: 0.85,
+    width: '100%',
     maxHeight: 200,
   },
-  iconWrapper: {
-    flex: 0.15,
+  controlsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  icon: {
-    width: '100%',
-    aspectRatio: 1,
+    paddingHorizontal: 5,
   },
 });
 
