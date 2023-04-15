@@ -53,6 +53,7 @@ const Sentence = (props: SentenceProps) => {
       <Divider />
       <Menu.Item
         title={t('report')}
+        leadingIcon="alert"
         disabled={disableControls}
         onPress={() => {
           const promise = sentenceStore.report({ sentenceId: sentence.id });
@@ -68,6 +69,7 @@ const Sentence = (props: SentenceProps) => {
       />
       <Menu.Item
         title={t('markCompleted')}
+        leadingIcon="check-circle"
         disabled={disableControls}
         onPress={() => {
           const promise = sentenceStore.markCompleted({ sentenceId: sentence.id });
