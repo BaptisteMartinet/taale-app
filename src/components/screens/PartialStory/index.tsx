@@ -21,9 +21,9 @@ const PartialStory = observer((props: NavigationProps) => {
   const { navigation } = props;
   const headerHeight = useHeaderHeight();
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeAreaView}>
       <KeyboardAvoidingView
-        style={styles.container}
+        style={styles.keyboardAvoidingView}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={headerHeight}
       >
@@ -41,8 +41,15 @@ const PartialStory = observer((props: NavigationProps) => {
 });
 
 const styles = StyleSheet.create({
+  safeAreaView: {
+    flex: 1,
+  },
+  keyboardAvoidingView: {
+    flex: 1,
+  },
   container: {
     flex: 1,
+    padding: 20,
   },
 });
 
