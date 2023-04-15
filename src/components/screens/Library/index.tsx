@@ -32,7 +32,7 @@ const Library = observer((props: NavigationProps) => {
         }
         ListHeaderComponent={
           <Text
-            variant="titleMedium"
+            variant="labelLarge"
             style={styles.infoText}
           >
             {t('pageInfo')}
@@ -47,11 +47,10 @@ const Library = observer((props: NavigationProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    paddingHorizontal: 10,
   },
   infoText: {
-    marginTop: 10,
-    marginBottom: 20,
+    marginVertical: 20,
   },
 });
 
