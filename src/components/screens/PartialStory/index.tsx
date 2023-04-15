@@ -10,7 +10,9 @@ import {
   KeyboardAvoidingView,
   View,
 } from 'react-native';
+import { Text } from 'react-native-paper';
 import { useHeaderHeight } from '@react-navigation/elements';
+import { useTranslation } from 'react-i18next';
 import store from 'store/screens/partial-story';
 import { SentencesList } from 'components/common';
 import NewSentenceForm from './NewSentenceForm';
@@ -19,6 +21,7 @@ type NavigationProps = NativeStackScreenProps<RootStackParamList, 'PartialStory'
 
 const PartialStory = observer((props: NavigationProps) => {
   const { navigation } = props;
+  const { t } = useTranslation('screens', { keyPrefix: 'partialStory' });
   const headerHeight = useHeaderHeight();
   return (
     <SafeAreaView style={styles.safeAreaView}>
@@ -29,9 +32,15 @@ const PartialStory = observer((props: NavigationProps) => {
       >
         <View style={styles.container}>
           <SentencesList
+            style={styles.sentenceList}
             data={store.partialStory.result}
             onReport={() => navigation.navigate('ParticipationSuccess')}
             onMarkedCompleted={() => navigation.navigate('ParticipationSuccess')}
+            ListHeaderComponent={
+              <Text variant="labelMedium" style={styles.listInfoHeader}>
+                {t('listInfoHeader')}
+              </Text>
+            }
           />
           <NewSentenceForm />
         </View>
@@ -49,7 +58,13 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 20,
+  },
+  sentenceList: {
+    paddingHorizontal: 20,
+  },
+  listInfoHeader: {
+    textAlign: 'center',
+    marginVertical: 20,
   },
 });
 
