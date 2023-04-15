@@ -1,6 +1,7 @@
 import { handleWithSnack, LoadingStatus } from 'core/utils/promise';
 import accountStore from 'store/common/account';
 import onboardingStore from 'store/screens/onboarding';
+import homeStore from 'store/screens/home';
 
 class AppStore extends LoadingStatus {
   constructor() {
@@ -14,6 +15,7 @@ class AppStore extends LoadingStatus {
     await Promise.all([
       onboardingStore.refresh(),
       accountStore.refreshAccount(),
+      homeStore.refresh(),
     ]).catch((e) => { /* empty */ });
     this.setLoaded();
   }
