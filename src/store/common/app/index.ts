@@ -1,25 +1,16 @@
-import { makeObservable, observable, action } from 'mobx';
-import { handleWithSnack } from 'core/utils/promise';
+import { handleWithSnack, LoadingStatus } from 'core/utils/promise';
 import accountStore from 'store/common/account';
 import onboardingStore from 'store/screens/onboarding';
 
-class AppStore {
-  loading: boolean = true;
-
+class AppStore extends LoadingStatus {
   constructor() {
-    makeObservable(this, {
-      loading: observable,
-      setLoaded: action,
-    });
+    super();
     const promise = this.refresh();
     handleWithSnack(promise, { successMessage: null, errorMessage: true });
   }
 
-  public setLoaded() {
-    this.loading = false;
-  }
-
   public async refresh() {
+    this.setLoading();
     await Promise.all([
       onboardingStore.refresh(),
       accountStore.refreshAccount(),
@@ -28,4 +19,4 @@ class AppStore {
   }
 }
 
-export default new AppStore;
+export default new AppStore();
