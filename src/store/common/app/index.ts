@@ -16,7 +16,7 @@ class AppStore extends LoadingStatus {
       onboardingStore.refresh(),
       accountStore.refreshAccount(),
       homeStore.refresh(),
-    ]).catch((e) => { /* empty */ });
+    ]);
     this.setLoaded();
   }
 }
