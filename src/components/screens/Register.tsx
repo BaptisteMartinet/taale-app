@@ -13,6 +13,7 @@ import { handleWithSnack } from 'core/utils/promise';
 import {
   UsernameMinLength,
   UsernameMaxLength,
+  UsernameValidationRegex,
   PasswordMinLength,
   EmailVerificationCodeLength,
 } from 'core/constants';
@@ -20,7 +21,7 @@ import { CodeValidationModal } from 'components/common';
 import store from 'store/common/account';
 
 const RegisterValidationSchema = Yup.object().shape({
-  username: Yup.string().min(UsernameMinLength).max(UsernameMaxLength).required(),
+  username: Yup.string().min(UsernameMinLength).max(UsernameMaxLength).matches(UsernameValidationRegex).required(),
   email: Yup.string().email().required(),
   password: Yup.string().min(PasswordMinLength).required(),
 });
