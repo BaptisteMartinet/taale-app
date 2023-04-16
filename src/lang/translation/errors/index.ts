@@ -14,6 +14,8 @@ export type ErrorsDefinition = {
   InsufficientPermission: string,
   InvalidArgument: string,
   SentenceAlreadyPartOfStory: string,
+  SentenceAlreadyReported: string,
+  SentenceAlreadyMarkedComplete: string,
   // Server errors
 };
 
@@ -33,6 +35,8 @@ const fr: ErrorsDefinition = {
   InsufficientPermission: "Permissions insufisantes",
   InvalidArgument: "Argument invalide",
   SentenceAlreadyPartOfStory: "Le paragraphe fait déjà parti d'une histoire",
+  SentenceAlreadyReported: "Paragraphe déjà signalé",
+  SentenceAlreadyMarkedComplete: "Paragraphe déjà voté comme point de terminaison",
   // Server errors
 } as const;
 
@@ -52,6 +56,8 @@ const en: ErrorsDefinition = {
   InsufficientPermission: "Insufficient permission",
   InvalidArgument: "Invalid argument",
   SentenceAlreadyPartOfStory: "Sentence already part of a story",
+  SentenceAlreadyReported: "Sentence already reported",
+  SentenceAlreadyMarkedComplete: "Sentence already voted as termination point",
   // Server errors
 } as const;
 
