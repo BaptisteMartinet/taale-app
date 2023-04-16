@@ -48,11 +48,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   sentencesList: {
-    padding: 20,
+    paddingHorizontal: 20,
   },
   dateHeader: {
     textAlign: 'center',
-    marginVertical: 10,
+    marginVertical: 20,
   },
 });
 
