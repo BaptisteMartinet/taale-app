@@ -18,13 +18,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.imania.taaleapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/app/adaptive-icon.png",
         "backgroundColor": "#2b2b2b"
-      }
+      },
+      "package": "com.imania.taaleapp"
     },
     "web": {
       "favicon": "./assets/app/favicon.png"
