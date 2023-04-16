@@ -34,7 +34,7 @@ const Login = (props: NavigationProps) => {
           return handleWithSnack(promise, {
             successMessage: null,
             errorMessage: true,
-            onSuccess: () => { navigation.reset({ index: 0, routes: [{ name: 'Home' }]}); },
+            onSuccess: () => { navigation.reset({ index: 0, routes: [{ name: 'Home' }] }); },
           });
         }}
       >
