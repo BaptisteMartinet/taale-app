@@ -11,7 +11,7 @@ const ResendButtonDisabledDelayMs = 30 * Second;
 export interface ValidationCodeModalProps extends Omit<ModalProps, 'children' | 'theme' | 'contentContainerStyle' | 'dismissable'> {
   codeLength: number;
   onCodeChange?: (code: string) => void;
-  onCodeCompleted?: (code: string) => void;
+  onCodeCompleted: (code: string) => void;
   onResendCode: () => void;
 }
 
@@ -38,7 +38,7 @@ const CodeValidationModal = (props: ValidationCodeModalProps) => {
           onCodeChange?.(text);
           if (text.length >= codeLength) {
             setCodeTextInputDisabled(true);
-            onCodeCompleted?.(text);
+            onCodeCompleted(text);
           }
         }}
         disabled={codeTextInputDisabled}
