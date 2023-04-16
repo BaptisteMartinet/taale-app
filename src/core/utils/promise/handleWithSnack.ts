@@ -30,7 +30,7 @@ export default function handleWithSnack<T>(promise: Promise<T>, opts: Opts<T>) {
           const errorCode = error.graphQLErrors.at(0)?.extensions.code;
           if (typeof errorCode !== 'string')
             break;
-          snackbarStore.display(i18n.t([errorCode, '_Default'], { ns: 'errors' }), { duration: 'long' });
+          return snackbarStore.display(i18n.t([errorCode, '_Default'], { ns: 'errors' }), { duration: 'long' });
         default: break;
       }
       snackbarStore.display(i18n.t('_Default', { ns: 'errors' }), { duration: 'long' });
