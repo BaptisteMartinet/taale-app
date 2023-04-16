@@ -32,7 +32,7 @@ const Home = observer((props: NavigationProps) => {
       }>
         <Hero />
         <View style={styles.cardsContainer}>
-          <DailyStory />
+          {store.dailyStory.lastResult && <DailyStory />}
           <MyLibrary />
           <Statistics />
         </View>
