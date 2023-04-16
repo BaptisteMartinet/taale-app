@@ -4,6 +4,9 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Modal, Text, TextInput, Button } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
+import { Second } from 'lib/utils/time';
+
+const ResendButtonDisabledDelayMs = 30 * Second;
 
 export interface ValidationCodeModalProps extends Omit<ModalProps, 'children' | 'theme' | 'contentContainerStyle' | 'dismissable'> {
   codeLength: number;
@@ -48,7 +51,7 @@ const CodeValidationModal = (props: ValidationCodeModalProps) => {
           setResendBtnDisabled(true);
           setTimeout(() => {
             setResendBtnDisabled(false);
-          }, 30000);
+          }, ResendButtonDisabledDelayMs);
           onResendCode();
         }}
         disabled={resendBtnDisabled}
