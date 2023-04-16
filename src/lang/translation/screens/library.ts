@@ -7,7 +7,7 @@ export type LibraryDefinition = {
 };
 
 const fr: LibraryDefinition = {
-  pageInfo: "Vous trouverez ici toutes les histoires auxquelles vous avez participé.",
+  pageInfo: "Vous trouverez ici toutes les histoires auxquelles vous avez participé.\nVous comptabilisez {{sentencesCount}} participation(s).",
   emptyLibrary: "Wow, tellement vide",
   misc: {
     dateFormat: "dd/MM/yyyy HH:mm",
@@ -15,7 +15,7 @@ const fr: LibraryDefinition = {
 };
 
 const en: LibraryDefinition = {
-  pageInfo: "You will find here every story you have participated in.",
+  pageInfo: "You'll find here every story you've participated in.\nYou've participated {{sentencesCount}} time(s).",
   emptyLibrary: "Wow, such empty",
   misc: {
     dateFormat: "dd/MM/yyyy hh:mm aaa",

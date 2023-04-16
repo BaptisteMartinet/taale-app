@@ -35,7 +35,7 @@ const Library = observer((props: NavigationProps) => {
             variant="labelLarge"
             style={styles.infoText}
           >
-            {t('pageInfo')}
+            {t('pageInfo', { sentencesCount: store.mySentencesCount.lastResult })}
           </Text>
         }
         ListEmptyComponent={<EmptyLibrary />}
