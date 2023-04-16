@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.imania.taaleapp",
-      "buildNumber": 2
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
