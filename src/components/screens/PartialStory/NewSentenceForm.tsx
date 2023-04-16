@@ -40,7 +40,7 @@ const NewSentenceForm = () => {
         assert(lastSentence);
         Keyboard.dismiss();
         const promise = sentenceStore.create({ text, parentSentenceId: lastSentence.id });
-        handleWithSnack(promise, {
+        return handleWithSnack(promise, {
           successMessage: null,
           onSuccess: () => {
             actions.resetForm();
@@ -48,7 +48,6 @@ const NewSentenceForm = () => {
           },
           errorMessage: true,
         });
-        return promise;
       }}
     >
       {({ handleSubmit, handleChange, handleBlur, isSubmitting, values, errors, touched }) => (

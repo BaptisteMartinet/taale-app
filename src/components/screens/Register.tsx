@@ -47,12 +47,11 @@ const Register = (props: NavigationProps) => {
           Keyboard.dismiss();
           registerVariablesRef.current = values;
           const promise = store.verifyEmail(email);
-          handleWithSnack(promise, {
+          return handleWithSnack(promise, {
             successMessage: null,
             onSuccess: () => setCodeValidationModalOpen(true),
             errorMessage: true,
           });
-          return promise;
         }}
       >
         {({ handleChange, handleSubmit, values, errors, touched, isSubmitting }) => (

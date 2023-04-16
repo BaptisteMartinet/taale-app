@@ -31,12 +31,11 @@ const Login = (props: NavigationProps) => {
         onSubmit={values => {
           Keyboard.dismiss();
           const promise = store.login(values);
-          handleWithSnack(promise, {
+          return handleWithSnack(promise, {
             successMessage: null,
             errorMessage: true,
             onSuccess: () => { navigation.reset({ index: 0, routes: [{ name: 'Home' }]}); },
           });
-          return promise;
         }}
       >
         {({ handleChange, handleSubmit, values, errors, touched, isSubmitting }) => (
