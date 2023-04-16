@@ -47,6 +47,7 @@ const NewSentenceForm = () => {
           },
           errorMessage: true,
         });
+        return promise;
       }}
     >
       {({ handleSubmit, handleChange, handleBlur, isSubmitting, values, errors, touched }) => (

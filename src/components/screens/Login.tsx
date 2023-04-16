@@ -36,6 +36,7 @@ const Login = (props: NavigationProps) => {
             errorMessage: true,
             onSuccess: () => { navigation.reset({ index: 0, routes: [{ name: 'Home' }]}); },
           });
+          return promise;
         }}
       >
         {({ handleChange, handleSubmit, values, errors, touched, isSubmitting }) => (

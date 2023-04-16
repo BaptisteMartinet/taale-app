@@ -52,6 +52,7 @@ const Register = (props: NavigationProps) => {
             onSuccess: () => setCodeValidationModalOpen(true),
             errorMessage: true,
           });
+          return promise;
         }}
       >
         {({ handleChange, handleSubmit, values, errors, touched, isSubmitting }) => (
