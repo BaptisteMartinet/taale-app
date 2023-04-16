@@ -5,4 +5,4 @@ export const UsernameValidationRegex = new RegExp(`^[\\w\\.]{${UsernameMinLength
 export const PasswordMinLength = 4;
 
 export const SentenceTextMinLength = 3;
-export const SentenceTextMaxLength = 280;
+export const SentenceTextMaxLength = 180;
