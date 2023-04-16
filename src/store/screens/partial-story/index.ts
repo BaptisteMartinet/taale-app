@@ -12,13 +12,11 @@ class PartialStoryStore {
   }
 
   public get lastSentence() {
-    if (this.partialStory.result === undefined)
-      return null;
-    return this.partialStory.result.at(-1);
+    return this.partialStory.result?.at(-1);
   }
 
-  public async refresh() {
-    this.partialStory.ensureSuccessReload();
+  public refresh() {
+    return this.partialStory.ensureSuccessReload();
   }
 }
 
