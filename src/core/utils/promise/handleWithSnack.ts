@@ -9,9 +9,9 @@ export interface Opts {
   errorMessage: string | true | null;
 };
 
-export default function handleWithSnack(promise: Promise<unknown>, opts: Opts): void {
+export default function handleWithSnack(promise: Promise<unknown>, opts: Opts) {
   const { onSuccess, successMessage, onError, errorMessage } = opts;
-  promise.then((value) => {
+  return promise.then((value) => {
     if (onSuccess)
       onSuccess(value);
     if (successMessage)
