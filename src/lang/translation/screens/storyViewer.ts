@@ -5,12 +5,12 @@ export type StoryViewerDefinition = {
 
 const fr: StoryViewerDefinition = {
   completedTitle: "Complétée le",
-  dateFormat: 'dd/MM/yy à HH:mm',
+  dateFormat: "dd/MM/yy 'à' HH:mm",
 };
 
 const en: StoryViewerDefinition = {
   completedTitle: "Completed the",
-  dateFormat: 'dd/MM/yy at hh:mm aaa',
+  dateFormat: "dd/MM/yy 'at' hh:mm aaa",
 };
 
 export default {
