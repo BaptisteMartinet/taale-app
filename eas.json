@@ -23,6 +23,12 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "baptiste.marti@outlook.com",
+        "ascAppId": "6447808101",
+        "appleTeamId": "Q5V4976CWN"
+      }
+    }
   }
 }
