@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native';
 import { Card, Avatar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import accountStore from 'store/common/account';
 
 const MyLibrary = () => {
   const { t } = useTranslation('screens', { keyPrefix: 'home.myLibrary' });
@@ -13,7 +14,12 @@ const MyLibrary = () => {
   return (
     <Card
       style={styles.container}
-      onPress={() => navigation.navigate('Library')}
+      onPress={() => {
+        if (accountStore.user !== null)
+          navigation.navigate('Library');
+        else
+          navigation.navigate('Login');
+      }}
     >
       <Card.Title
         title={t('title')}
