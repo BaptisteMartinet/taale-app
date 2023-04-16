@@ -12,6 +12,8 @@ export type ErrorsDefinition = {
   ResourceNotFound: string,
   SpamDetected: string,
   InsufficientPermission: string,
+  InvalidArgument: string,
+  SentenceAlreadyPartOfStory: string,
   // Server errors
 };
 
@@ -29,6 +31,8 @@ const fr: ErrorsDefinition = {
   ResourceNotFound: "Resource non trouvée",
   SpamDetected: "Spam détecté",
   InsufficientPermission: "Permissions insufisantes",
+  InvalidArgument: "Argument invalide",
+  SentenceAlreadyPartOfStory: "Le paragraphe fait déjà parti d'une histoire",
   // Server errors
 } as const;
 
@@ -46,6 +50,8 @@ const en: ErrorsDefinition = {
   ResourceNotFound: "Resource not found",
   SpamDetected: "Spam detected",
   InsufficientPermission: "Insufficient permission",
+  InvalidArgument: "Invalid argument",
+  SentenceAlreadyPartOfStory: "Sentence already part of a story",
   // Server errors
 } as const;
 
