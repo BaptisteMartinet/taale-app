@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   infoText: {
-    marginVertical: 20,
+    marginVertical: 24,
   },
 });
 
