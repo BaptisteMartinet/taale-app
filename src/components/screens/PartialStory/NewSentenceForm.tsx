@@ -2,7 +2,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Keyboard } from 'react-native';
 import { IconButton, TextInput } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
@@ -38,6 +38,7 @@ const NewSentenceForm = () => {
         const { lastSentence } = store;
         if (!lastSentence)
           return;
+        Keyboard.dismiss();
         const promise = sentenceStore.create({ text, parentSentenceId: lastSentence.id });
         handleWithSnack(promise, {
           successMessage: null,
