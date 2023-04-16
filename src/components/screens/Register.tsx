@@ -55,7 +55,7 @@ const Register = (props: NavigationProps) => {
           });
         }}
       >
-        {({ handleChange, handleSubmit, values, errors, touched, isSubmitting }) => (
+        {({ handleChange, handleBlur, handleSubmit, values, errors, touched, isSubmitting }) => (
           <View style={styles.formContainer}>
             <View style={styles.headline}>
               <Text variant="headlineLarge">{t('form.headlineTitle')}</Text>
@@ -69,6 +69,7 @@ const Register = (props: NavigationProps) => {
               style={styles.textField}
               value={values.username}
               onChangeText={handleChange('username')}
+              onBlur={handleBlur('username')}
               error={Boolean(errors.username) && touched.username}
             />
             <TextInput
@@ -80,6 +81,7 @@ const Register = (props: NavigationProps) => {
               style={styles.textField}
               value={values.email}
               onChangeText={handleChange('email')}
+              onBlur={handleBlur('email')}
               error={Boolean(errors.email) && touched.email}
             />
             <TextInput
@@ -91,6 +93,7 @@ const Register = (props: NavigationProps) => {
               style={styles.textField}
               value={values.password}
               onChangeText={handleChange('password')}
+              onBlur={handleBlur('password')}
               error={Boolean(errors.password) && touched.password}
             />
             <Button
