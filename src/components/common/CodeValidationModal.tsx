@@ -48,7 +48,7 @@ const CodeValidationModal = (props: ValidationCodeModalProps) => {
           setResendBtnDisabled(true);
           setTimeout(() => {
             setResendBtnDisabled(false);
-          }, 30_000);
+          }, 30000);
           onResendCode();
         }}
         disabled={resendBtnDisabled}
