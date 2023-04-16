@@ -15,7 +15,7 @@ class ObservablePromiseStatus<ResultType> {
   public lastResult: ResultType | undefined = undefined;
   public lastError: Error | undefined = undefined;
   public status: PromiseStatus | undefined = undefined;
-  public currentPromise: Promise<ResultType> | null = null;
+  private currentPromise: Promise<ResultType> | null = null;
 
   constructor() {
     makeObservable(this, {
