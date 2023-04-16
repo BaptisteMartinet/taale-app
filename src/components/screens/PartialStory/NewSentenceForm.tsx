@@ -1,6 +1,7 @@
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
+import assert from 'assert';
 import React from 'react';
 import { StyleSheet, View, Keyboard } from 'react-native';
 import { IconButton, TextInput } from 'react-native-paper';
@@ -36,8 +37,7 @@ const NewSentenceForm = () => {
       onSubmit={(values, actions) => {
         const { text } = values;
         const { lastSentence } = store;
-        if (!lastSentence)
-          return;
+        assert(lastSentence);
         Keyboard.dismiss();
         const promise = sentenceStore.create({ text, parentSentenceId: lastSentence.id });
         handleWithSnack(promise, {
