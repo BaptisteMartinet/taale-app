@@ -20,7 +20,7 @@ const fr: SentencesListDefinition = {
 
 const en: SentencesListDefinition = {
   report: 'Report',
-  reportSuccessfull: 'Successfull report',
+  reportSuccessfull: 'Successfully reported',
   markCompleted: 'Mark completed',
   markCompletedSuccessfull: 'Vote registered',
   misc: {
