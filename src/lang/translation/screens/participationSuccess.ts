@@ -5,14 +5,14 @@ export type ParticipationSuccessScreenDefinition = {
 };
 
 const fr: ParticipationSuccessScreenDefinition = {
-  title: "Merci pour votre paricipation !",
-  partialStoryLink: "C'est repartit",
+  title: "Enregistré avec succès",
+  partialStoryLink: "C'est reparti",
   homeLink: "Accueil",
 };
 
 const en: ParticipationSuccessScreenDefinition = {
-  title: "Thanks for you participation !",
-  partialStoryLink: "Let's go again",
+  title: "Successfully saved",
+  partialStoryLink: "Let's do it again",
   homeLink: "Home",
 };
 

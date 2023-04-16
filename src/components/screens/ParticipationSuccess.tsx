@@ -2,7 +2,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, SafeAreaView, View } from 'react-native';
 import { IconButton, Button, Text } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 
@@ -12,30 +12,40 @@ const ParticipationSuccess = (props: NavigationProps) => {
   const { navigation } = props;
   const { t } = useTranslation('screens', { keyPrefix: 'participationSuccess' });
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <IconButton
         icon="check-circle-outline"
         iconColor="#1aa321"
         size={100}
       />
-      <Text variant="titleLarge">{t('title')}</Text>
+      <Text variant="titleLarge" style={styles.title}>{t('title')}</Text>
       <View style={styles.buttonsContainer}>
         <Button
           style={styles.button}
           mode="contained"
           onPress={() => navigation.navigate('PartialStory')}
         >
-          <Text variant="headlineLarge">{t('partialStoryLink')}</Text>
+          <Text
+            variant="headlineLarge"
+            style={styles.buttonText}
+          >
+            {t('partialStoryLink')}
+          </Text>
         </Button>
         <Button
           style={styles.button}
           mode="contained"
           onPress={() => navigation.navigate('Home')}
         >
-          <Text variant="headlineSmall">{t('homeLink')}</Text>
+          <Text
+            variant="titleSmall"
+            style={styles.buttonText}
+          >
+            {t('homeLink')}
+          </Text>
         </Button>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -45,12 +55,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontWeight: 'bold',
+    marginVertical: 4,
+  },
   buttonsContainer: {
-    position: 'absolute',
-    bottom: 100,
+    marginTop: 94,
   },
   button: {
-    marginVertical: 15,
+    marginVertical: 16,
+  },
+  buttonText: {
+    color: '#2b2b2b',
   },
 });
 
