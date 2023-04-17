@@ -23,6 +23,7 @@ export type HomeScreenDefinition = {
     title: string,
     subtitle: string,
   },
+  settingsSheetTitle: string,
 };
 
 const fr: HomeScreenDefinition = {
@@ -50,6 +51,7 @@ const fr: HomeScreenDefinition = {
     title: "Bibliothèque",
     subtitle: "Retrouve toutes tes histoires",
   },
+  settingsSheetTitle: "Paramètres",
 };
 
 const en: HomeScreenDefinition = {
@@ -77,6 +79,7 @@ const en: HomeScreenDefinition = {
     title: "Library",
     subtitle: "Find all your stories",
   },
+  settingsSheetTitle: "Settings",
 };
 
 export default {
