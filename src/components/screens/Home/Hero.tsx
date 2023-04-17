@@ -22,6 +22,7 @@ const Hero = observer(() => {
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
     minHeight: 250,
     borderBottomLeftRadius: 24,
     borderBottomRightRadius: 24,
