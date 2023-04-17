@@ -23,7 +23,7 @@ class AccountStore {
     });
   }
 
-  setUser(user: User) {
+  setUser(user: User | null) {
     this.user = user;
   }
 
@@ -33,6 +33,11 @@ class AccountStore {
     const { user, token } = data.public.account.login;
     this.setUser(user);
     await SecureStore.setItemAsync(AuthTokenKey, token);
+  }
+
+  public async logout() {
+    await SecureStore.deleteItemAsync(AuthTokenKey);
+    this.setUser(null);
   }
 
   public register(variables: RegisterVariables) {
