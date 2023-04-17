@@ -20,7 +20,7 @@ const Hero = observer(() => {
           icon="cog"
           size={30}
           style={styles.settingsIcon}
-          onPress={store.settingsOpenState.open}
+          onPress={store.settingsOpenState.toggle}
         />
       </View>
     </ImageBackground>
