@@ -2,7 +2,7 @@ import type { User, LoginVariables, RegisterVariables } from './api';
 
 import assert from 'assert';
 import * as SecureStore from 'expo-secure-store';
-import { action, makeObservable, observable } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 import { AuthTokenKey } from 'core/constants';
 import {
   loginMutation,
@@ -20,11 +20,21 @@ class AccountStore {
     makeObservable(this, {
       user: observable,
       setUser: action,
+      loggedIn: computed,
+      loggedOut: computed,
     });
   }
 
   setUser(user: User | null) {
     this.user = user;
+  }
+
+  public get loggedIn() {
+    return this.user !== null;
+  }
+
+  public get loggedOut() {
+    return this.user === null;
   }
 
   public async login(variables: LoginVariables) {
