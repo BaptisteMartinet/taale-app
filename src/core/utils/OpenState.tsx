@@ -4,9 +4,9 @@ class OpenState {
   constructor(public isOpen: boolean = false) {
     makeObservable(this, {
       isOpen: observable,
-      open: action,
-      close: action,
-      toggle: action,
+      open: action.bound,
+      close: action.bound,
+      toggle: action.bound,
     });
   }
 
