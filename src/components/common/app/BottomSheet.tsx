@@ -1,23 +1,27 @@
 import type { PropsWithChildren } from 'react';
-import type { OpenState } from 'core/utils';
 
 import React from 'react';
-import { observer } from 'mobx-react';
 import {
   StyleSheet,
   Animated,
   useWindowDimensions,
+  View,
+  ScrollView,
 } from 'react-native';
+import { Text, IconButton } from 'react-native-paper';
+import { observer } from 'mobx-react';
 
 export interface BottomSheetProps {
-  openState: OpenState;
+  open: boolean;
+  onClose: () => void,
   animationDuration: number;
+  title: string,
 }
 
 const BottomSheet = observer((props: PropsWithChildren<BottomSheetProps>) => {
-  const { openState, animationDuration, children } = props;
+  const { open, onClose, animationDuration, title, children } = props;
   const { height } = useWindowDimensions();
-  const sheetHeight = height * 0.5;
+  const sheetHeight = height * 0.75;
 
   const verticalOffset = React.useRef(new Animated.Value(sheetHeight)).current;
   const openAnimation = React.useRef(
@@ -36,39 +40,57 @@ const BottomSheet = observer((props: PropsWithChildren<BottomSheetProps>) => {
   ).current;
 
   React.useEffect(() => {
-    if (openState.isOpen) {
-      closeAnimation.stop();
+    if (open)
       openAnimation.start();
-    } else {
-      openAnimation.stop();
+    else
       closeAnimation.start();
-    }
-  }, [openState.isOpen]);
+  }, [open]);
 
   return (
-    <Animated.ScrollView
+    <Animated.View
       style={[
         styles.container,
         {
           height: sheetHeight,
           transform: [{ translateY: verticalOffset }],
         }
-      ]}>
-      {children}
-    </Animated.ScrollView>
+      ]}
+    >
+      <View style={styles.header}>
+        <Text variant="titleLarge" style={styles.title}>{title}</Text>
+        <IconButton icon="close" size={32} style={styles.closeBtn} onPress={onClose} />
+      </View>
+      <ScrollView>
+        {children}
+      </ScrollView>
+    </Animated.View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     position: 'absolute',
     bottom: 0,
     left: 0,
-    backgroundColor: 'whitesmoke',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 20
+    width: '100%',
+    backgroundColor: '#1a1a1d',
+    borderRadius: 16,
+    overflow: 'hidden',
+  },
+  header: {
+    width: '100%',
+    backgroundColor: '#110f15',
+    paddingVertical: 16,
+  },
+  title: {
+    textAlign: 'center',
+    color: 'whitesmoke',
+  },
+  closeBtn: {
+    position: 'absolute',
+    color: 'whitesmoke',
+    top: 2,
+    right: 2,
   },
 });
 
