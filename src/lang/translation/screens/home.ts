@@ -26,6 +26,7 @@ export type HomeScreenDefinition = {
   settingsSheet: {
     title: string,
     actions: string,
+    about: string,
     logout: string,
     logoutSuccess: string,
     dangerZone: string,
@@ -61,6 +62,7 @@ const fr: HomeScreenDefinition = {
   settingsSheet: {
     title: "Paramètres",
     actions: "Actions",
+    about: "À propos",
     logout: "Se déconnecter",
     logoutSuccess: "Déconnecté avec succès",
     dangerZone: "Zone de danger",
@@ -96,6 +98,7 @@ const en: HomeScreenDefinition = {
   settingsSheet: {
     title: "Settings",
     actions: "Actions",
+    about: "About",
     logout: "Logout",
     logoutSuccess: "Successfully logged out",
     dangerZone: "Danger zone",
