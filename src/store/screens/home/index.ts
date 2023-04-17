@@ -1,9 +1,10 @@
-import { Fetchable } from 'core/utils/promise';
+import { Fetchable, OpenState } from 'core/utils';
 import { GetDailyStory, GetStatistics } from './api';
 
 class HomeStore {
   public dailyStory = new Fetchable(GetDailyStory, { catchUnhandled: console.error });
   public statistics = new Fetchable(GetStatistics, { catchUnhandled: console.error });
+  public settingsOpenState = new OpenState();
 
   public pullRefresh() {
     return Promise.all([
