@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react';
+import type { ScrollViewProps } from 'react-native';
 
 import React from 'react';
 import {
@@ -13,13 +14,14 @@ import { observer } from 'mobx-react';
 
 export interface BottomSheetProps {
   open: boolean;
-  onClose: () => void,
+  onClose: () => void;
   animationDuration: number;
-  title: string,
+  title: string;
+  scrollViewProps?: ScrollViewProps;
 }
 
 const BottomSheet = observer((props: PropsWithChildren<BottomSheetProps>) => {
-  const { open, onClose, animationDuration, title, children } = props;
+  const { open, onClose, animationDuration, title, scrollViewProps, children } = props;
   const { height } = useWindowDimensions();
   const sheetHeight = height * 0.75;
 
@@ -60,7 +62,7 @@ const BottomSheet = observer((props: PropsWithChildren<BottomSheetProps>) => {
         <Text variant="titleLarge" style={styles.title}>{title}</Text>
         <IconButton icon="close" size={32} style={styles.closeBtn} onPress={onClose} />
       </View>
-      <ScrollView>
+      <ScrollView {...scrollViewProps}>
         {children}
       </ScrollView>
     </Animated.View>
