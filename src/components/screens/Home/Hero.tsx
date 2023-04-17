@@ -4,6 +4,7 @@ import { Text, IconButton } from 'react-native-paper';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
 import { Images } from 'core/constants';
+import store from 'store/screens/home';
 import accountStore from 'store/common/account';
 
 const Hero = observer(() => {
@@ -19,7 +20,7 @@ const Hero = observer(() => {
           icon="cog"
           size={30}
           style={styles.settingsIcon}
-          onPress={() => console.warn('not handled')}
+          onPress={store.settingsOpenState.open}
         />
       </View>
     </ImageBackground>
