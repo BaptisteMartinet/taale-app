@@ -9,7 +9,6 @@ import { observer } from 'mobx-react';
 import { handleWithSnack } from 'core/utils/promise';
 import accountStore from 'store/common/account';
 import store from 'store/screens/home';
-import { BottomSheet } from 'components/common';
 import Hero from './Hero';
 import Statistics from './Statistics';
 import DailyStory from './DailyStory';
@@ -50,14 +49,7 @@ const Home = observer((props: NavigationProps) => {
             navigation.navigate('Login');
         }}
       />
-      <BottomSheet
-        title={t('settingsSheetTitle')}
-        onClose={store.settingsOpenState.close}
-        open={store.settingsOpenState.isOpen}
-        animationDuration={250}
-      >
-        <SettingsSheet />
-      </BottomSheet>
+      <SettingsSheet />
     </View>
   );
 });

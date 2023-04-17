@@ -23,7 +23,14 @@ export type HomeScreenDefinition = {
     title: string,
     subtitle: string,
   },
-  settingsSheetTitle: string,
+  settingsSheet: {
+    title: string,
+    actions: string,
+    logout: string,
+    logoutSuccess: string,
+    dangerZone: string,
+    deleteAccount: string,
+  },
 };
 
 const fr: HomeScreenDefinition = {
@@ -51,7 +58,14 @@ const fr: HomeScreenDefinition = {
     title: "Bibliothèque",
     subtitle: "Retrouve toutes tes histoires",
   },
-  settingsSheetTitle: "Paramètres",
+  settingsSheet: {
+    title: "Paramètres",
+    actions: "Actions",
+    logout: "Se déconnecter",
+    logoutSuccess: "Déconnecté avec succès",
+    dangerZone: "Zone de danger",
+    deleteAccount: "Supprimer mon compte",
+  },
 };
 
 const en: HomeScreenDefinition = {
@@ -79,7 +93,14 @@ const en: HomeScreenDefinition = {
     title: "Library",
     subtitle: "Find all your stories",
   },
-  settingsSheetTitle: "Settings",
+  settingsSheet: {
+    title: "Settings",
+    actions: "Actions",
+    logout: "Logout",
+    logoutSuccess: "Successfully logged out",
+    dangerZone: "Danger zone",
+    deleteAccount: "Delete my account",
+  },
 };
 
 export default {
