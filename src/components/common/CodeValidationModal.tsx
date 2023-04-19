@@ -1,7 +1,7 @@
 import type { ModalProps } from 'react-native-paper';
 
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Keyboard } from 'react-native';
 import { Modal, Text, TextInput, Button } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import { Second } from 'lib/utils/time';
@@ -18,7 +18,6 @@ export interface ValidationCodeModalProps extends Omit<ModalProps, 'children' | 
 const CodeValidationModal = (props: ValidationCodeModalProps) => {
   const { codeLength, onCodeChange, onCodeCompleted, onResendCode, ...passedProps } = props;
   const { t } = useTranslation('common', { keyPrefix: 'codeValidationModal' });
-  const [codeTextInputDisabled, setCodeTextInputDisabled] = React.useState(false);
   const [resendBtnDisabled, setResendBtnDisabled] = React.useState(false);
   const placeholderStr = React.useMemo(() => ''.padStart(codeLength, '-'), [codeLength]);
 
@@ -37,17 +36,15 @@ const CodeValidationModal = (props: ValidationCodeModalProps) => {
         onChangeText={text => {
           onCodeChange?.(text);
           if (text.length >= codeLength) {
-            setCodeTextInputDisabled(true);
+            Keyboard.dismiss();
             onCodeCompleted(text);
           }
         }}
-        disabled={codeTextInputDisabled}
       />
       <Button
         icon="reload"
         style={styles.resendCodeBtn}
         onPress={() => {
-          setCodeTextInputDisabled(false);
           setResendBtnDisabled(true);
           setTimeout(() => {
             setResendBtnDisabled(false);
