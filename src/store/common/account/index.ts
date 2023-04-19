@@ -2,7 +2,7 @@ import type { User, LoginVariables, RegisterVariables } from './api';
 
 import assert from 'assert';
 import * as SecureStore from 'expo-secure-store';
-import { action, makeObservable, observable } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 import { AuthTokenKey } from 'core/constants';
 import {
   loginMutation,
@@ -11,6 +11,7 @@ import {
   ResendEmailVerificationCode,
   RegisterMutation,
   GetAccount,
+  DeleteAccount,
 } from './api';
 
 class AccountStore {
@@ -20,11 +21,21 @@ class AccountStore {
     makeObservable(this, {
       user: observable,
       setUser: action,
+      loggedIn: computed,
+      loggedOut: computed,
     });
   }
 
-  setUser(user: User) {
+  setUser(user: User | null) {
     this.user = user;
+  }
+
+  public get loggedIn() {
+    return this.user !== null;
+  }
+
+  public get loggedOut() {
+    return this.user === null;
   }
 
   public async login(variables: LoginVariables) {
@@ -33,6 +44,11 @@ class AccountStore {
     const { user, token } = data.public.account.login;
     this.setUser(user);
     await SecureStore.setItemAsync(AuthTokenKey, token);
+  }
+
+  public async logout() {
+    await SecureStore.deleteItemAsync(AuthTokenKey);
+    this.setUser(null);
   }
 
   public register(variables: RegisterVariables) {
@@ -59,6 +75,11 @@ class AccountStore {
       return;
     const res = await GetAccount();
     this.setUser(res.data.authenticated.account);
+  }
+
+  public async deleteAccount() {
+    await DeleteAccount();
+    await this.logout();
   }
 }
 

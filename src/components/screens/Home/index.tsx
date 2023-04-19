@@ -13,6 +13,7 @@ import Hero from './Hero';
 import Statistics from './Statistics';
 import DailyStory from './DailyStory';
 import MyLibrary from './MyLibrary';
+import SettingsSheet from './SettingsSheet';
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -48,6 +49,7 @@ const Home = observer((props: NavigationProps) => {
             navigation.navigate('Login');
         }}
       />
+      <SettingsSheet />
     </View>
   );
 });

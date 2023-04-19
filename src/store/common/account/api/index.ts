@@ -30,3 +30,5 @@ export {
   default as ResendEmailVerificationCode,
   type ResendEmailVerificationCodeVariables,
 } from './ResendEmailVerificationCode';
+
+export { default as DeleteAccount } from './DeleteAccount';

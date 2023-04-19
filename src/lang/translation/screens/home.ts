@@ -23,6 +23,22 @@ export type HomeScreenDefinition = {
     title: string,
     subtitle: string,
   },
+  settingsSheet: {
+    title: string,
+    actions: string,
+    about: string,
+    support: string,
+    logout: string,
+    logoutSuccess: string,
+    dangerZone: string,
+    deleteAccount: string,
+    accountDeletionAlert: {
+      title: string,
+      description: string,
+      cancel: string,
+      submit: string,
+    },
+  },
 };
 
 const fr: HomeScreenDefinition = {
@@ -50,6 +66,22 @@ const fr: HomeScreenDefinition = {
     title: "Bibliothèque",
     subtitle: "Retrouve toutes tes histoires",
   },
+  settingsSheet: {
+    title: "Paramètres",
+    actions: "Actions",
+    about: "À propos",
+    support: "Support",
+    logout: "Se déconnecter",
+    logoutSuccess: "Déconnecté avec succès",
+    dangerZone: "Zone de danger",
+    deleteAccount: "Supprimer mon compte",
+    accountDeletionAlert: {
+      title: "Suppression de compte",
+      description: "Cette action est irréversible et entrainera la suppression de toutes vos données.",
+      cancel: "Retour",
+      submit: "Supprimer",
+    },
+  },
 };
 
 const en: HomeScreenDefinition = {
@@ -76,6 +108,22 @@ const en: HomeScreenDefinition = {
   myLibrary: {
     title: "Library",
     subtitle: "Find all your stories",
+  },
+  settingsSheet: {
+    title: "Settings",
+    actions: "Actions",
+    about: "About",
+    support: "Support",
+    logout: "Logout",
+    logoutSuccess: "Successfully logged out",
+    dangerZone: "Danger zone",
+    deleteAccount: "Delete my account",
+    accountDeletionAlert: {
+      title: "Account deletion",
+      description: "This action is irreversible and will delete all your datas from the application.",
+      cancel: "Cancel",
+      submit: "Delete",
+    },
   },
 };
 
