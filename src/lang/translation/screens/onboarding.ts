@@ -15,7 +15,7 @@ export type OnboardingScreenDefinition = {
 const fr: OnboardingScreenDefinition = {
   slide1: {
     title: "Bienvenue sur Taale",
-    description: "Taale est une application d'écriture collaborative ou les utilisateurs participent à l'élaboration d'une immense fable comportant une infinité d'univers parralèlles.",
+    description: "Taale est une application d'écriture collaborative ou les utilisateurs participent à l'élaboration d'une immense fable comportant une infinité d'univers paralèlles.",
   },
   slide2: {
     title: "L'arbre",
