@@ -2,12 +2,13 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
-import { Alert } from 'react-native';
+import { Alert, Linking } from 'react-native';
 import { List } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
 import { handleWithSnack } from 'core/utils';
+import { baptechWebsiteURL } from 'core/constants';
 import { BottomSheet } from 'components/common';
 import accountStore from 'store/common/account';
 import store from 'store/screens/home';
@@ -40,6 +41,16 @@ const SettingsSheet = observer(() => {
           onPress={() => {
             store.settingsOpenState.close();
             navigation.navigate('Onboarding');
+          }}
+        />
+        <List.Item
+          title={t('support')}
+          left={props => <List.Icon {...props} icon="face-agent" />}
+          onPress={() => {
+            Linking.canOpenURL(baptechWebsiteURL).then((canOpen) => {
+              if (canOpen)
+                Linking.openURL(baptechWebsiteURL).catch(console.error);
+            }).catch(console.error);
           }}
         />
         <List.Item
