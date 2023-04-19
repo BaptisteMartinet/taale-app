@@ -11,6 +11,7 @@ import {
   ResendEmailVerificationCode,
   RegisterMutation,
   GetAccount,
+  DeleteAccount,
 } from './api';
 
 class AccountStore {
@@ -74,6 +75,11 @@ class AccountStore {
       return;
     const res = await GetAccount();
     this.setUser(res.data.authenticated.account);
+  }
+
+  public async deleteAccount() {
+    await DeleteAccount();
+    await this.logout();
   }
 }
 
