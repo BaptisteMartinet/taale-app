@@ -23,6 +23,7 @@ export interface UsernameAvailabilityVariables {
   username: string;
 }
 
-export default function UsernameAvailability(variables: UsernameAvailabilityVariables) {
-  return apolloClient.query<UsernameAvailabilityResponse>({ query, variables });
+export default async function UsernameAvailability(variables: UsernameAvailabilityVariables) {
+  const res = await apolloClient.query<UsernameAvailabilityResponse>({ query, variables });
+  return res.data.public.account.usernameAvailability;
 }

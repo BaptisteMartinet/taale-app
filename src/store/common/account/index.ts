@@ -1,4 +1,4 @@
-import type { User, LoginVariables, RegisterVariables } from './api';
+import type { User, LoginVariables } from './api';
 
 import assert from 'assert';
 import * as SecureStore from 'expo-secure-store';
@@ -51,30 +51,21 @@ class AccountStore {
     this.setUser(null);
   }
 
-  public register(variables: RegisterVariables) {
-    return RegisterMutation(variables);
-  }
+  public register = RegisterMutation;
 
   // Note: use this for username validation on register screen
-  public async usernameAvailability(username: string): Promise<boolean> {
-    const res = await UsernameAvailability({ username });
-    return res.data.public.account.usernameAvailability;
-  }
+  public usernameAvailability = UsernameAvailability;
 
-  public verifyEmail(email: string) {
-    return VerifyEmail({ email });
-  }
+  public verifyEmail = VerifyEmail;
 
-  public resendEmailVerificationCode(email: string) {
-    return ResendEmailVerificationCode({ email });
-  }
+  public resendEmailVerificationCode = ResendEmailVerificationCode;
 
   public async refreshAccount() {
     const authToken = await SecureStore.getItemAsync(AuthTokenKey);
     if (authToken === null)
       return;
-    const res = await GetAccount();
-    this.setUser(res.data.authenticated.account);
+    const account = await GetAccount();
+    this.setUser(account);
   }
 
   public async deleteAccount() {

@@ -61,7 +61,7 @@ const Register = (props: NavigationProps) => {
             const { email } = values;
             Keyboard.dismiss();
             registerVariablesRef.current = values;
-            const promise = store.verifyEmail(email);
+            const promise = store.verifyEmail({ email });
             return handleWithSnack(promise, {
               successMessage: null,
               onSuccess: () => setCodeValidationModalOpen(true),
@@ -129,7 +129,7 @@ const Register = (props: NavigationProps) => {
         onResendCode={() => {
           const email = registerVariablesRef.current?.email;
           assert(email !== undefined)
-          const promise = store.resendEmailVerificationCode(email);
+          const promise = store.resendEmailVerificationCode({ email });
           handleWithSnack(promise, {
             successMessage: null,
             errorMessage: true,
