@@ -15,10 +15,10 @@ const ParticipationSuccess = (props: NavigationProps) => {
     <SafeAreaView style={styles.container}>
       <IconButton
         icon="check-circle-outline"
-        iconColor="#1aa321"
+        iconColor="whitesmoke"
         size={100}
       />
-      <Text variant="titleLarge" style={styles.title}>{t('title')}</Text>
+      <Text variant="headlineLarge" style={styles.title}>{t('title')}</Text>
       <View style={styles.buttonsContainer}>
         <Button
           style={styles.button}
@@ -26,8 +26,8 @@ const ParticipationSuccess = (props: NavigationProps) => {
           onPress={() => navigation.navigate('PartialStory')}
         >
           <Text
-            variant="headlineLarge"
-            style={styles.buttonText}
+            variant="titleLarge"
+            style={[styles.buttonText, { fontWeight: 'bold' }]}
           >
             {t('partialStoryLink')}
           </Text>
@@ -54,16 +54,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#77C66E',
   },
   title: {
     fontWeight: 'bold',
     marginVertical: 4,
   },
   buttonsContainer: {
-    marginTop: 94,
+    marginTop: 64,
   },
   button: {
     marginVertical: 16,
+    backgroundColor: 'whitesmoke',
   },
   buttonText: {
     color: '#2b2b2b',
