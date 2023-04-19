@@ -31,6 +31,12 @@ export type HomeScreenDefinition = {
     logoutSuccess: string,
     dangerZone: string,
     deleteAccount: string,
+    accountDeletionAlert: {
+      title: string,
+      description: string,
+      cancel: string,
+      submit: string,
+    },
   },
 };
 
@@ -67,6 +73,12 @@ const fr: HomeScreenDefinition = {
     logoutSuccess: "Déconnecté avec succès",
     dangerZone: "Zone de danger",
     deleteAccount: "Supprimer mon compte",
+    accountDeletionAlert: {
+      title: "Suppression de compte",
+      description: "Cette action est irréversible et entrainera la suppression de toutes vos données.",
+      cancel: "Retour",
+      submit: "Supprimer",
+    },
   },
 };
 
@@ -103,6 +115,12 @@ const en: HomeScreenDefinition = {
     logoutSuccess: "Successfully logged out",
     dangerZone: "Danger zone",
     deleteAccount: "Delete my account",
+    accountDeletionAlert: {
+      title: "Account deletion",
+      description: "This action is irreversible and will delete all your datas from the application.",
+      cancel: "Cancel",
+      submit: "Delete",
+    },
   },
 };
 

@@ -2,6 +2,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'components/Navigator';
 
 import React from 'react';
+import { Alert } from 'react-native';
 import { List } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
@@ -61,7 +62,30 @@ const SettingsSheet = observer(() => {
         <List.Item
           title={t('deleteAccount')}
           left={props => <List.Icon {...props} icon="delete" />}
-          onPress={() => console.warn('not handled')}
+          disabled={accountStore.loggedOut}
+          onPress={() => {
+            Alert.alert(
+              t('accountDeletionAlert.title'),
+              t('accountDeletionAlert.description'),
+              [
+                {
+                  text: t('accountDeletionAlert.cancel'),
+                  style: 'cancel'
+                },
+                {
+                  text: t('accountDeletionAlert.submit'),
+                  style: 'destructive',
+                  onPress: () => {
+                    const promise = accountStore.deleteAccount();
+                    handleWithSnack(promise, {
+                      successMessage: null,
+                      errorMessage: true,
+                    });
+                  }
+                },
+              ],
+            );
+          }}
         />
       </List.Section>
     </BottomSheet>
