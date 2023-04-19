@@ -12,6 +12,8 @@ import {
   RegisterMutation,
   GetAccount,
   DeleteAccount,
+  ForgotPassword,
+  ResetPassword,
 } from './api';
 
 class AccountStore {
@@ -72,6 +74,10 @@ class AccountStore {
     await DeleteAccount();
     await this.logout();
   }
+
+  public forgotPassword = ForgotPassword;
+
+  public resetPassword = ResetPassword;
 }
 
 export default new AccountStore();
