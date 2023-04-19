@@ -45,6 +45,7 @@ const Sentence = (props: SentenceProps) => {
           {sentence.text}
         </Text>
       }
+      anchorPosition="bottom"
     >
       <Menu.Item
         titleStyle={styles.userTitle}
