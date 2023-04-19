@@ -12,24 +12,24 @@ export type LoginScreenDefinition = {
 
 const fr: LoginScreenDefinition = {
   form: {
-    headlineTitle: 'Rebonjour!',
-    headlineDescription: 'Connectez-vous à votre compte',
-    email: 'Email',
-    password: 'Mot de passe',
-    submit: 'Se connecter',
-    forgotPassword: 'Mot de passe oublié',
+    headlineTitle: "Rebonjour!",
+    headlineDescription: "Connectez-vous à votre compte",
+    email: "Email",
+    password: "Mot de passe",
+    submit: "Se connecter",
+    forgotPassword: "Mot de passe oublié",
     register: "Je n'ai pas de compte",
   },
 };
 
 const en: LoginScreenDefinition = {
   form: {
-    headlineTitle: 'Welcome back!',
-    headlineDescription: 'Sign in to your account',
-    email: 'Email',
-    password: 'Password',
-    submit: 'Sign in',
-    forgotPassword: 'Forgot password',
+    headlineTitle: "Welcome back!",
+    headlineDescription: "Sign in to your account",
+    email: "Email",
+    password: "Password",
+    submit: "Sign in",
+    forgotPassword: "Forgot password",
     register: "I don't have an account",
   },
 };
