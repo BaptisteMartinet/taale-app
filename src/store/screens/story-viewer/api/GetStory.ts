@@ -29,7 +29,7 @@ export type Owner = {
 export type Sentence = {
   id: number,
   text: string,
-  owner: Owner,
+  owner: Owner | null,
   createdAt: number/*timestamp*/,
 };
 

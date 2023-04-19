@@ -26,7 +26,7 @@ export interface UserRestricted {
 export interface Sentence {
   id: number;
   text: string;
-  owner: UserRestricted;
+  owner: UserRestricted | null;
   createdAt: number;
 }
 

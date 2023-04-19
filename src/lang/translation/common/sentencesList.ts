@@ -3,6 +3,7 @@ export type SentencesListDefinition = {
   reportSuccessfull: string,
   markCompleted: string,
   markCompletedSuccessfull: string,
+  deletedUser: string,
   misc: {
     dateFormat: string,
   },
@@ -13,6 +14,7 @@ const fr: SentencesListDefinition = {
   reportSuccessfull: 'Signalé avec succès',
   markCompleted: 'Voter pour terminer',
   markCompletedSuccessfull: 'Vote pris en compte',
+  deletedUser: "Inconnu",
   misc: {
     dateFormat: 'dd/MM/yy HH:mm',
   },
@@ -23,6 +25,7 @@ const en: SentencesListDefinition = {
   reportSuccessfull: 'Successfully reported',
   markCompleted: 'Mark completed',
   markCompletedSuccessfull: 'Vote registered',
+  deletedUser: "Unknown",
   misc: {
     dateFormat: 'dd/MM/yy hh:mm aaa',
   },

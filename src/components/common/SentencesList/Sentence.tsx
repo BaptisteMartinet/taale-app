@@ -15,7 +15,7 @@ export interface Owner {
 export interface Sentence {
   id: number;
   text: string;
-  owner: Owner;
+  owner: Owner | null;
   createdAt: number;
 }
 
@@ -38,7 +38,7 @@ const Sentence = (props: SentenceProps) => {
         <Text
           style={[
             styles.text,
-            { fontWeight: (sentence.owner.id === accountStore.user?.id ? 'bold' : undefined) }
+            { fontWeight: (accountStore.user && sentence.owner?.id === accountStore.user.id ? 'bold' : undefined) }
           ]}
           onPress={() => setMenuVisibility(true)}
         >
@@ -48,7 +48,7 @@ const Sentence = (props: SentenceProps) => {
     >
       <Menu.Item
         titleStyle={styles.userTitle}
-        title={`u/${sentence.owner.username} - ${format(sentence.createdAt, t('misc.dateFormat'))}`}
+        title={`${sentence.owner?.username || t('deletedUser')} - ${format(sentence.createdAt, t('misc.dateFormat'))}`}
       />
       <Divider />
       <Menu.Item
