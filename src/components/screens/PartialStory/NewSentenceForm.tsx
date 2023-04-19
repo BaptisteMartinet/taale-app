@@ -21,8 +21,8 @@ import CharsProgress from './CharsProgress';
 
 const NewSentenceSchema = Yup.object().shape({
   text: Yup.string()
-    .min(SentenceTextMinLength, 'Too short')
-    .max(SentenceTextMaxLength, 'Too long')
+    .min(SentenceTextMinLength)
+    .max(SentenceTextMaxLength)
     .required('Required')
 });
 
