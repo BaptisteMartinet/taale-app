@@ -57,6 +57,7 @@ const NewSentenceForm = () => {
             mode="outlined"
             placeholder={t('write')}
             multiline
+            maxLength={SentenceTextMaxLength}
             value={values.text}
             onChangeText={handleChange('text')}
             onBlur={handleBlur('text')}
