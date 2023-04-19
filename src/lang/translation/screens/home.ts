@@ -38,6 +38,7 @@ export type HomeScreenDefinition = {
       cancel: string,
       submit: string,
     },
+    accountDeletionSuccess: string,
   },
 };
 
@@ -81,6 +82,7 @@ const fr: HomeScreenDefinition = {
       cancel: "Retour",
       submit: "Supprimer",
     },
+    accountDeletionSuccess: "Compte supprimé avec succès",
   },
 };
 
@@ -124,6 +126,7 @@ const en: HomeScreenDefinition = {
       cancel: "Cancel",
       submit: "Delete",
     },
+    accountDeletionSuccess: "Account successfully deleted",
   },
 };
 

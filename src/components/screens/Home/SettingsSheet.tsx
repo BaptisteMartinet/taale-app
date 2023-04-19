@@ -89,7 +89,7 @@ const SettingsSheet = observer(() => {
                   onPress: () => {
                     const promise = accountStore.deleteAccount();
                     handleWithSnack(promise, {
-                      successMessage: null,
+                      successMessage: t('accountDeletionSuccess'),
                       errorMessage: true,
                     });
                   }
