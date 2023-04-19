@@ -1,5 +1,6 @@
 import login, { type LoginScreenDefinition } from './login';
 import register, { type RegisterScreenDefinition } from './register';
+import forgotPassword, { type ForgotPasswordDefinition } from './forgotPassword';
 import onboarding, { type OnboardingScreenDefinition } from './onboarding';
 import home, { type HomeScreenDefinition } from './home';
 import partialStory, { type PartialStoryScreenDefinition } from './partialStory';
@@ -16,6 +17,7 @@ export type ScreensDefinition = {
   participationSuccess: ParticipationSuccessScreenDefinition,
   library: LibraryDefinition,
   storyViewer: StoryViewerDefinition,
+  forgotPassword: ForgotPasswordDefinition,
 }
 
 const fr: ScreensDefinition = {
@@ -27,6 +29,7 @@ const fr: ScreensDefinition = {
   participationSuccess: participationSuccess.fr,
   library: library.fr,
   storyViewer: storyViewer.fr,
+  forgotPassword: forgotPassword.fr,
 };
 
 const en: ScreensDefinition = {
@@ -38,6 +41,7 @@ const en: ScreensDefinition = {
   participationSuccess: participationSuccess.en,
   library: library.en,
   storyViewer: storyViewer.en,
+  forgotPassword: forgotPassword.en,
 };
 
 export default {

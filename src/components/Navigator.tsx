@@ -15,6 +15,7 @@ import {
   Login,
   Home,
   Register,
+  ForgotPassword,
   Onboarding,
   PartialStory,
   ParticipationSuccess,
@@ -26,6 +27,7 @@ export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
   Register: undefined;
+  ForgotPassword: undefined;
   Onboarding: undefined;
   PartialStory: undefined;
   ParticipationSuccess: undefined;
@@ -60,6 +62,7 @@ const Navigator = observer(() => {
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} listeners={{ focus: homeHandler }} />
         <Stack.Screen name="Login" component={Login} options={{ title: t('login') }} />
         <Stack.Screen name="Register" component={Register} options={{ title: t('register') }} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ title: t('forgotPassword') }} />
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
         <Stack.Screen name="PartialStory" component={PartialStory} options={{ title: t('partialStory') }} listeners={{ focus: partialStoryHandler }} />
         <Stack.Screen name="ParticipationSuccess" component={ParticipationSuccess} options={{ headerShown: false }} />

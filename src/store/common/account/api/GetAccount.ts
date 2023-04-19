@@ -33,6 +33,7 @@ export type GetAccountResponse = {
   },
 }
 
-export default function GetAccount() {
-  return apolloClient.query<GetAccountResponse>({ query });
+export default async function GetAccount() {
+  const res = await apolloClient.query<GetAccountResponse>({ query });
+  return res.data.authenticated.account;
 }

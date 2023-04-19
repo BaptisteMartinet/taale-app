@@ -32,3 +32,13 @@ export {
 } from './ResendEmailVerificationCode';
 
 export { default as DeleteAccount } from './DeleteAccount';
+
+export {
+  default as ForgotPassword,
+  type ForgotPasswordVariables,
+} from './ForgotPassword';
+
+export {
+  default as ResetPassword,
+  type ResetPasswordVariables,
+} from './ResetPassword';

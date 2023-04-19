@@ -99,7 +99,7 @@ const Login = (props: NavigationProps) => {
               <Button
                 mode="text"
                 style={styles.button}
-                onPress={() => { }} // TODO redirect to forgotpass screen
+                onPress={() => navigation.navigate('ForgotPassword')}
               >
                 {t('form.forgotPassword')}
               </Button>
