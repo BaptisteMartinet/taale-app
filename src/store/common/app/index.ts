@@ -1,4 +1,4 @@
-import { handleWithSnack, LoadingStatus } from 'core/utils/promise';
+import { handleWithSnack, LoadingStatus } from 'core/utils';
 import accountStore from 'store/common/account';
 import onboardingStore from 'store/screens/onboarding';
 import homeStore from 'store/screens/home';
