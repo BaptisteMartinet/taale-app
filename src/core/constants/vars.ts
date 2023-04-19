@@ -6,3 +6,5 @@ export const PasswordMinLength = 4;
 
 export const SentenceTextMinLength = 3;
 export const SentenceTextMaxLength = 180;
+
+export const ResetPasswordCodeLength = 4;
