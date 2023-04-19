@@ -90,11 +90,18 @@ const Login = (props: NavigationProps) => {
                 {t('form.submit')}
               </Button>
               <Button
-                mode="text"
+                mode="outlined"
                 style={styles.button}
                 onPress={() => { navigation.navigate('Register'); }}
               >
                 {t('form.register')}
+              </Button>
+              <Button
+                mode="text"
+                style={styles.button}
+                onPress={() => { }} // TODO redirect to forgotpass screen
+              >
+                {t('form.forgotPassword')}
               </Button>
             </View>
           )}

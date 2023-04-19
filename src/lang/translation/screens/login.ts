@@ -17,7 +17,7 @@ const fr: LoginScreenDefinition = {
     email: 'Email',
     password: 'Mot de passe',
     submit: 'Se connecter',
-    forgotPassword: 'Mot de passe oublié ?',
+    forgotPassword: 'Mot de passe oublié',
     register: "Je n'ai pas de compte",
   },
 };
@@ -29,7 +29,7 @@ const en: LoginScreenDefinition = {
     email: 'Email',
     password: 'Password',
     submit: 'Sign in',
-    forgotPassword: 'Forgot password?',
+    forgotPassword: 'Forgot password',
     register: "I don't have an account",
   },
 };
