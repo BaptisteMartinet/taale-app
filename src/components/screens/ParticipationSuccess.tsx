@@ -38,7 +38,7 @@ const ParticipationSuccess = (props: NavigationProps) => {
           onPress={() => navigation.navigate('Home')}
         >
           <Text
-            variant="titleSmall"
+            variant="titleMedium"
             style={styles.buttonText}
           >
             {t('homeLink')}
