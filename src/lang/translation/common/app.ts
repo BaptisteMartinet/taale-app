@@ -1,4 +1,5 @@
 export type AppDefinition = {
+  backTitle: string,
   screens: {
     login: string,
     register: string,
@@ -10,6 +11,7 @@ export type AppDefinition = {
 };
 
 const fr: AppDefinition = {
+  backTitle: "Retour",
   screens: {
     login: "Se connecter",
     register: "Créer un compte",
@@ -21,6 +23,7 @@ const fr: AppDefinition = {
 };
 
 const en: AppDefinition = {
+  backTitle: "Back",
   screens: {
     login: "Login",
     register: "Register",
