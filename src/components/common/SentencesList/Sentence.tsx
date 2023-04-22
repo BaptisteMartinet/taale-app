@@ -16,6 +16,7 @@ export interface Sentence {
   id: number;
   text: string;
   owner: Owner | null;
+  parentSentenceId: number | null;
   createdAt: number;
 }
 
@@ -55,7 +56,7 @@ const Sentence = (props: SentenceProps) => {
       <Menu.Item
         title={t('report')}
         leadingIcon="alert"
-        disabled={disableControls}
+        disabled={disableControls || sentence.parentSentenceId === null}
         onPress={() => {
           const promise = sentenceStore.report({ sentenceId: sentence.id });
           handleWithSnack(promise, {
@@ -71,7 +72,7 @@ const Sentence = (props: SentenceProps) => {
       <Menu.Item
         title={t('markCompleted')}
         leadingIcon="check-circle"
-        disabled={disableControls}
+        disabled={disableControls || sentence.parentSentenceId === null}
         onPress={() => {
           const promise = sentenceStore.markCompleted({ sentenceId: sentence.id });
           handleWithSnack(promise, {

@@ -9,6 +9,7 @@ query GetStory ($storyId: Int!) {
       sentences {
         id
         text
+        parentSentenceId
         owner {
           id
           username
@@ -29,6 +30,7 @@ export type Owner = {
 export type Sentence = {
   id: number,
   text: string,
+  parentSentenceId: number | null;
   owner: Owner | null,
   createdAt: number/*timestamp*/,
 };

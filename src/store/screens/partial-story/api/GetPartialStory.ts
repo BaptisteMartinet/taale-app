@@ -7,6 +7,7 @@ query PartialStory {
     partialStory {
       id
       text
+      parentSentenceId
       owner {
         id
         username
@@ -26,6 +27,7 @@ export interface UserRestricted {
 export interface Sentence {
   id: number;
   text: string;
+  parentSentenceId: number | null;
   owner: UserRestricted | null;
   createdAt: number;
 }
