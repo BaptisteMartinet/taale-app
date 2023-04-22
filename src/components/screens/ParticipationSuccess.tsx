@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     marginVertical: 4,
+    color: 'whitesmoke'
   },
   buttonsContainer: {
     marginTop: 64,
@@ -66,11 +67,9 @@ const styles = StyleSheet.create({
   button: {
     marginVertical: 16,
     backgroundColor: 'whitesmoke',
-    borderWidth: 4,
-    borderColor: '#6ab362',
   },
   buttonText: {
-    color: '#2b2b2b',
+    color: '#77C66E',
   },
 });
 
