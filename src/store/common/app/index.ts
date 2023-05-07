@@ -6,13 +6,12 @@ import homeStore from 'store/screens/home';
 class AppStore extends LoadingStatus {
   constructor() {
     super();
-    const promise = this.refresh();
-    handleWithSnack(promise, { successMessage: null, errorMessage: true });
+    this.refresh().catch(console.warn);
   }
 
   public async refresh() {
     this.setLoading();
-    await Promise.all([
+    await Promise.allSettled([
       onboardingStore.refresh(),
       accountStore.refreshAccount(),
       homeStore.refresh(),
