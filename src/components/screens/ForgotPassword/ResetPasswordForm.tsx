@@ -66,7 +66,7 @@ const ResetPasswordForm = (props: ResetPasswordFormProps) => {
           <TextInput
             label={t('validationCodeLabel')}
             mode="outlined"
-            keyboardType="number-pad"
+            autoCapitalize="characters"
             right={<TextInput.Icon icon="numeric" />}
             maxLength={ResetPasswordCodeLength}
             value={values.validationCode}
