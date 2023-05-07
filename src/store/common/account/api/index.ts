@@ -1,13 +1,13 @@
 export {
   default as loginMutation,
-  User,
-  LoginResponse,
-  LoginVariables,
+  type User,
+  type LoginResponse,
+  type LoginVariables,
 } from './login';
 
 export {
   default as RegisterMutation,
-  RegisterVariables,
+  type RegisterVariables,
 } from './register';
 
 export {

@@ -1,11 +1,11 @@
 export {
   default as ReportSentence,
-  ReportSentenceVariables,
+  type ReportSentenceVariables,
 } from './ReportSentence';
 
 export {
   default as MarkSentenceCompleted,
-  MarkSentenceCompletedVariables,
+  type MarkSentenceCompletedVariables,
 } from './MarkSentenceCompleted';
 
 export {

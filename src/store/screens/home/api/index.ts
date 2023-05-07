@@ -1,9 +1,9 @@
 export {
   default as GetDailyStory,
-  Story,
+  type Story,
 } from './GetDailyStory';
 
 export {
   default as GetStatistics,
-  StatisticsQuery,
+  type StatisticsQuery,
 } from './GetStatistics';
