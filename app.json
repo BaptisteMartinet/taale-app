@@ -2,7 +2,7 @@
   "expo": {
     "name": "Taale",
     "slug": "taale-app",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/app/icon.png",
     "userInterfaceStyle": "dark",
@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.imania.taaleapp",
-      "buildNumber": "5"
+      "buildNumber": "6"
     },
     "android": {
       "adaptiveIcon": {
