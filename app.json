@@ -27,7 +27,8 @@
         "foregroundImage": "./assets/app/adaptive-icon.png",
         "backgroundColor": "#2b2b2b"
       },
-      "package": "com.imania.taaleapp"
+      "package": "com.imania.taaleapp",
+      "versionCode": "2"
     },
     "web": {
       "favicon": "./assets/app/favicon.png"
