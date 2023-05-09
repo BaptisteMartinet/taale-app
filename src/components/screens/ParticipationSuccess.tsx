@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#77C66E',
+    backgroundColor: 'mediumseagreen',
   },
   title: {
     fontWeight: 'bold',
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'whitesmoke',
   },
   buttonText: {
-    color: '#77C66E',
+    color: 'mediumseagreen',
   },
 });
 
