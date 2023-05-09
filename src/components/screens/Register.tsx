@@ -12,7 +12,12 @@ import {
   KeyboardAvoidingView,
   Keyboard,
 } from 'react-native';
-import { TextInput, Button, Text } from 'react-native-paper';
+import {
+  TextInput,
+  HelperText,
+  Button,
+  Text,
+} from 'react-native-paper';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
@@ -80,12 +85,12 @@ const Register = (props: NavigationProps) => {
                 mode="outlined"
                 textContentType="username"
                 right={<TextInput.Icon icon="account-circle" />}
-                style={styles.textField}
                 value={values.username}
                 onChangeText={handleChange('username')}
                 onBlur={handleBlur('username')}
                 error={Boolean(errors.username) && touched.username}
               />
+              <HelperText type="info">{t('form.usernameHelper')}</HelperText>
               <TextInput
                 label={t('form.email')}
                 mode="outlined"
