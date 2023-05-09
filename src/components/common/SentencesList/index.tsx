@@ -29,7 +29,7 @@ const SentencesList = (props: SentencesListProps) => {
       )}
       keyExtractor={(item) => item.id.toString()}
       ListEmptyComponent={ActivityIndicator}
-      ItemSeparatorComponent={() => <Divider style={{ width: '5%' }} />}
+      ItemSeparatorComponent={() => <Divider bold style={{ width: '8%', backgroundColor: 'mediumaquamarine' }} />}
     />
   );
 };
