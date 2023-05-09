@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     lineHeight: 32,
   },
   userTitle: {
+    fontSize: 12,
     fontWeight: 'bold',
   },
 });
