@@ -8,6 +8,7 @@ import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
 import { handleWithSnack } from 'core/utils/promise';
 import store from 'store/screens/library';
+import { ParticipationFab } from 'components/common';
 import StoryPreview from './StoryPreview';
 import EmptyLibrary from './EmptyLibrary';
 
@@ -40,6 +41,7 @@ const Library = observer((props: NavigationProps) => {
         }
         ListEmptyComponent={<EmptyLibrary />}
       />
+      <ParticipationFab />
     </View>
   );
 });
