@@ -1,9 +1,9 @@
 import type { User, LoginVariables } from './api';
 
 import assert from 'assert';
-import * as SecureStore from 'expo-secure-store';
 import { action, computed, makeObservable, observable } from 'mobx';
 import { AuthTokenKey } from 'core/constants';
+import Storage from 'core/storage';
 import {
   loginMutation,
   UsernameAvailability,
@@ -45,11 +45,11 @@ class AccountStore {
     assert(data);
     const { user, token } = data.public.account.login;
     this.setUser(user);
-    await SecureStore.setItemAsync(AuthTokenKey, token);
+    await Storage.setItem(AuthTokenKey, token, { secure: true });
   }
 
   public async logout() {
-    await SecureStore.deleteItemAsync(AuthTokenKey);
+    await Storage.deleteItem(AuthTokenKey);
     this.setUser(null);
   }
 
@@ -63,7 +63,7 @@ class AccountStore {
   public resendEmailVerificationCode = ResendEmailVerificationCode;
 
   public async refreshAccount() {
-    const authToken = await SecureStore.getItemAsync(AuthTokenKey);
+    const authToken = await Storage.getItem(AuthTokenKey);
     if (authToken === null)
       return;
     const account = await GetAccount();

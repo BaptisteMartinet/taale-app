@@ -1,5 +1,5 @@
 import { makeObservable, observable, action } from 'mobx';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import Storage from 'core/storage';
 
 class OnboardingStore {
   private static OnboardingStorageKey = 'onboaring';
@@ -19,11 +19,11 @@ class OnboardingStore {
   }
 
   public saveOnboardingCompleted() {
-    return AsyncStorage.setItem(OnboardingStore.OnboardingStorageKey, OnboardingStore.OnboardingStorageValue);
+    return Storage.setItem(OnboardingStore.OnboardingStorageKey, OnboardingStore.OnboardingStorageValue);
   }
 
   public async refresh() {
-    const onboardingState = await AsyncStorage.getItem(OnboardingStore.OnboardingStorageKey);
+    const onboardingState = await Storage.getItem(OnboardingStore.OnboardingStorageKey);
     this.setOnboardingCompleted(onboardingState === OnboardingStore.OnboardingStorageValue);
   }
 }
