@@ -1,5 +1,10 @@
 {
   "name": "taale-app",
+  "description": "Collaborative writing",
+  "author": {
+    "name": "Baptiste Martinet",
+    "url": "https://www.baptech.fr/"
+  },
   "version": "1.0.0",
   "homepage": "https://BaptisteMartinet.github.io/taale-app",
   "main": "src/components/App.tsx",
