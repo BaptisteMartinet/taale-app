@@ -13,7 +13,7 @@ import {
   SentenceTextMinLength,
   SentenceTextMaxLength,
 } from 'core/constants';
-import { handleWithSnack } from 'core/utils/promise';
+import { handleWithSnack, isMobile } from 'core/utils';
 import { useKeyboardVisible } from 'core/hooks';
 import sentenceStore from 'store/common/sentence';
 import store from 'store/screens/partial-story';
@@ -63,7 +63,7 @@ const NewSentenceForm = () => {
             onBlur={handleBlur('text')}
             error={Boolean(errors.text) && touched.text}
           />
-          {isKeyboardVisible &&
+          {(isKeyboardVisible || !isMobile) &&
             <View style={styles.controlsContainer}>
               <CharsProgress maxCharsCount={SentenceTextMaxLength} currentCharsCount={values.text.length} />
               <IconButton
