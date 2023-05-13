@@ -1,4 +1,5 @@
 import { makeObservable, observable, action } from 'mobx';
+import { isMobile } from 'core/utils';
 import Storage from 'core/storage';
 
 class OnboardingStore {
@@ -23,7 +24,8 @@ class OnboardingStore {
 
   public async refresh() {
     const onboardingState = await Storage.getItem(OnboardingStore.OnboardingStorageKey);
-    this.setOnboardingCompleted(onboardingState !== null);
+    // Note: Onboarding screen does not work on web/desktop
+    this.setOnboardingCompleted(onboardingState !== null || !isMobile);
   }
 }
 
