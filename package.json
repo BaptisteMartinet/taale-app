@@ -1,12 +1,15 @@
 {
   "name": "taale-app",
   "version": "1.0.0",
+  "homepage": "https://BaptisteMartinet.github.io/taale-app",
   "main": "src/components/App.tsx",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "deploy": "gh-pages -d web-build",
+    "predeploy": "expo export:web"
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
@@ -40,6 +43,7 @@
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.70.6",
     "babel-plugin-module-resolver": "^4.1.0",
+    "gh-pages": "^5.0.0",
     "typescript": "^4.6.3"
   },
   "private": true
