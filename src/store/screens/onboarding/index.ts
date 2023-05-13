@@ -3,7 +3,6 @@ import Storage from 'core/storage';
 
 class OnboardingStore {
   private static OnboardingStorageKey = 'onboaring';
-  private static OnboardingStorageValue = 'completed';
 
   public onboardingCompleted: boolean | null = null;
 
@@ -19,12 +18,12 @@ class OnboardingStore {
   }
 
   public saveOnboardingCompleted() {
-    return Storage.setItem(OnboardingStore.OnboardingStorageKey, OnboardingStore.OnboardingStorageValue);
+    return Storage.setItem(OnboardingStore.OnboardingStorageKey, 'completed');
   }
 
   public async refresh() {
     const onboardingState = await Storage.getItem(OnboardingStore.OnboardingStorageKey);
-    this.setOnboardingCompleted(onboardingState === OnboardingStore.OnboardingStorageValue);
+    this.setOnboardingCompleted(onboardingState !== null);
   }
 }
 
