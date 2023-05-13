@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/taale-app/static/js/app.e7222258.chunk.js",
-    "app.js.map": "/taale-app/static/js/app.e7222258.chunk.js.map",
+    "app.js": "/taale-app/static/js/app.c2f1d61d.chunk.js",
+    "app.js.map": "/taale-app/static/js/app.c2f1d61d.chunk.js.map",
     "runtime~app.js": "/taale-app/static/js/runtime~app.334eb06a.js",
     "runtime~app.js.map": "/taale-app/static/js/runtime~app.334eb06a.js.map",
     "static/js/2.9858754d.chunk.js": "/taale-app/static/js/2.9858754d.chunk.js",
@@ -26,6 +26,6 @@
   "entrypoints": [
     "static/js/runtime~app.334eb06a.js",
     "static/js/2.9858754d.chunk.js",
-    "static/js/app.e7222258.chunk.js"
+    "static/js/app.c2f1d61d.chunk.js"
   ]
 }
