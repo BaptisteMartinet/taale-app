@@ -20,7 +20,7 @@ const WebContainer = (props: PropsWithChildren<{}>) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#455d7a',
+    backgroundColor: 'red',
   },
   appWrapper: {
     width: 360,
