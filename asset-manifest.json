@@ -4,8 +4,8 @@
     "app.js.map": "/taale-app/static/js/app.c2f1d61d.chunk.js.map",
     "runtime~app.js": "/taale-app/static/js/runtime~app.334eb06a.js",
     "runtime~app.js.map": "/taale-app/static/js/runtime~app.334eb06a.js.map",
-    "static/js/2.c73d0ae6.chunk.js": "/taale-app/static/js/2.c73d0ae6.chunk.js",
-    "static/js/2.c73d0ae6.chunk.js.map": "/taale-app/static/js/2.c73d0ae6.chunk.js.map",
+    "static/js/2.9858754d.chunk.js": "/taale-app/static/js/2.9858754d.chunk.js",
+    "static/js/2.9858754d.chunk.js.map": "/taale-app/static/js/2.9858754d.chunk.js.map",
     "fonts/MaterialCommunityIcons.ttf": "/taale-app/./fonts/MaterialCommunityIcons.ttf",
     "favicon-16.png": "/taale-app/favicon-16.png",
     "favicon-32.png": "/taale-app/favicon-32.png",
@@ -13,7 +13,7 @@
     "index.html": "/taale-app/index.html",
     "manifest.json": "/taale-app/manifest.json",
     "serve.json": "/taale-app/serve.json",
-    "static/js/2.c73d0ae6.chunk.js.LICENSE.txt": "/taale-app/static/js/2.c73d0ae6.chunk.js.LICENSE.txt",
+    "static/js/2.9858754d.chunk.js.LICENSE.txt": "/taale-app/static/js/2.9858754d.chunk.js.LICENSE.txt",
     "static/media/slide1.png": "/taale-app/static/media/slide1.363002c1.png",
     "static/media/slide2.png": "/taale-app/static/media/slide2.a9c23c2f.png",
     "static/media/slide3.png": "/taale-app/static/media/slide3.f00edb54.png",
@@ -25,7 +25,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.334eb06a.js",
-    "static/js/2.c73d0ae6.chunk.js",
+    "static/js/2.9858754d.chunk.js",
     "static/js/app.c2f1d61d.chunk.js"
   ]
 }
