@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import OnboardingStore from 'store/screens/onboarding';
+import store from 'store/screens/onboarding';
 
 export interface OnboardingItemProps {
   image: ImageSourcePropType;
@@ -29,17 +29,19 @@ const OnboardingItem = (props: OnboardingItemProps) => {
       <Image source={image} style={styles.image} />
       <View style={styles.texts}>
         <Text style={styles.title}>{title}</Text>
-        {description !== undefined ?
+        {description !== undefined ? (
           <Text style={styles.description}>{description}</Text>
-          : <IconButton
-              icon="arrow-right-circle"
-              iconColor="whitesmoke"
-              size={96}
-              onPress={() => {
-                OnboardingStore.saveOnboardingCompleted().catch((e) => console.error(e));
-                navigation.replace('Home');
-              }}
-            />
+        ) : (
+          <IconButton
+            icon="arrow-right-circle"
+            iconColor="whitesmoke"
+            size={96}
+            onPress={() => {
+              store.saveOnboardingCompleted().catch(console.error);
+              navigation.replace('Home');
+            }}
+          />
+        )
         }
       </View>
     </View>

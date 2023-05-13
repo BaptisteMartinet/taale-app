@@ -1,5 +1,4 @@
 export type HomeScreenDefinition = {
-  participate: string,
   hero: {
     hello: string,
     guest: string,
@@ -43,7 +42,6 @@ export type HomeScreenDefinition = {
 };
 
 const fr: HomeScreenDefinition = {
-  participate: "Participer",
   hero: {
     hello: "Bonjour,",
     guest: "Invité",
@@ -87,7 +85,6 @@ const fr: HomeScreenDefinition = {
 };
 
 const en: HomeScreenDefinition = {
-  participate: "Participate",
   hero: {
     hello: "Hello,",
     guest: "Guest",

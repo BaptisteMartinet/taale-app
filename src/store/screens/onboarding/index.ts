@@ -1,9 +1,9 @@
 import { makeObservable, observable, action } from 'mobx';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { isMobile } from 'core/utils';
+import Storage from 'core/storage';
 
 class OnboardingStore {
   private static OnboardingStorageKey = 'onboaring';
-  private static OnboardingStorageValue = 'completed';
 
   public onboardingCompleted: boolean | null = null;
 
@@ -19,12 +19,13 @@ class OnboardingStore {
   }
 
   public saveOnboardingCompleted() {
-    return AsyncStorage.setItem(OnboardingStore.OnboardingStorageKey, OnboardingStore.OnboardingStorageValue);
+    return Storage.setItem(OnboardingStore.OnboardingStorageKey, 'completed');
   }
 
   public async refresh() {
-    const onboardingState = await AsyncStorage.getItem(OnboardingStore.OnboardingStorageKey);
-    this.setOnboardingCompleted(onboardingState === OnboardingStore.OnboardingStorageValue);
+    const onboardingState = await Storage.getItem(OnboardingStore.OnboardingStorageKey);
+    // Note: Onboarding screen does not work on web/desktop
+    this.setOnboardingCompleted(onboardingState !== null || !isMobile);
   }
 }
 

@@ -1,8 +1,8 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import * as SecureStore from 'expo-secure-store';
 import { getLocales } from 'expo-localization';
 import { AppName, AppVersion, AuthTokenKey } from 'core/constants';
+import Storage from 'core/storage';
 
 const httpLink = createHttpLink({
   uri: 'https://taale-api.herokuapp.com/',
@@ -11,7 +11,7 @@ const httpLink = createHttpLink({
 const authLink = setContext(async (_, { headers }) => {
   if (headers === undefined)
     headers = {};
-  const token = await SecureStore.getItemAsync(AuthTokenKey);
+  const token = await Storage.getItem(AuthTokenKey);
   const languageCode = getLocales().at(0)?.languageCode;
   if (token !== null)
     headers.authorization = `Bearer ${token}`;

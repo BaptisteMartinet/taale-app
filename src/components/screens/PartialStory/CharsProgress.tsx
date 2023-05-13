@@ -13,7 +13,7 @@ const CharsProgress = (props: CharsProgressProps) => {
   return (
     <View style={styles.container}>
       <ProgressBar progress={progress} style={styles.progressBar} />
-      <Text variant="labelLarge">{maxCharsCount - currentCharsCount}</Text>
+      <Text variant="labelLarge" style={styles.label}>{maxCharsCount - currentCharsCount}</Text>
     </View>
   );
 };
@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
   progressBar: {
     width: 64,
     marginHorizontal: 8,
+  },
+  label: {
+    color: 'rgba(245,245,245, .75)',
   },
 });
 
