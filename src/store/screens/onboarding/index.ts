@@ -1,5 +1,5 @@
 import { makeObservable, observable, action } from 'mobx';
-import { isMobile } from 'core/utils';
+import { isMobile } from 'core/device';
 import Storage from 'core/storage';
 
 class OnboardingStore {

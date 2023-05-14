@@ -13,7 +13,8 @@ import {
   SentenceTextMinLength,
   SentenceTextMaxLength,
 } from 'core/constants';
-import { handleWithSnack, isMobile } from 'core/utils';
+import { handleWithSnack } from 'core/utils';
+import { isMobile } from 'core/device';
 import { useKeyboardVisible } from 'core/hooks';
 import sentenceStore from 'store/common/sentence';
 import store from 'store/screens/partial-story';

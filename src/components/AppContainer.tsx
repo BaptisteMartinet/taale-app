@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { isMobile } from 'core/utils/device';
+import { isMobile } from 'core/device';
 
 const WebContainer = (props: PropsWithChildren<{}>) => {
   const { children } = props;
