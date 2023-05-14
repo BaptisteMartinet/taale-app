@@ -49,7 +49,7 @@ class AccountStore {
   }
 
   public async logout() {
-    await Storage.deleteItem(AuthTokenKey);
+    await Storage.deleteItem(AuthTokenKey, { secure: true });
     this.setUser(null);
   }
 
@@ -63,7 +63,7 @@ class AccountStore {
   public resendEmailVerificationCode = ResendEmailVerificationCode;
 
   public async refreshAccount() {
-    const authToken = await Storage.getItem(AuthTokenKey);
+    const authToken = await Storage.getItem(AuthTokenKey, { secure: true });
     if (authToken === null)
       return;
     const account = await GetAccount();

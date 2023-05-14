@@ -1,8 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import * as SecureStore from 'expo-secure-store';
 
-const secureKeysMemory = new Set<string>();
-
 export interface StorageOptions {
   secure?: true,
 }
@@ -10,20 +8,21 @@ export interface StorageOptions {
 async function setItem(key: string, value: string, opts: StorageOptions = {}) {
   const { secure } = opts;
   if (secure && (await SecureStore.isAvailableAsync())) {
-    secureKeysMemory.add(key);
     return SecureStore.setItemAsync(key, value);
   }
   return AsyncStorage.setItem(key, value);
 }
 
-function getItem(key: string) {
-  if (secureKeysMemory.has(key))
+async function getItem(key: string, opts: StorageOptions = {}) {
+  const { secure } = opts;
+  if (secure && (await SecureStore.isAvailableAsync()))
     return SecureStore.getItemAsync(key);
   return AsyncStorage.getItem(key);
 }
 
-function deleteItem(key: string) {
-  if (secureKeysMemory.has(key))
+async function deleteItem(key: string, opts: StorageOptions = {}) {
+  const { secure } = opts;
+  if (secure && (await SecureStore.isAvailableAsync()))
     return SecureStore.deleteItemAsync(key);
   return AsyncStorage.removeItem(key);
 }
