@@ -24,13 +24,13 @@ const PartialStory = observer((props: NavigationProps) => {
   const { t } = useTranslation('screens', { keyPrefix: 'partialStory' });
   const headerHeight = useHeaderHeight();
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView
-        style={styles.keyboardAvoidingView}
+        style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={headerHeight}
       >
-        <View style={styles.container}>
+        <View style={{ flex: 1 }}>
           <SentencesList
             style={styles.sentenceList}
             data={store.partialStory.result}
@@ -50,15 +50,6 @@ const PartialStory = observer((props: NavigationProps) => {
 });
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
-  keyboardAvoidingView: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-  },
   sentenceList: {
     paddingHorizontal: 20,
   },
