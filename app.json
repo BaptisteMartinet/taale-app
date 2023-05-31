@@ -28,7 +28,7 @@
         "backgroundColor": "#2b2b2b"
       },
       "package": "com.imania.taaleapp",
-      "versionCode": "5"
+      "versionCode": 6
     },
     "web": {
       "favicon": "./assets/app/favicon.png"
