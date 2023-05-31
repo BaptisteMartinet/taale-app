@@ -1,3 +1,4 @@
+import type { ViewToken } from 'react-native';
 import type { OnboardingItemProps } from './OnboardingItem';
 
 import React from 'react';
@@ -45,9 +46,9 @@ function getSlides(): Array<OnboardingItemProps> {
 const OnboardingCarousel = () => {
   const slides = getSlides();
   const [currentItemIdx, setCurrentItemIdx] = React.useState<number | null>(0);
-  const handleViewableItemsChanged = React.useCallback((info: any) => ( // TODO bad typings
-    setCurrentItemIdx(info.viewableItems.at(0)?.index ?? null)
-  ), []);
+  const handleViewableItemsChanged = React.useCallback((info: { viewableItems: ViewToken[], changed: ViewToken[] }) => {
+    setCurrentItemIdx(info.viewableItems.length > 0 ? info.viewableItems[0].index : null);
+  }, []);
   return (
     <View style={styles.container}>
       <FlatList
