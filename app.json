@@ -2,7 +2,7 @@
   "expo": {
     "name": "Taale",
     "slug": "taale-app",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "orientation": "portrait",
     "icon": "./assets/app/icon.png",
     "userInterfaceStyle": "dark",
@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.imania.taaleapp",
-      "buildNumber": "10"
+      "buildNumber": "11"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,7 +28,7 @@
         "backgroundColor": "#2b2b2b"
       },
       "package": "com.imania.taaleapp",
-      "versionCode": "4"
+      "versionCode": "5"
     },
     "web": {
       "favicon": "./assets/app/favicon.png"
