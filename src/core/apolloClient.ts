@@ -12,7 +12,7 @@ const authLink = setContext(async (_, { headers }) => {
   if (headers === undefined)
     headers = {};
   const token = await Storage.getItem(AuthTokenKey, { secure: true });
-  const languageCode = getLocales().at(0)?.languageCode;
+  const languageCode = getLocales()[0]?.languageCode;
   if (token !== null)
     headers.authorization = `Bearer ${token}`;
   if (languageCode)

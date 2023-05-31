@@ -12,7 +12,10 @@ class PartialStoryStore {
   }
 
   public get lastSentence() {
-    return this.partialStory.result?.at(-1);
+    const sentences = this.partialStory.result;
+    if (!sentences || sentences.length <= 0)
+      return null;
+    return sentences[sentences.length - 1];
   }
 
   public refresh() {

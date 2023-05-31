@@ -12,7 +12,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: getLocales().at(0)?.languageCode,
+    lng: getLocales()[0]?.languageCode,
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,

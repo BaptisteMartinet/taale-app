@@ -27,7 +27,7 @@ export default function handleWithSnack<T>(promise: Promise<T>, opts: Opts<T>) {
         case 'boolean':
           if (!isApolloError(error))
             break;
-          const errorCode = error.graphQLErrors.at(0)?.extensions.code;
+          const errorCode = error.graphQLErrors[0]?.extensions.code;
           if (typeof errorCode !== 'string')
             break;
           return snackbarStore.display(i18n.t([errorCode, '_Default'], { ns: 'errors' }), { duration: 'long' });
