@@ -27,7 +27,7 @@ const PartialStory = observer((props: NavigationProps) => {
     <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         keyboardVerticalOffset={headerHeight}
       >
         <View style={{ flex: 1 }}>
