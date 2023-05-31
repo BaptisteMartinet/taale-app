@@ -64,7 +64,7 @@ const NewSentenceForm = () => {
             onBlur={handleBlur('text')}
             error={Boolean(errors.text) && touched.text}
           />
-          {(isKeyboardVisible || !isMobile) &&
+          {(isKeyboardVisible || !isMobile || values.text.length > 0) &&
             <View style={styles.controlsContainer}>
               <CharsProgress maxCharsCount={SentenceTextMaxLength} currentCharsCount={values.text.length} />
               <IconButton
