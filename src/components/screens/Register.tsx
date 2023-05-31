@@ -90,7 +90,7 @@ const Register = (props: NavigationProps) => {
                 onBlur={handleBlur('username')}
                 error={Boolean(errors.username) && touched.username}
               />
-              <HelperText type="info">{t('form.usernameHelper')}</HelperText>
+              {Boolean(errors.username) && touched.username && <HelperText type="error">{t('form.usernameHelper')}</HelperText>}
               <TextInput
                 label={t('form.email')}
                 mode="outlined"
